@@ -18,5 +18,10 @@ namespace ABC.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult Spline()
+        {
+            return View();
+        }
     }
 }
