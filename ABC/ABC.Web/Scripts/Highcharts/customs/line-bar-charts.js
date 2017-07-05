@@ -14,6 +14,7 @@
     this.legendLayout = 'horizontal';//horizontal、vertical
     this.legendUseHTML = this.useHTML;
     this.legendVerticalAlign = 'bottom';//top、middle、bottom
+    this.plotOptions = null;
     this.series = [];
     this.subtitleText = null;
     this.subtitleUseHTML = this.useHTML;
@@ -66,6 +67,7 @@
                 useHTML: this.legendUseHTML,
                 verticalAligh: this.legendVerticalAlign
             },
+            plotOptions: this.plotOptions,
             series: this.series,
             subtitle: {
                 text: this.subtitleText,
