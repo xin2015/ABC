@@ -23,5 +23,10 @@ namespace ABC.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult Bar()
+        {
+            return View();
+        }
     }
 }
