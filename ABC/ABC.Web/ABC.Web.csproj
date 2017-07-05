@@ -136,6 +136,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Highcharts\customs\line-bar-charts.js" />
     <Content Include="Scripts\Highcharts\highcharts-3d.js.map" />
     <Content Include="Scripts\Highcharts\highcharts-more.js.map" />
     <Content Include="Scripts\Highcharts\highcharts.js.map" />
@@ -153,6 +154,7 @@
     <Content Include="Scripts\Highcharts\modules\gantt.js.map" />
     <Content Include="Scripts\Highcharts\modules\grid-axis.js.map" />
     <Content Include="Scripts\Highcharts\modules\heatmap.js.map" />
+    <Content Include="Scripts\Highcharts\modules\highcharts-zh_CN.js" />
     <Content Include="Scripts\Highcharts\modules\map-parser.js.map" />
     <Content Include="Scripts\Highcharts\modules\map.js.map" />
     <Content Include="Scripts\Highcharts\modules\no-data-to-display.js.map" />

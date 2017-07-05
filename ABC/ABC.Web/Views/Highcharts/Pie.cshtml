@@ -7,13 +7,11 @@
 
 <script src="~/Scripts/Highcharts/highcharts.js"></script>
 <script src="~/Scripts/Highcharts/modules/exporting.js"></script>
-<script src="~/Scripts/Highcharts/themes/grid-light.js"></script>
+<script src="~/Scripts/Highcharts/modules/offline-exporting.js"></script>
+<script src="~/Scripts/Highcharts/modules/highcharts-zh_CN.js"></script>
 <script type="text/javascript">
     Highcharts.chart('container', {
         chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false,
             type: 'pie'
         },
         title: {
@@ -43,9 +41,7 @@
                 y: 56.33
             }, {
                 name: 'Chrome',
-                y: 24.03,
-                sliced: true,
-                selected: true
+                y: 24.03
             }, {
                 name: 'Firefox',
                 y: 10.38

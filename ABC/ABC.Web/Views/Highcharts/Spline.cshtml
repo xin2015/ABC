@@ -8,30 +8,169 @@
 @section scripts{
     <script src="~/Scripts/Highcharts/highcharts.js"></script>
     <script src="~/Scripts/Highcharts/modules/exporting.js"></script>
-    <script src="~/Scripts/Highcharts/themes/grid-light.js"></script>
+    <script src="~/Scripts/Highcharts/modules/offline-exporting.js"></script>
+    <script src="~/Scripts/Highcharts/modules/no-data-to-display.js"></script>
+    <script src="~/Scripts/Highcharts/customs/line-bar-charts.js"></script>
     <script type="text/javascript">
-        $('#chart').highcharts({
-            chart: {
-                type: 'bar'
-            },
-            title: {
-                text: 'Fruit Consumption'
-            },
-            xAxis: {
-                categories: ['Apples', 'Bananas', 'Oranges']
-            },
-            yAxis: {
-                title: {
-                    text: 'Fruit eaten'
-                }
-            },
-            series: [{
-                name: 'Jane',
-                data: [1, 0, 4]
+        var chart = new LBHighcharts('spline', $("#chart"));
+        var jsonData = {
+            '东京': [{
+                month: '一月',
+                temperature: 7.0
             }, {
-                name: 'John',
-                data: [5, 7, 3]
+                month: '二月',
+                temperature: 6.9
+            }, {
+                month: '三月',
+                temperature: 9.5
+            }, {
+                month: '四月',
+                temperature: 14.5
+            }, {
+                month: '五月',
+                temperature: 18.2
+            }, {
+                month: '六月',
+                temperature: 21.5
+            }, {
+                month: '七月',
+                temperature: 25.2
+            }, {
+                month: '八月',
+                temperature: 26.5
+            }, {
+                month: '九月',
+                temperature: 23.3
+            }, {
+                month: '十月',
+                temperature: 18.3
+            }, {
+                month: '十一月',
+                temperature: 13.9
+            }, {
+                month: '十二月',
+                temperature: 9.6
             }],
+            '纽约': [{
+                month: '一月',
+                temperature: -0.2
+            }, {
+                month: '二月',
+                temperature: 0.8
+            }, {
+                month: '三月',
+                temperature: 5.7
+            }, {
+                month: '四月',
+                temperature: 11.3
+            }, {
+                month: '五月',
+                temperature: 17.0
+            }, {
+                month: '六月',
+                temperature: 22
+            }, {
+                month: '七月',
+                temperature: 24.8
+            }, {
+                month: '八月',
+                temperature: 24.1
+            }, {
+                month: '九月',
+                temperature: 14.1
+            }, {
+                month: '十月',
+                temperature: 8.6
+            }, {
+                month: '十一月',
+                temperature: null
+            }, {
+                month: '十二月',
+                temperature: 2.5
+            }],
+            '柏林': [{
+                month: '一月',
+                temperature: -0.9
+            }, {
+                month: '二月',
+                temperature: 0.6
+            }, {
+                month: '三月',
+                temperature: 3.5
+            }, {
+                month: '四月',
+                temperature: 8.4
+            }, {
+                month: '五月',
+                temperature: 13.5
+            }, {
+                month: '六月',
+                temperature: 17
+            }, {
+                month: '七月',
+                temperature: 18.6
+            }, {
+                month: '八月',
+                temperature: 17.9
+            }, {
+                month: '九月',
+                temperature: 14.3
+            }, {
+                month: '十月',
+                temperature: 9
+            }, {
+                month: '十一月',
+                temperature: 3.9
+            }, {
+                month: '十二月',
+                temperature: 1
+            }],
+            '伦敦': [{
+                month: '一月',
+                temperature: 3.9
+            }, {
+                month: '二月',
+                temperature: 4.2
+            }, {
+                month: '三月',
+                temperature: 5.7
+            }, {
+                month: '四月',
+                temperature: 8.5
+            }, {
+                month: '五月',
+                temperature: 11.9
+            }, {
+                month: '六月',
+                temperature: 15.2
+            }, {
+                month: '七月',
+                temperature: 17
+            }, {
+                month: '八月',
+                temperature: 16.6
+            }, {
+                month: '九月',
+                temperature: 14.2
+            }, {
+                month: '十月',
+                temperature: 10.3
+            }, {
+                month: '十一月',
+                temperature: 6.6
+            }, {
+                month: '十二月',
+                temperature: 4.8
+            }]
+        };
+        chart.Init = function () {
+            this.titleText = '不同城市的月平均气温';
+            this.subtitleText = '数据来源: WorldClimate.com';
+        }
+
+        $(document).ready(function () {
+            chart.Init();
+            chart.SetData(jsonData, 'month', 'temperature');
         });
     </script>
 }
