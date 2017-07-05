@@ -9,12 +9,11 @@
     this.exportingFilename = "chart";
     this.exportingSourceHeight = container.height();
     this.exportingSourceWidth = container.width();
-    this.legendAligh = 'center';//left、center、right
+    this.legendAlign = 'center';//left、center、right
     this.legendEnabled = true;
     this.legendLayout = 'horizontal';//horizontal、vertical
     this.legendUseHTML = this.useHTML;
     this.legendVerticalAlign = 'bottom';//top、middle、bottom
-    this.plotOptions = null;
     this.series = [];
     this.subtitleText = null;
     this.subtitleUseHTML = this.useHTML;
@@ -31,8 +30,9 @@
     this.yAxisMin = null;
     this.yAxisPlotLines = [];
     this.yAxisTitleText = null;
+    this.option = {};
     this.DrawChart = function () {
-        this.container.highcharts({
+        this.option = Highcharts.merge(this.option, {
             lang: {
                 contextButtonTitle: '导出图片',
                 loading: '加载中...',
@@ -61,13 +61,12 @@
                 sourceWidth: this.exportingSourceWidth
             },
             legend: {
-                aligh: this.legendAligh,
+                align: this.legendAlign,
                 enabled: this.legendEnabled,
                 layout: this.legendLayout,
                 useHTML: this.legendUseHTML,
-                verticalAligh: this.legendVerticalAlign
+                verticalAlign: this.legendVerticalAlign
             },
-            plotOptions: this.plotOptions,
             series: this.series,
             subtitle: {
                 text: this.subtitleText,
@@ -97,6 +96,7 @@
                 }
             }
         });
+        this.container.highcharts(this.option);
     };
     this.SetData = function (jsonData, xAxisProperty, yAxisProperty) {
         var xAxis = true;
