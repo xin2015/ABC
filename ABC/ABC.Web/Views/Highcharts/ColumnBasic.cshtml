@@ -1,0 +1,194 @@
+﻿
+@{
+    ViewBag.Title = "ColumnBasic";
+}
+
+<div id="chart" style="width:100%;height:800px;margin: 0 auto;"></div>
+
+@section scripts{
+    <script src="~/Scripts/Highcharts/highcharts.js"></script>
+    <script src="~/Scripts/Highcharts/modules/exporting.js"></script>
+    <script src="~/Scripts/Highcharts/modules/offline-exporting.js"></script>
+    <script src="~/Scripts/Highcharts/modules/no-data-to-display.js"></script>
+    <script src="~/Scripts/Highcharts/customs/line-bar-charts.js"></script>
+    <script type="text/javascript">
+        var chart = new LBHighcharts('column', $("#chart"));
+        var jsonData = {
+            'Tokyo': [{
+                city: 'Jan',
+                rainfall: 49.9
+            }, {
+                city: 'Feb',
+                rainfall: 71.5
+            }, {
+                city: 'Mar',
+                rainfall: 106.4
+            }, {
+                city: 'Apr',
+                rainfall: 129.2
+            }, {
+                city: 'May',
+                rainfall: 144
+            }, {
+                city: 'Jun',
+                rainfall: 176
+            }, {
+                city: 'Jul',
+                rainfall: 135.6
+            }, {
+                city: 'Aug',
+                rainfall: 148.5
+            }, {
+                city: 'Sep',
+                rainfall: 216.4
+            }, {
+                city: 'Oct',
+                rainfall: 194.1
+            }, {
+                city: 'Nov',
+                rainfall: 95.6
+            }, {
+                city: 'Dec',
+                rainfall: 54.4
+            }],
+            'New York': [{
+                city: 'Jan',
+                rainfall: 83.6
+            }, {
+                city: 'Feb',
+                rainfall: 78.8
+            }, {
+                city: 'Mar',
+                rainfall: 98.5
+            }, {
+                city: 'Apr',
+                rainfall: 93.4
+            }, {
+                city: 'May',
+                rainfall: 106
+            }, {
+                city: 'Jun',
+                rainfall: 84.5
+            }, {
+                city: 'Jul',
+                rainfall: 105
+            }, {
+                city: 'Aug',
+                rainfall: 104.3
+            }, {
+                city: 'Sep',
+                rainfall: 91.2
+            }, {
+                city: 'Oct',
+                rainfall: 83.5
+            }, {
+                city: 'Nov',
+                rainfall: 106.6
+            }, {
+                city: 'Dec',
+                rainfall: 92.3
+            }],
+            'London': [{
+                city: 'Jan',
+                rainfall: 48.9
+            }, {
+                city: 'Feb',
+                rainfall: 38.8
+            }, {
+                city: 'Mar',
+                rainfall: 39.3
+            }, {
+                city: 'Apr',
+                rainfall: 41.4
+            }, {
+                city: 'May',
+                rainfall: 47
+            }, {
+                city: 'Jun',
+                rainfall: 48.3
+            }, {
+                city: 'Jul',
+                rainfall: 59
+            }, {
+                city: 'Aug',
+                rainfall: 59.6
+            }, {
+                city: 'Sep',
+                rainfall: 52.4
+            }, {
+                city: 'Oct',
+                rainfall: 65.2
+            }, {
+                city: 'Nov',
+                rainfall: 59.3
+            }, {
+                city: 'Dec',
+                rainfall: 51.2
+            }],
+            'Berlin': [{
+                city: 'Jan',
+                rainfall: 42.4
+            }, {
+                city: 'Feb',
+                rainfall: 33.2
+            }, {
+                city: 'Mar',
+                rainfall: 34.5
+            }, {
+                city: 'Apr',
+                rainfall: 39.7
+            }, {
+                city: 'May',
+                rainfall: 52.6
+            }, {
+                city: 'Jun',
+                rainfall: 75.5
+            }, {
+                city: 'Jul',
+                rainfall: 57.4
+            }, {
+                city: 'Aug',
+                rainfall: 60.4
+            }, {
+                city: 'Sep',
+                rainfall: 47.6
+            }, {
+                city: 'Oct',
+                rainfall: 39.1
+            }, {
+                city: 'Nov',
+                rainfall: 46.8
+            }, {
+                city: 'Dec',
+                rainfall: 51.1
+            }]
+        };
+        chart.Init = function () {
+            this.titleText = 'Monthly Average Rainfall';
+            this.subtitleText = 'Source: WorldClimate.com';
+            this.option.xAxis = {
+                crosshair: true
+            };
+            this.yAxisMin = 0;
+            this.yAxisTitleText = 'Rainfall (mm)';
+            this.tooltipUseHTML = true;
+            this.option.tooltip = {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                footerFormat: '</table>',
+            };
+            this.option.plotOptions = {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            };
+        }
+
+        $(document).ready(function () {
+            chart.Init();
+            chart.SetData(jsonData, 'city', 'rainfall');
+        });
+    </script>
+}

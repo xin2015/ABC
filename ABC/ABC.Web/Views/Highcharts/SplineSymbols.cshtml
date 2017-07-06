@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "SplineSymbols";
+}
+
+<div id="chart" style="width:100%;height:800px;margin: 0 auto;"></div>
+
+@section scripts{
+    <script src="~/Scripts/Highcharts/highcharts.js"></script>
+    <script src="~/Scripts/Highcharts/modules/exporting.js"></script>
+    <script src="~/Scripts/Highcharts/modules/offline-exporting.js"></script>
+    <script src="~/Scripts/Highcharts/modules/no-data-to-display.js"></script>
+    <script src="~/Scripts/Highcharts/customs/line-bar-charts.js"></script>
+    <script type="text/javascript">
+        var chart = new LBHighcharts('spline', $("#chart"));
+        chart.Init = function () {
+            this.titleText = 'Monthly Average Temperature';
+            this.subtitleText = 'Source: WorldClimate.com';
+            this.xAxisCategories = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            this.yAxisTitleText = 'Temperature';
+            this.option.yAxis = {
+                labels: {
+                    formatter: function () {
+                        return this.value + '°';
+                    }
+                }
+            };
+            this.option.tooltip = {
+                crosshairs: true
+            };
+            this.option.plotOptions = {
+                spline: {
+                    marker: {
+                        radius: 4,
+                        lineColor: '#666666',
+                        lineWidth: 1
+                    }
+                }
+            };
+            this.series = [{
+                name: 'Tokyo',
+                marker: {
+                    symbol: 'square'
+                },
+                data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, {
+                    y: 26.5,
+                    marker: {
+                        symbol: 'url(https://www.highcharts.com/samples/graphics/sun.png)'
+                    }
+                }, 23.3, 18.3, 13.9, 9.6]
+
+            }, {
+                name: 'London',
+                marker: {
+                    symbol: 'diamond'
+                },
+                data: [{
+                    y: 3.9,
+                    marker: {
+                        symbol: 'url(https://www.highcharts.com/samples/graphics/snow.png)'
+                    }
+                }, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+            }];
+            this.DrawChart();
+        }
+
+        $(document).ready(function () {
+            chart.Init();
+        });
+    </script>
+}

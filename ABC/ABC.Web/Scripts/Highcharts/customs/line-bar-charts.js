@@ -2,7 +2,7 @@
     this.chartType = type;
     this.container = container;
     this.useHTML = false;
-    this.colors = ['#7cb5ec', '#f7a35c', '#90ee7e', '#7798BF', '#aaeeee', '#ff0066', '#eeaaee', '#55BF3B', '#DF5353'];
+    this.colors = ['#7cb5ec', '#434348', '#90ed7d', '#f7a35c', '#8085e9', '#f15c80', '#e4d354', '#2b908f', '#f45b5b', '#91e8e1'];
     this.creditsEnabled = false;
     this.exportingAllowHTML = false;
     this.exportingEnabled = true;
