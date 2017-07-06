@@ -40,9 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\ICodeTimeEntity.cs" />
     <Compile Include="Entities\MissingDataRecord.cs" />
     <Compile Include="Entities\IEntity.cs" />
+    <Compile Include="IAccessContext.cs" />
+    <Compile Include="ICodeTime.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CodeTimeRepository.cs" />
+    <Compile Include="Repositories\MissingDataRecordRepository.cs" />
+    <Compile Include="Repositories\Repository.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
