@@ -137,6 +137,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Highcharts\customs\line-bar-charts.js" />
+    <Content Include="Scripts\Highcharts\customs\pie-charts.js" />
     <Content Include="Scripts\Highcharts\highcharts-3d.js.map" />
     <Content Include="Scripts\Highcharts\highcharts-more.js.map" />
     <Content Include="Scripts\Highcharts\highcharts.js.map" />
@@ -252,11 +253,12 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Highcharts\Pie.cshtml" />
     <Content Include="Views\Highcharts\Spline.cshtml" />
-    <Content Include="Views\Highcharts\Bar.cshtml" />
     <Content Include="Views\Highcharts\LineBasic.cshtml" />
     <Content Include="Views\Highcharts\SplineSymbols.cshtml" />
     <Content Include="Views\Highcharts\BarBasic.cshtml" />
     <Content Include="Views\Highcharts\ColumnBasic.cshtml" />
+    <Content Include="Views\Highcharts\PieBasic.cshtml" />
+    <Content Include="Views\Highcharts\PieLegend.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

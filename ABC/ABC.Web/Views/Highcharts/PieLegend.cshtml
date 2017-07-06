@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Pie";
+    ViewBag.Title = "PieLegend";
 }
 
 <div id="chart" style="width:100%;height:800px;margin: 0 auto;"></div>
@@ -28,11 +28,7 @@
                     allowPointSelect: true,
                     cursor: 'pointer',
                     dataLabels: {
-                        enabled: true,
-                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                        style: {
-                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                        }
+                        enabled: false
                     },
                     showInLegend: true
                 }

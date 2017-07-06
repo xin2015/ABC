@@ -8,21 +8,11 @@ namespace ABC.Web.Controllers
 {
     public class HighchartsController : Controller
     {
-        public ActionResult Pie()
-        {
-            return View();
-        }
-
         public ActionResult Spline()
         {
             return View();
         }
-
-        public ActionResult Bar()
-        {
-            return View();
-        }
-
+        
         public ActionResult LineBasic()
         {
             return View();
@@ -39,6 +29,21 @@ namespace ABC.Web.Controllers
         }
 
         public ActionResult ColumnBasic()
+        {
+            return View();
+        }
+
+        public ActionResult Pie()
+        {
+            return View();
+        }
+
+        public ActionResult PieBasic()
+        {
+            return View();
+        }
+
+        public ActionResult PieLegend()
         {
             return View();
         }
