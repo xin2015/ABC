@@ -20,22 +20,6 @@
                 plotShadow: false
             };
             this.titleText = 'Browser market shares January, 2015 to May, 2015';
-            this.option.tooltip = {
-                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-            };
-            this.option.plotOptions = {
-                pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
-                    dataLabels: {
-                        enabled: true,
-                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                        style: {
-                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                        }
-                    }
-                }
-            };
             this.series = [{
                 name: 'Brands',
                 colorByPoint: true,

@@ -14,59 +14,19 @@
     <script type="text/javascript">
         var chart = new PieHighcharts($("#chart"));
         chart.Init = function () {
-            this.option.chart = {
-                plotBackgroundColor: null,
-                plotBorderWidth: null,
-                plotShadow: false
-            };
-            this.titleText = 'Browser market shares January, 2015 to May, 2015';
-            this.option.tooltip = {
-                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-            };
-            this.option.plotOptions = {
-                pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
-                    dataLabels: {
-                        enabled: true,
-                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                        style: {
-                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                        }
-                    },
-                    showInLegend: true
-                }
-            };
-            this.series = [{
-                name: 'Brands',
-                colorByPoint: true,
-                data: [{
-                    name: 'Microsoft Internet Explorer',
-                    y: 56.33
-                }, {
-                    name: 'Chrome',
-                    y: 24.03,
-                    sliced: true,
-                    selected: true
-                }, {
-                    name: 'Firefox',
-                    y: 10.38
-                }, {
-                    name: 'Safari',
-                    y: 4.77
-                }, {
-                    name: 'Opera',
-                    y: 0.91
-                }, {
-                    name: 'Proprietary or Undetectable',
-                    y: 0.2
-                }]
-            }];
-            this.DrawChart();
+            this.colors = ["#00E400", "#FFFF00", "#FF7E00", "#FF0000", "#99004C", "#7E0023"]
         }
-
+        var jsonData = {
+            "优": 13,
+            "良": 7,
+            "轻度污染": 4,
+            "中度污染": 3,
+            "重度污染": 2,
+            "严重污染": 1
+        };
         $(document).ready(function () {
             chart.Init();
+            chart.SetData("空气质量类别分布图", "空气质量类别", jsonData);
         });
     </script>
 }

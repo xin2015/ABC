@@ -14,6 +14,19 @@
     this.legendLayout = 'horizontal';//horizontal、vertical
     this.legendUseHTML = this.useHTML;
     this.legendVerticalAlign = 'bottom';//top、middle、bottom
+    this.plotOptions = {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                style: {
+                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                }
+            }
+        }
+    };
     this.series = [];
     this.subtitleText = null;
     this.subtitleUseHTML = this.useHTML;
@@ -21,6 +34,8 @@
     this.titleUseHTML = this.useHTML;
     this.tooltipEnabled = true;
     this.tooltipFormatter = null;
+    this.tooltipHeaderFormat = '{series.name}<br>';
+    this.tooltipPointFormat = '{point.name}: <b>{point.percentage:.1f}%</b>';
     this.tooltipUseHTML = this.useHTML;
     this.tooltipValuePrefix = null;
     this.tooltipValueSuffix = null;
@@ -61,6 +76,7 @@
                 useHTML: this.legendUseHTML,
                 verticalAlign: this.legendVerticalAlign
             },
+            plotOptions: this.plotOptions,
             series: this.series,
             subtitle: {
                 text: this.subtitleText,
@@ -73,6 +89,8 @@
             tooltip: {
                 enabled: this.tooltipEnabled,
                 formatter: this.tooltipFormatter,
+                headerFormat: this.tooltipHeaderFormat,
+                pointFormat: this.tooltipPointFormat,
                 useHTML: this.tooltipUseHTML,
                 valuePrefix: this.tooltipValuePrefix,
                 valueSuffix: this.tooltipValueSuffix
@@ -80,4 +98,20 @@
         });
         this.container.highcharts(this.option);
     };
+    this.SetData = function (title, seriesName, jsonData) {
+        this.titleText = title;
+        this.exportingFilename = title;
+        var data = [];
+        for (var i in jsonData) {
+            data.push({
+                name: i,
+                y: jsonData[i]
+            });
+        }
+        this.series = [{
+            name: seriesName,
+            data: data
+        }];
+        this.DrawChart();
+    }
 }
