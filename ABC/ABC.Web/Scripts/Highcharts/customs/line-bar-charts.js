@@ -1,14 +1,16 @@
-﻿function LBHighcharts(type, container) {
+﻿function LBHighcharts(type, containerId) {
+    this.chart;
     this.chartType = type;
-    this.container = container;
+    this.containerId = containerId;
+    this.container = $("#" + containerId);
     this.useHTML = false;
     this.colors = ['#7cb5ec', '#434348', '#90ed7d', '#f7a35c', '#8085e9', '#f15c80', '#e4d354', '#2b908f', '#f45b5b', '#91e8e1'];
     this.creditsEnabled = false;
     this.exportingAllowHTML = false;
     this.exportingEnabled = true;
     this.exportingFilename = "chart";
-    this.exportingSourceHeight = container.height();
-    this.exportingSourceWidth = container.width();
+    this.exportingSourceHeight = this.container.height();
+    this.exportingSourceWidth = this.container.width();
     this.legendAlign = 'center';//left、center、right
     this.legendEnabled = true;
     this.legendLayout = 'horizontal';//horizontal、vertical
@@ -96,7 +98,7 @@
                 }
             }
         });
-        this.container.highcharts(this.option);
+        this.chart = Highcharts.chart(this.containerId, this.option);
     };
     this.SetData = function (jsonData, xAxisProperty, yAxisProperty) {
         var xAxis = true;
