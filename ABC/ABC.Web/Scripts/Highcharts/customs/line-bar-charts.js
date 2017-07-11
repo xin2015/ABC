@@ -119,6 +119,9 @@
                 data: data
             });
         }
+        if (this.xAxisCategories.length > 10) {
+            this.xAxisTickInterval = Math.round(this.xAxisCategories.length / 7);
+        }
         this.DrawChart();
     };
 }
