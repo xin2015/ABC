@@ -42,78 +42,78 @@
     this.tooltipValuePrefix = null;
     this.tooltipValueSuffix = null;
     this.option = {};
-    this.DrawChart = function () {
-        this.option = Highcharts.merge(this.option, {
-            lang: {
-                contextButtonTitle: '导出图片',
-                loading: '加载中...',
-                noData: '没有数据'
-            },
-            chart: {
-                type: this.chartType
-            },
-            colors: this.colors,
-            credits: {
-                enabled: this.creditsEnabled
-            },
-            exporting: {
-                allowHTML: this.exportingAllowHTML,
-                buttons: {
-                    contextButton: {
-                        menuItems: null,
-                        onclick: function () {
-                            this.exportChartLocal();
-                        }
-                    }
-                },
-                enabled: this.exportingEnabled,
-                filename: this.exportingFilename,
-                sourceHeight: this.exportingSourceHeight,
-                sourceWidth: this.exportingSourceWidth
-            },
-            legend: {
-                align: this.legendAlign,
-                enabled: this.legendEnabled,
-                layout: this.legendLayout,
-                useHTML: this.legendUseHTML,
-                verticalAlign: this.legendVerticalAlign
-            },
-            plotOptions: this.plotOptions,
-            series: this.series,
-            subtitle: {
-                text: this.subtitleText,
-                useHTML: this.subtitleUseHTML,
-            },
-            title: {
-                text: this.titleText,
-                useHTML: this.titleUseHTML
-            },
-            tooltip: {
-                enabled: this.tooltipEnabled,
-                formatter: this.tooltipFormatter,
-                headerFormat: this.tooltipHeaderFormat,
-                pointFormat: this.tooltipPointFormat,
-                useHTML: this.tooltipUseHTML,
-                valuePrefix: this.tooltipValuePrefix,
-                valueSuffix: this.tooltipValueSuffix
-            }
-        });
-        this.chart = Highcharts.chart(this.containerId, this.option);
-    };
-    this.SetData = function (title, seriesName, jsonData) {
-        this.titleText = title;
-        this.exportingFilename = title;
-        var data = [];
-        for (var i in jsonData) {
-            data.push({
-                name: i,
-                y: jsonData[i]
-            });
-        }
-        this.series = [{
-            name: seriesName,
-            data: data
-        }];
-        this.DrawChart();
-    }
 }
+PieHighcharts.prototype.DrawChart = function () {
+    this.option = Highcharts.merge(this.option, {
+        lang: {
+            contextButtonTitle: '导出图片',
+            loading: '加载中...',
+            noData: '没有数据'
+        },
+        chart: {
+            type: this.chartType
+        },
+        colors: this.colors,
+        credits: {
+            enabled: this.creditsEnabled
+        },
+        exporting: {
+            allowHTML: this.exportingAllowHTML,
+            buttons: {
+                contextButton: {
+                    menuItems: null,
+                    onclick: function () {
+                        this.exportChartLocal();
+                    }
+                }
+            },
+            enabled: this.exportingEnabled,
+            filename: this.exportingFilename,
+            sourceHeight: this.exportingSourceHeight,
+            sourceWidth: this.exportingSourceWidth
+        },
+        legend: {
+            align: this.legendAlign,
+            enabled: this.legendEnabled,
+            layout: this.legendLayout,
+            useHTML: this.legendUseHTML,
+            verticalAlign: this.legendVerticalAlign
+        },
+        plotOptions: this.plotOptions,
+        series: this.series,
+        subtitle: {
+            text: this.subtitleText,
+            useHTML: this.subtitleUseHTML,
+        },
+        title: {
+            text: this.titleText,
+            useHTML: this.titleUseHTML
+        },
+        tooltip: {
+            enabled: this.tooltipEnabled,
+            formatter: this.tooltipFormatter,
+            headerFormat: this.tooltipHeaderFormat,
+            pointFormat: this.tooltipPointFormat,
+            useHTML: this.tooltipUseHTML,
+            valuePrefix: this.tooltipValuePrefix,
+            valueSuffix: this.tooltipValueSuffix
+        }
+    });
+    this.chart = Highcharts.chart(this.containerId, this.option);
+};
+PieHighcharts.prototype.SetData = function (title, seriesName, jsonData) {
+    this.titleText = title;
+    this.exportingFilename = title;
+    var data = [];
+    for (var i in jsonData) {
+        data.push({
+            name: i,
+            y: jsonData[i]
+        });
+    }
+    this.series = [{
+        name: seriesName,
+        data: data
+    }];
+    this.DrawChart();
+};

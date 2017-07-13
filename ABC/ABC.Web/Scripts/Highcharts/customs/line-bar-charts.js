@@ -33,95 +33,95 @@
     this.yAxisPlotLines = [];
     this.yAxisTitleText = null;
     this.option = {};
-    this.DrawChart = function () {
-        this.option = Highcharts.merge(this.option, {
-            lang: {
-                contextButtonTitle: '导出图片',
-                loading: '加载中...',
-                noData: '没有数据'
-            },
-            chart: {
-                type: this.chartType
-            },
-            colors: this.colors,
-            credits: {
-                enabled: this.creditsEnabled
-            },
-            exporting: {
-                allowHTML: this.exportingAllowHTML,
-                buttons: {
-                    contextButton: {
-                        menuItems: null,
-                        onclick: function () {
-                            this.exportChartLocal();
-                        }
-                    }
-                },
-                enabled: this.exportingEnabled,
-                filename: this.exportingFilename,
-                sourceHeight: this.exportingSourceHeight,
-                sourceWidth: this.exportingSourceWidth
-            },
-            legend: {
-                align: this.legendAlign,
-                enabled: this.legendEnabled,
-                layout: this.legendLayout,
-                useHTML: this.legendUseHTML,
-                verticalAlign: this.legendVerticalAlign
-            },
-            series: this.series,
-            subtitle: {
-                text: this.subtitleText,
-                useHTML: this.subtitleUseHTML,
-            },
-            title: {
-                text: this.titleText,
-                useHTML: this.titleUseHTML
-            },
-            tooltip: {
-                enabled: this.tooltipEnabled,
-                formatter: this.tooltipFormatter,
-                shared: this.tooltipShared,
-                useHTML: this.tooltipUseHTML,
-                valuePrefix: this.tooltipValuePrefix,
-                valueSuffix: this.tooltipValueSuffix
-            },
-            xAxis: {
-                categories: this.xAxisCategories,
-                tickInterval: this.xAxisTickInterval
-            },
-            yAxis: {
-                min: this.yAxisMin,
-                plotLines: this.yAxisPlotLines,
-                title: {
-                    text: this.yAxisTitleText
-                }
-            }
-        });
-        this.chart = Highcharts.chart(this.containerId, this.option);
-    };
-    this.SetData = function (jsonData, xAxisProperty, yAxisProperty) {
-        var xAxis = true;
-        for (var i in jsonData) {
-            var array = jsonData[i];
-            if (xAxis) {
-                for (var j in array) {
-                    this.xAxisCategories.push(array[j][xAxisProperty]);
-                }
-                xAxis = false;
-            }
-            var data = [];
-            for (var j in array) {
-                data.push(array[j][yAxisProperty]);
-            }
-            this.series.push({
-                name: i,
-                data: data
-            });
-        }
-        if (this.xAxisCategories.length > 10) {
-            this.xAxisTickInterval = Math.round(this.xAxisCategories.length / 7);
-        }
-        this.DrawChart();
-    };
 }
+LBHighcharts.prototype.DrawChart = function () {
+    this.option = Highcharts.merge(this.option, {
+        lang: {
+            contextButtonTitle: '导出图片',
+            loading: '加载中...',
+            noData: '没有数据'
+        },
+        chart: {
+            type: this.chartType
+        },
+        colors: this.colors,
+        credits: {
+            enabled: this.creditsEnabled
+        },
+        exporting: {
+            allowHTML: this.exportingAllowHTML,
+            buttons: {
+                contextButton: {
+                    menuItems: null,
+                    onclick: function () {
+                        this.exportChartLocal();
+                    }
+                }
+            },
+            enabled: this.exportingEnabled,
+            filename: this.exportingFilename,
+            sourceHeight: this.exportingSourceHeight,
+            sourceWidth: this.exportingSourceWidth
+        },
+        legend: {
+            align: this.legendAlign,
+            enabled: this.legendEnabled,
+            layout: this.legendLayout,
+            useHTML: this.legendUseHTML,
+            verticalAlign: this.legendVerticalAlign
+        },
+        series: this.series,
+        subtitle: {
+            text: this.subtitleText,
+            useHTML: this.subtitleUseHTML,
+        },
+        title: {
+            text: this.titleText,
+            useHTML: this.titleUseHTML
+        },
+        tooltip: {
+            enabled: this.tooltipEnabled,
+            formatter: this.tooltipFormatter,
+            shared: this.tooltipShared,
+            useHTML: this.tooltipUseHTML,
+            valuePrefix: this.tooltipValuePrefix,
+            valueSuffix: this.tooltipValueSuffix
+        },
+        xAxis: {
+            categories: this.xAxisCategories,
+            tickInterval: this.xAxisTickInterval
+        },
+        yAxis: {
+            min: this.yAxisMin,
+            plotLines: this.yAxisPlotLines,
+            title: {
+                text: this.yAxisTitleText
+            }
+        }
+    });
+    this.chart = Highcharts.chart(this.containerId, this.option);
+}
+LBHighcharts.prototype.SetData = function (jsonData, xAxisProperty, yAxisProperty) {
+    var xAxis = true;
+    for (var i in jsonData) {
+        var array = jsonData[i];
+        if (xAxis) {
+            for (var j in array) {
+                this.xAxisCategories.push(array[j][xAxisProperty]);
+            }
+            xAxis = false;
+        }
+        var data = [];
+        for (var j in array) {
+            data.push(array[j][yAxisProperty]);
+        }
+        this.series.push({
+            name: i,
+            data: data
+        });
+    }
+    if (this.xAxisCategories.length > 10) {
+        this.xAxisTickInterval = Math.round(this.xAxisCategories.length / 7);
+    }
+    this.DrawChart();
+};
