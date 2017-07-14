@@ -136,6 +136,13 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\ECharts\echarts.js" />
+    <Content Include="Scripts\ECharts\echarts.min.js" />
+    <Content Include="Scripts\ECharts\maps\js\fuzhou.js" />
+    <Content Include="Scripts\ECharts\maps\js\fuzhou.min.js" />
+    <Content Include="Scripts\ECharts\themes\macarons.js" />
+    <Content Include="Scripts\ECharts\themes\shine.js" />
+    <Content Include="Scripts\ECharts\themes\vintage.js" />
     <Content Include="Scripts\Highcharts\customs\line-bar-charts.js" />
     <Content Include="Scripts\Highcharts\customs\pie-charts.js" />
     <Content Include="Scripts\Highcharts\highcharts-3d.js.map" />
@@ -167,6 +174,8 @@
     <Content Include="Scripts\Highcharts\modules\stock.js.map" />
     <Content Include="Scripts\Highcharts\modules\treemap.js.map" />
     <Content Include="Scripts\Highcharts\modules\xrange-series.js.map" />
+    <Content Include="Scripts\ECharts\maps\json\fuzhou.json" />
+    <Content Include="Scripts\ECharts\maps\json\fuzhou.min.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Highcharts\highcharts-3d.js" />
     <Content Include="Scripts\Highcharts\highcharts-3d.src.js" />
