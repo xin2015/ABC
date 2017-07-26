@@ -136,6 +136,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\ECharts\echarts.js" />
     <Content Include="Scripts\ECharts\echarts.min.js" />
     <Content Include="Scripts\ECharts\maps\js\fuzhou.js" />
