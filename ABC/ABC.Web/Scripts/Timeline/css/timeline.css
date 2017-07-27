@@ -1,0 +1,79 @@
+﻿.timeline {
+    position: fixed;
+    z-index: 666;
+    width: 100%;
+    height: 35px;
+    padding: 3px 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .8);
+}
+
+.timeline-control {
+    float: left;
+}
+
+    .timeline-control div {
+        width: 35px;
+        height: 35px;
+        margin: 0 10px;
+        cursor: pointer;
+        float: left;
+    }
+
+.timeline-control-prev {
+    background: url(../images/prev.png);
+}
+
+    .timeline-control-prev:hover {
+        background: url(../images/prev_hover.png);
+    }
+
+.timeline-control-play {
+    background: url(../images/play.png);
+}
+
+    .timeline-control-play:hover {
+        background: url(../images/play_hover.png);
+    }
+
+.timeline-control-pause {
+    background: url(../images/pause.png);
+}
+
+    .timeline-control-pause:hover {
+        background: url(../images/pause_hover.png);
+    }
+
+.timeline-control-next {
+    background: url(../images/next.png);
+}
+
+    .timeline-control-next:hover {
+        background: url(../images/next_hover.png);
+    }
+
+.timeline-slider {
+    width: 1735px;
+    padding: 0 10px;
+    float: left;
+}
+
+.timeline-slider-bar {
+    width: 100%;
+    height: 7px;
+    background-color: rgba(255, 255, 255, .42);
+}
+
+.timeline-slider-bar-progress {
+    width: 60%;
+    height: 7px;
+    background: #00e5ff;
+    box-shadow: 2px 0 6px #00e5ff;
+}
+
+.timeline-slider-content li {
+    float: left;
+    width:100px;
+    list-style: none;
+}

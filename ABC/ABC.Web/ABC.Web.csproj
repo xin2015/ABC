@@ -246,6 +246,15 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Timeline\css\timeline.css" />
+    <Content Include="Scripts\Timeline\images\prev.png" />
+    <Content Include="Scripts\Timeline\images\prev_hover.png" />
+    <Content Include="Scripts\Timeline\images\next.png" />
+    <Content Include="Scripts\Timeline\images\next_hover.png" />
+    <Content Include="Scripts\Timeline\images\pause.png" />
+    <Content Include="Scripts\Timeline\images\pause_hover.png" />
+    <Content Include="Scripts\Timeline\images\play.png" />
+    <Content Include="Scripts\Timeline\images\play_hover.png" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -273,6 +282,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Scripts\Timeline\js\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
