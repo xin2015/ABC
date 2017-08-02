@@ -13,5 +13,15 @@ namespace ABC.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult Linear()
+        {
+            return View();
+        }
+
+        public ActionResult MultipleLinear()
+        {
+            return View();
+        }
     }
 }

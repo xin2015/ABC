@@ -1,0 +1,271 @@
+﻿
+@{
+    ViewBag.Title = "Linear";
+}
+
+<div id="main" style="height:800px;"></div>
+
+@section scripts{
+    <script src="~/Scripts/ECharts/echarts.min.js"></script>
+    <script src="~/Scripts/ECharts/extension/ecStat.min.js"></script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        var dataAll = [
+    [
+        [10.0, 8.04],
+        [8.0, 6.95],
+        [13.0, 7.58],
+        [9.0, 8.81],
+        [11.0, 8.33],
+        [14.0, 9.96],
+        [6.0, 7.24],
+        [4.0, 4.26],
+        [12.0, 10.84],
+        [7.0, 4.82],
+        [5.0, 5.68]
+    ],
+    [
+        [10.0, 9.14],
+        [8.0, 8.14],
+        [13.0, 8.74],
+        [9.0, 8.77],
+        [11.0, 9.26],
+        [14.0, 8.10],
+        [6.0, 6.13],
+        [4.0, 3.10],
+        [12.0, 9.13],
+        [7.0, 7.26],
+        [5.0, 4.74]
+    ],
+    [
+        [10.0, 7.46],
+        [8.0, 6.77],
+        [13.0, 12.74],
+        [9.0, 7.11],
+        [11.0, 7.81],
+        [14.0, 8.84],
+        [6.0, 6.08],
+        [4.0, 5.39],
+        [12.0, 8.15],
+        [7.0, 6.42],
+        [5.0, 5.73]
+    ],
+    [
+        [8.0, 6.58],
+        [8.0, 5.76],
+        [8.0, 7.71],
+        [8.0, 8.84],
+        [8.0, 8.47],
+        [8.0, 7.04],
+        [8.0, 5.25],
+        [19.0, 12.50],
+        [8.0, 5.56],
+        [8.0, 7.91],
+        [8.0, 6.89]
+    ]
+        ];
+
+        var regressions = [];
+
+        for (var i in dataAll) {
+            var data = dataAll[i];
+            data.push([Math.random() * 15, Math.random() * 10]);
+            var regression = ecStat.regression('linear', data);
+            regression.points.sort(function (a, b) {
+                return a[0] - b[0];
+            });
+            regressions.push(regression);
+        }
+
+        myChart.setOption({
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross'
+                }
+            },
+            grid: [
+        { x: '7%', y: '7%', width: '38%', height: '38%' },
+        { x2: '7%', y: '7%', width: '38%', height: '38%' },
+        { x: '7%', y2: '7%', width: '38%', height: '38%' },
+        { x2: '7%', y2: '7%', width: '38%', height: '38%' }
+            ],
+            xAxis: [
+            { gridIndex: 0, type: 'value' },
+            { gridIndex: 1, type: 'value' },
+            { gridIndex: 2, type: 'value' },
+            { gridIndex: 3, type: 'value' }
+            ],
+            yAxis: [
+            { gridIndex: 0, type: 'value' },
+            { gridIndex: 1, type: 'value' },
+            { gridIndex: 2, type: 'value' },
+            { gridIndex: 3, type: 'value' }
+            ],
+            series: [{
+                name: 'scatter',
+                type: 'scatter',
+                label: {
+                    emphasis: {
+                        show: true,
+                        position: 'left',
+                        textStyle: {
+                            color: 'blue',
+                            fontSize: 16
+                        }
+                    }
+                },
+                xAxisIndex: 0,
+                yAxisIndex: 0,
+                data: dataAll[0]
+            }, {
+                name: 'line',
+                type: 'line',
+                showSymbol: false,
+                xAxisIndex: 0,
+                yAxisIndex: 0,
+                data: regressions[0].points,
+                markPoint: {
+                    itemStyle: {
+                        normal: {
+                            color: 'transparent'
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'left',
+                            formatter: regressions[0].expression,
+                            textStyle: {
+                                color: '#333',
+                                fontSize: 14
+                            }
+                        }
+                    },
+                    data: [{
+                        coord: regressions[0].points[regressions[0].points.length - 1]
+                    }]
+                }
+            }, {
+                name: 'scatter',
+                type: 'scatter',
+                label: {
+                    emphasis: {
+                        show: true
+                    }
+                },
+                xAxisIndex: 1,
+                yAxisIndex: 1,
+                data: dataAll[1]
+            }, {
+                name: 'line',
+                type: 'line',
+                showSymbol: false,
+                xAxisIndex: 1,
+                yAxisIndex: 1,
+                data: regressions[1].points,
+                markPoint: {
+                    itemStyle: {
+                        normal: {
+                            color: 'transparent'
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'left',
+                            formatter: regressions[1].expression,
+                            textStyle: {
+                                color: '#333',
+                                fontSize: 14
+                            }
+                        }
+                    },
+                    data: [{
+                        coord: regressions[1].points[regressions[1].points.length - 1]
+                    }]
+                }
+            }, {
+                name: 'scatter',
+                type: 'scatter',
+                label: {
+                    emphasis: {
+                        show: true
+                    }
+                },
+                xAxisIndex: 2,
+                yAxisIndex: 2,
+                data: dataAll[2]
+            }, {
+                name: 'line',
+                type: 'line',
+                showSymbol: false,
+                xAxisIndex: 2,
+                yAxisIndex: 2,
+                data: regressions[2].points,
+                markPoint: {
+                    itemStyle: {
+                        normal: {
+                            color: 'transparent'
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'left',
+                            formatter: regressions[2].expression,
+                            textStyle: {
+                                color: '#333',
+                                fontSize: 14
+                            }
+                        }
+                    },
+                    data: [{
+                        coord: regressions[2].points[regressions[2].points.length - 1]
+                    }]
+                }
+            }, {
+                name: 'scatter',
+                type: 'scatter',
+                label: {
+                    emphasis: {
+                        show: true
+                    }
+                },
+                xAxisIndex: 3,
+                yAxisIndex: 3,
+                data: dataAll[3]
+            }, {
+                name: 'line',
+                type: 'line',
+                showSymbol: false,
+                xAxisIndex: 3,
+                yAxisIndex: 3,
+                data: regressions[3].points,
+                markPoint: {
+                    itemStyle: {
+                        normal: {
+                            color: 'transparent'
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'left',
+                            formatter: regressions[3].expression,
+                            textStyle: {
+                                color: '#333',
+                                fontSize: 14
+                            }
+                        }
+                    },
+                    data: [{
+                        coord: regressions[3].points[regressions[3].points.length - 1]
+                    }]
+                }
+            }]
+        });
+    </script>
+}

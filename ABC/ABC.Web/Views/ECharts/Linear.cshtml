@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = "Linear";
+}
+
+<div id="main" style="height:800px;"></div>
+
+@section scripts{
+    <script src="~/Scripts/ECharts/echarts.min.js"></script>
+    <script src="~/Scripts/ECharts/extension/ecStat.min.js"></script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+        var data = [];
+        for (var i = 0; i < 100; i++) {
+            var x = Math.random();
+            var y = 1.7 * x + 3 + Math.random();
+            data.push([x, y]);
+        }
+        var myRegression = ecStat.regression('linear', data);
+
+        myRegression.points.sort(function (a, b) {
+            return a[0] - b[0];
+        });
+
+        myChart.setOption({
+            tooltip: {
+                trigger: 'item',
+                axisPointer: {
+                    type: 'cross'
+                }
+            },
+            xAxis: {
+                type: 'value',
+                splitLine: {
+                    lineStyle: {
+                        type: 'dashed'
+                    }
+                },
+            },
+            yAxis: {
+                type: 'value',
+                min: 1.5,
+                splitLine: {
+                    lineStyle: {
+                        type: 'dashed'
+                    }
+                },
+            },
+            series: [{
+                name: 'scatter',
+                type: 'scatter',
+                label: {
+                    emphasis: {
+                        show: true
+                    }
+                },
+                data: data
+            }, {
+                name: 'line',
+                type: 'line',
+                showSymbol: false,
+                data: myRegression.points,
+                markPoint: {
+                    itemStyle: {
+                        normal: {
+                            color: 'transparent'
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'left',
+                            formatter: myRegression.expression,
+                            textStyle: {
+                                color: '#333',
+                                fontSize: 14
+                            }
+                        }
+                    },
+                    data: [{
+                        coord: myRegression.points[myRegression.points.length - 1]
+                    }]
+                }
+            }]
+        });
+    </script>
+}

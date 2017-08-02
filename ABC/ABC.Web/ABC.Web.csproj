@@ -144,6 +144,8 @@
     <Content Include="Scripts\ECharts\extension\bmap.min.js" />
     <Content Include="Scripts\ECharts\extension\dataTool.js" />
     <Content Include="Scripts\ECharts\extension\dataTool.min.js" />
+    <Content Include="Scripts\ECharts\extension\ecStat.js" />
+    <Content Include="Scripts\ECharts\extension\ecStat.min.js" />
     <Content Include="Scripts\ECharts\maps\js\fuzhou.js" />
     <Content Include="Scripts\ECharts\maps\js\fuzhou.min.js" />
     <Content Include="Scripts\ECharts\themes\macarons.js" />
@@ -284,6 +286,8 @@
     <Content Include="Views\Highcharts\PieBasic.cshtml" />
     <Content Include="Views\Highcharts\PieLegend.cshtml" />
     <Content Include="Views\ECharts\Index.cshtml" />
+    <Content Include="Views\ECharts\Linear.cshtml" />
+    <Content Include="Views\ECharts\MultipleLinear.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
