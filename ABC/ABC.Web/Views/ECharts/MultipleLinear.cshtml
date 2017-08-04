@@ -3,7 +3,7 @@
     ViewBag.Title = "Linear";
 }
 
-<div id="main" style="height:800px;"></div>
+<div id="main" style="height:400px;"></div>
 
 @section scripts{
     <script src="~/Scripts/ECharts/echarts.min.js"></script>
@@ -64,6 +64,31 @@
         [8.0, 5.56],
         [8.0, 7.91],
         [8.0, 6.89]
+    ], [
+        [10.0, 8.04],
+        [8.0, 6.95],
+        [13.0, 7.58],
+        [9.0, 8.81],
+        [11.0, 8.33],
+        [14.0, 9.96],
+        [6.0, 7.24],
+        [4.0, 4.26],
+        [12.0, 10.84],
+        [7.0, 4.82],
+        [5.0, 5.68]
+    ],
+    [
+        [10.0, 9.14],
+        [8.0, 8.14],
+        [13.0, 8.74],
+        [9.0, 8.77],
+        [11.0, 9.26],
+        [14.0, 8.10],
+        [6.0, 6.13],
+        [4.0, 3.10],
+        [12.0, 9.13],
+        [7.0, 7.26],
+        [5.0, 4.74]
     ]
         ];
 
@@ -87,22 +112,28 @@
                 }
             },
             grid: [
-        { x: '7%', y: '7%', width: '38%', height: '38%' },
-        { x2: '7%', y: '7%', width: '38%', height: '38%' },
-        { x: '7%', y2: '7%', width: '38%', height: '38%' },
-        { x2: '7%', y2: '7%', width: '38%', height: '38%' }
+        { x: '3%', y: '3%', width: '25%', height: '25%' },
+        { x2: '3%', y: '3%', width: '25%', height: '25%' },
+        { x: '36%', y: '3%', width: '25%', height: '25%' },
+        { x: '3%', y2: '3%', width: '25%', height: '25%' },
+        { x2: '3%', y2: '3%', width: '25%', height: '25%' },
+        { x2: '36%', y2: '3%', width: '25%', height: '25%' }
             ],
             xAxis: [
             { gridIndex: 0, type: 'value' },
             { gridIndex: 1, type: 'value' },
             { gridIndex: 2, type: 'value' },
-            { gridIndex: 3, type: 'value' }
+            { gridIndex: 3, type: 'value' },
+            { gridIndex: 4, type: 'value' },
+            { gridIndex: 5, type: 'value' }
             ],
             yAxis: [
             { gridIndex: 0, type: 'value' },
             { gridIndex: 1, type: 'value' },
             { gridIndex: 2, type: 'value' },
-            { gridIndex: 3, type: 'value' }
+            { gridIndex: 3, type: 'value' },
+            { gridIndex: 4, type: 'value' },
+            { gridIndex: 5, type: 'value' }
             ],
             series: [{
                 name: 'scatter',
@@ -254,7 +285,7 @@
                         normal: {
                             show: true,
                             position: 'left',
-                            formatter: regressions[3].expression,
+                            formatter: regressions[4].expression,
                             textStyle: {
                                 color: '#333',
                                 fontSize: 14
@@ -263,6 +294,84 @@
                     },
                     data: [{
                         coord: regressions[3].points[regressions[3].points.length - 1]
+                    }]
+                }
+            }, {
+                name: 'scatter',
+                type: 'scatter',
+                label: {
+                    emphasis: {
+                        show: true
+                    }
+                },
+                xAxisIndex: 4,
+                yAxisIndex: 4,
+                data: dataAll[4]
+            }, {
+                name: 'line',
+                type: 'line',
+                showSymbol: false,
+                xAxisIndex: 4,
+                yAxisIndex: 4,
+                data: regressions[4].points,
+                markPoint: {
+                    itemStyle: {
+                        normal: {
+                            color: 'transparent'
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'left',
+                            formatter: regressions[4].expression,
+                            textStyle: {
+                                color: '#333',
+                                fontSize: 14
+                            }
+                        }
+                    },
+                    data: [{
+                        coord: regressions[4].points[regressions[4].points.length - 1]
+                    }]
+                }
+            }, {
+                name: 'scatter',
+                type: 'scatter',
+                label: {
+                    emphasis: {
+                        show: true
+                    }
+                },
+                xAxisIndex: 5,
+                yAxisIndex: 5,
+                data: dataAll[5]
+            }, {
+                name: 'line',
+                type: 'line',
+                showSymbol: false,
+                xAxisIndex: 5,
+                yAxisIndex: 5,
+                data: regressions[5].points,
+                markPoint: {
+                    itemStyle: {
+                        normal: {
+                            color: 'transparent'
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'left',
+                            formatter: regressions[5].expression,
+                            textStyle: {
+                                color: '#333',
+                                fontSize: 14
+                            }
+                        }
+                    },
+                    data: [{
+                        coord: regressions[5].points[regressions[5].points.length - 1]
                     }]
                 }
             }]
