@@ -288,6 +288,7 @@
     <Content Include="Views\ECharts\Index.cshtml" />
     <Content Include="Views\ECharts\Linear.cshtml" />
     <Content Include="Views\ECharts\MultipleLinear.cshtml" />
+    <Content Include="Views\ECharts\Test.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
