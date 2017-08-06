@@ -3223,7 +3223,7 @@
                 forecastModels.push(i);
                 var itemData = jsonData[i][pollutant];
                 var data = [];
-                for (var j in itemData.Prediction) {
+                for (var j in itemData.Observation) {
                     data.push([itemData.Observation[j], itemData.Prediction[j]]);
                 }
                 dataAll.push(data);
@@ -3259,12 +3259,12 @@
                 grid.push({
                     x: (col * colWidth + 3) + '%',
                     y: (row * 50 + 10) + '%',
-                    width: colWidth - 6 + '%',
+                    width: colWidth - 5 + '%',
                     height: '35%'
                 });
 
-                xAxis.push({ gridIndex: i, type: 'value', name: '监测值' });
-                yAxis.push({ gridIndex: i, type: 'value', name: '预报值' });
+                xAxis.push({ gridIndex: i, type: 'value', name: '监测值', nameGap: 8 });
+                yAxis.push({ gridIndex: i, type: 'value', name: '预报值', nameGap: 8 });
 
                 series.push({
                     name: 'scatter' + forecastModels[i],
