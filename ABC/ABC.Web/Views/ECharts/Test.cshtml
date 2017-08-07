@@ -3213,105 +3213,121 @@
         var count = 7;
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('main'));
-        var dataAll = [];
-        var regressions = [];
-        var forecastModels = [];
-        $(document).ready(function () {
-            var pollutant = "AQI";
+        var pollutant = "100";
+        var colCount = Math.ceil(count / 2);
+        var colWidth = Math.floor(100 / colCount);
 
+        function DrawChart() {
+            var grid = [], graphic = [], xAxis = [], yAxis = [], series = [];
+            var n = 0;
             for (var i in jsonData) {
-                forecastModels.push(i);
                 var itemData = jsonData[i][pollutant];
                 var data = [];
+                var oMax = 0, pMax = 0;
                 for (var j in itemData.Observation) {
                     data.push([itemData.Observation[j], itemData.Prediction[j]]);
+                    oMax = Math.max(oMax, itemData.Observation[j]);
+                    pMax = Math.max(pMax, itemData.Prediction[j]);
                 }
-                dataAll.push(data);
+                var max = Math.min(oMax, pMax);
                 var regression = ecStat.regression('linear', data);
                 regression.points.sort(function (a, b) {
                     return a[0] - b[0];
                 });
-                regressions.push(regression);
-            }
 
-            var colCount = Math.ceil(count / 2);
-            var colWidth = Math.floor(100 / colCount);
-
-            var graphic = [], grid = [], xAxis = [], yAxis = [], series = [];
-
-            for (var i in dataAll) {
                 var col, row;
-                if (i < colCount) {
-                    col = i;
+                if (n < colCount) {
+                    col = n;
                     row = 0;
                 } else {
-                    col = i - colCount;
+                    col = n - colCount;
                     row = 1;
                 }
-                graphic.push({
-                    type: 'text',
-                    left: (col * colWidth + 4) + '%',
-                    top: (row * 50 + 12) + '%',
-                    style: {
-                        text: forecastModels[i]
-                    }
-                })
                 grid.push({
                     x: (col * colWidth + 3) + '%',
                     y: (row * 50 + 10) + '%',
                     width: colWidth - 5 + '%',
                     height: '35%'
                 });
-
-                xAxis.push({ gridIndex: i, type: 'value', name: '监测值', nameGap: 8 });
-                yAxis.push({ gridIndex: i, type: 'value', name: '预报值', nameGap: 8 });
-
-                series.push({
-                    name: 'scatter' + forecastModels[i],
-                    type: 'scatter',
-                    xAxisIndex: i,
-                    yAxisIndex: i,
-                    data: dataAll[i]
-                });
-                series.push({
-                    name: 'line' + forecastModels[i],
-                    type: 'line',
-                    showSymbol: false,
-                    xAxisIndex: i,
-                    yAxisIndex: i,
-                    data: regressions[i].points,
-                    markPoint: {
-                        itemStyle: {
-                            normal: {
-                                color: 'transparent'
-                            }
-                        },
-                        label: {
-                            normal: {
-                                show: true,
-                                position: 'left',
-                                formatter: regressions[i].expression,
-                                textStyle: {
-                                    color: '#333',
-                                    fontSize: 14
-                                }
-                            }
-                        },
-                        data: [{
-                            coord: regressions[i].points[regressions[i].points.length - 1]
-                        }]
+                graphic.push({
+                    type: 'text',
+                    left: (col * colWidth + 4) + '%',
+                    top: (row * 50 + 12) + '%',
+                    style: {
+                        text: i
                     }
                 });
+                xAxis.push({ gridIndex: n, type: 'value', name: '监测值', nameGap: 8 });
+                yAxis.push({ gridIndex: n, type: 'value', name: '预报值', nameGap: 8 });
+                series.push({
+                    name: i,
+                    type: 'scatter',
+                    xAxisIndex: n,
+                    yAxisIndex: n,
+                    data: data,
+                    markLine: {
+                        animation: false,
+                        data: [[{
+                            label: {
+                                normal: {
+                                    formatter: regression.expression,
+                                    textStyle: {
+                                        fontSize: 14
+                                    }
+                                }
+                            },
+                            lineStyle: {
+                                normal: {
+                                    type: 'dashed'
+                                }
+                            },
+                            coord: regression.points[0],
+                            symbol: 'none',
+                            tooltip: {
+                                formatter: regression.expression,
+                            }
+                        }, {
+                            coord: regression.points[regression.points.length - 1],
+                            symbol: 'none'
+                        }], [{
+                            label: {
+                                normal: {
+                                    formatter: 'y = x',
+                                    textStyle: {
+                                        fontSize: 14
+                                    },
+                                }
+                            },
+                            lineStyle: {
+                                normal: {
+                                    type: 'solid'
+                                }
+                            },
+                            coord: [0, 0],
+                            symbol: 'none',
+                            tooltip: {
+                                formatter: 'y = x',
+                            }
+                        }, {
+                            coord: [max, max],
+                            symbol: 'none'
+                        }]]
+                    }
+                });
+                n++;
             }
-
             myChart.setOption({
                 tooltip: {},
-                graphic: graphic,
                 grid: grid,
+                graphic: graphic,
                 xAxis: xAxis,
                 yAxis: yAxis,
                 series: series
             });
+        }
+
+        $(document).ready(function () {
+            DrawChart();
         });
     </script>
 </body>
