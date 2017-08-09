@@ -289,6 +289,7 @@
     <Content Include="Views\ECharts\Linear.cshtml" />
     <Content Include="Views\ECharts\MultipleLinear.cshtml" />
     <Content Include="Views\ECharts\Test.cshtml" />
+    <Content Include="Views\ECharts\MapScatter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

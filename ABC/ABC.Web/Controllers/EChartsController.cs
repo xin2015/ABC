@@ -24,6 +24,11 @@ namespace ABC.Web.Controllers
             return View();
         }
 
+        public ActionResult MapScatter()
+        {
+            return View();
+        }
+
         public ActionResult Test()
         {
             return View();
