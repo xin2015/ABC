@@ -33,5 +33,10 @@ namespace ABC.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult BMapLines()
+        {
+            return View();
+        }
     }
 }
