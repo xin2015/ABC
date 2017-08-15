@@ -19,6 +19,3393 @@
     <script src="~/Scripts/ECharts/echarts.min.js"></script>
     <script src="~/Scripts/ECharts/extension/bmap.min.js"></script>
     <script type="text/javascript">
+        var jsonData = {
+            "08-09 00时": {
+                "TOT": {
+                    "Fuzhou": 14.5943,
+                    "Quanzhou": 7.9241,
+                    "Zhangzhou": 6.7016,
+                    "Xiamen": 5.6578,
+                    "Putian": 4.3905,
+                    "other": 0.1358,
+                    "total": 39.4041
+                },
+                "IND": {
+                    "Fuzhou": 12.5467,
+                    "Quanzhou": 5.9504,
+                    "Xiamen": 4.6454,
+                    "Zhangzhou": 4.0329,
+                    "Putian": 2.3099,
+                    "other": 0.0797,
+                    "total": 29.5650
+                },
+                "RES": {
+                    "Putian": 1.9012,
+                    "Zhangzhou": 1.5757,
+                    "Fuzhou": 1.5347,
+                    "Quanzhou": 1.4595,
+                    "Xiamen": 0.4394,
+                    "other": 0.0287,
+                    "total": 6.9392
+                },
+                "POW": {
+                    "Zhangzhou": 0.8800,
+                    "Xiamen": 0.4466,
+                    "Quanzhou": 0.3146,
+                    "Fuzhou": 0.1332,
+                    "Longyan": 0.0213,
+                    "other": 0.0179,
+                    "total": 1.8136
+                },
+                "TRA": {
+                    "Fuzhou": 0.3796,
+                    "Zhangzhou": 0.2130,
+                    "Quanzhou": 0.1997,
+                    "Putian": 0.1615,
+                    "Xiamen": 0.1264,
+                    "other": 0.0061,
+                    "total": 1.0863
+                }
+            },
+            "08-09 01时": {
+                "TOT": {
+                    "Fuzhou": 15.9837,
+                    "Quanzhou": 9.8191,
+                    "Zhangzhou": 6.2392,
+                    "Xiamen": 5.3697,
+                    "Putian": 4.3127,
+                    "other": 0.0996,
+                    "total": 41.8240
+                },
+                "IND": {
+                    "Fuzhou": 13.7779,
+                    "Quanzhou": 7.4917,
+                    "Xiamen": 4.4125,
+                    "Zhangzhou": 3.6121,
+                    "Putian": 2.2703,
+                    "other": 0.0525,
+                    "total": 31.6170
+                },
+                "RES": {
+                    "Putian": 1.8676,
+                    "Quanzhou": 1.7126,
+                    "Fuzhou": 1.6428,
+                    "Zhangzhou": 1.5260,
+                    "Xiamen": 0.4234,
+                    "other": 0.0298,
+                    "total": 7.2022
+                },
+                "POW": {
+                    "Zhangzhou": 0.8990,
+                    "Xiamen": 0.4135,
+                    "Quanzhou": 0.3778,
+                    "Fuzhou": 0.1481,
+                    "Putian": 0.0206,
+                    "other": 0.0111,
+                    "total": 1.8701
+                },
+                "TRA": {
+                    "Fuzhou": 0.4150,
+                    "Quanzhou": 0.2370,
+                    "Zhangzhou": 0.2021,
+                    "Putian": 0.1542,
+                    "Xiamen": 0.1203,
+                    "other": 0.0062,
+                    "total": 1.1348
+                }
+            },
+            "08-09 02时": {
+                "TOT": {
+                    "Fuzhou": 15.6653,
+                    "Quanzhou": 6.2318,
+                    "Zhangzhou": 4.4061,
+                    "Xiamen": 3.9983,
+                    "Putian": 2.7221,
+                    "other": 0.1125,
+                    "total": 33.1361
+                },
+                "IND": {
+                    "Fuzhou": 13.5323,
+                    "Quanzhou": 4.5169,
+                    "Xiamen": 3.3334,
+                    "Zhangzhou": 2.6353,
+                    "Putian": 1.3852,
+                    "other": 0.0582,
+                    "total": 25.4613
+                },
+                "RES": {
+                    "Fuzhou": 1.5783,
+                    "Quanzhou": 1.2641,
+                    "Putian": 1.2161,
+                    "Zhangzhou": 1.1489,
+                    "Xiamen": 0.3204,
+                    "other": 0.0375,
+                    "total": 5.5653
+                },
+                "POW": {
+                    "Zhangzhou": 0.4638,
+                    "Quanzhou": 0.2769,
+                    "Xiamen": 0.2510,
+                    "Fuzhou": 0.1467,
+                    "Putian": 0.0100,
+                    "other": 0.0085,
+                    "total": 1.1569
+                },
+                "TRA": {
+                    "Fuzhou": 0.4080,
+                    "Quanzhou": 0.1738,
+                    "Zhangzhou": 0.1580,
+                    "Putian": 0.1108,
+                    "Xiamen": 0.0935,
+                    "other": 0.0083,
+                    "total": 0.9524
+                }
+            },
+            "08-09 03时": {
+                "TOT": {
+                    "Fuzhou": 15.5445,
+                    "Quanzhou": 6.6570,
+                    "Zhangzhou": 4.5111,
+                    "Xiamen": 4.4419,
+                    "Putian": 2.9107,
+                    "other": 0.1247,
+                    "total": 34.1899
+                },
+                "IND": {
+                    "Fuzhou": 13.3844,
+                    "Quanzhou": 4.7891,
+                    "Xiamen": 3.6927,
+                    "Zhangzhou": 2.7537,
+                    "Putian": 1.4709,
+                    "other": 0.0713,
+                    "total": 26.1621
+                },
+                "RES": {
+                    "Fuzhou": 1.6117,
+                    "Quanzhou": 1.3978,
+                    "Putian": 1.3136,
+                    "Zhangzhou": 1.1247,
+                    "Xiamen": 0.3657,
+                    "other": 0.0286,
+                    "total": 5.8421
+                },
+                "POW": {
+                    "Zhangzhou": 0.4738,
+                    "Quanzhou": 0.2796,
+                    "Xiamen": 0.2792,
+                    "Fuzhou": 0.1441,
+                    "Longyan": 0.0183,
+                    "other": 0.0061,
+                    "total": 1.2011
+                },
+                "TRA": {
+                    "Fuzhou": 0.4044,
+                    "Quanzhou": 0.1906,
+                    "Zhangzhou": 0.1589,
+                    "Putian": 0.1201,
+                    "Xiamen": 0.1043,
+                    "other": 0.0066,
+                    "total": 0.9849
+                }
+            },
+            "08-09 04时": {
+                "TOT": {
+                    "Fuzhou": 14.3561,
+                    "Quanzhou": 6.9418,
+                    "Zhangzhou": 5.8270,
+                    "Xiamen": 4.8689,
+                    "Putian": 3.0562,
+                    "other": 0.1034,
+                    "total": 35.1534
+                },
+                "IND": {
+                    "Fuzhou": 12.3274,
+                    "Quanzhou": 4.9357,
+                    "Xiamen": 4.0188,
+                    "Zhangzhou": 3.6001,
+                    "Putian": 1.5532,
+                    "other": 0.0599,
+                    "total": 26.4951
+                },
+                "RES": {
+                    "Fuzhou": 1.5223,
+                    "Quanzhou": 1.5208,
+                    "Zhangzhou": 1.3846,
+                    "Putian": 1.3716,
+                    "Xiamen": 0.3853,
+                    "other": 0.0220,
+                    "total": 6.2066
+                },
+                "POW": {
+                    "Zhangzhou": 0.6483,
+                    "Xiamen": 0.3538,
+                    "Quanzhou": 0.2823,
+                    "Fuzhou": 0.1319,
+                    "Longyan": 0.0161,
+                    "other": 0.0070,
+                    "total": 1.4394
+                },
+                "TRA": {
+                    "Fuzhou": 0.3744,
+                    "Quanzhou": 0.2029,
+                    "Zhangzhou": 0.1940,
+                    "Putian": 0.1244,
+                    "Xiamen": 0.1110,
+                    "other": 0.0054,
+                    "total": 1.0121
+                }
+            },
+            "08-09 05时": {
+                "TOT": {
+                    "Fuzhou": 14.8855,
+                    "Quanzhou": 7.0373,
+                    "Zhangzhou": 5.6204,
+                    "Xiamen": 4.1772,
+                    "Putian": 2.8936,
+                    "other": 0.0611,
+                    "total": 34.6751
+                },
+                "IND": {
+                    "Fuzhou": 12.8168,
+                    "Quanzhou": 4.9147,
+                    "Zhangzhou": 3.4712,
+                    "Xiamen": 3.4577,
+                    "Putian": 1.4722,
+                    "other": 0.0351,
+                    "total": 26.1677
+                },
+                "RES": {
+                    "Quanzhou": 1.5719,
+                    "Fuzhou": 1.5426,
+                    "Zhangzhou": 1.3847,
+                    "Putian": 1.2979,
+                    "Xiamen": 0.3382,
+                    "other": 0.0146,
+                    "total": 6.1499
+                },
+                "POW": {
+                    "Zhangzhou": 0.5701,
+                    "Quanzhou": 0.3357,
+                    "Xiamen": 0.2837,
+                    "Fuzhou": 0.1374,
+                    "Longyan": 0.0078,
+                    "other": 0.0066,
+                    "total": 1.3413
+                },
+                "TRA": {
+                    "Fuzhou": 0.3887,
+                    "Quanzhou": 0.2150,
+                    "Zhangzhou": 0.1944,
+                    "Putian": 0.1169,
+                    "Xiamen": 0.0975,
+                    "other": 0.0037,
+                    "total": 1.0162
+                }
+            },
+            "08-09 06时": {
+                "TOT": {
+                    "Fuzhou": 13.2611,
+                    "Quanzhou": 5.3317,
+                    "Zhangzhou": 2.8887,
+                    "Putian": 1.1372,
+                    "Xiamen": 0.9631,
+                    "other": 0.3270,
+                    "total": 23.9088
+                },
+                "IND": {
+                    "Fuzhou": 11.3511,
+                    "Quanzhou": 3.3898,
+                    "Zhangzhou": 1.8615,
+                    "Xiamen": 0.7834,
+                    "Putian": 0.5468,
+                    "other": 0.1986,
+                    "total": 18.1312
+                },
+                "RES": {
+                    "Fuzhou": 1.4308,
+                    "Quanzhou": 1.2984,
+                    "Zhangzhou": 0.7593,
+                    "Putian": 0.5254,
+                    "Xiamen": 0.0964,
+                    "other": 0.0579,
+                    "total": 4.1682
+                },
+                "POW": {
+                    "Quanzhou": 0.4451,
+                    "Zhangzhou": 0.1445,
+                    "Fuzhou": 0.1184,
+                    "Xiamen": 0.0586,
+                    "Longyan": 0.0552,
+                    "other": 0.0058,
+                    "total": 0.8276
+                },
+                "TRA": {
+                    "Fuzhou": 0.3608,
+                    "Quanzhou": 0.1984,
+                    "Zhangzhou": 0.1233,
+                    "Putian": 0.0592,
+                    "Xiamen": 0.0247,
+                    "other": 0.0152,
+                    "total": 0.7816
+                }
+            },
+            "08-09 07时": {
+                "TOT": {
+                    "Fuzhou": 15.8414,
+                    "Quanzhou": 4.1518,
+                    "Zhangzhou": 1.5640,
+                    "Longyan": 1.2557,
+                    "Putian": 0.3604,
+                    "other": 0.0608,
+                    "total": 23.2341
+                },
+                "IND": {
+                    "Fuzhou": 13.6277,
+                    "Quanzhou": 2.5686,
+                    "Zhangzhou": 1.0071,
+                    "Longyan": 0.7816,
+                    "Putian": 0.1686,
+                    "other": 0.0453,
+                    "total": 18.1989
+                },
+                "RES": {
+                    "Fuzhou": 1.6374,
+                    "Quanzhou": 0.9982,
+                    "Zhangzhou": 0.4345,
+                    "Longyan": 0.1850,
+                    "Putian": 0.1619,
+                    "other": 0.0121,
+                    "total": 3.4291
+                },
+                "POW": {
+                    "Quanzhou": 0.4095,
+                    "Longyan": 0.2431,
+                    "Fuzhou": 0.1441,
+                    "Zhangzhou": 0.0439,
+                    "Putian": 0.0052,
+                    "other": 0.0010,
+                    "total": 0.8468
+                },
+                "TRA": {
+                    "Fuzhou": 0.4323,
+                    "Quanzhou": 0.1755,
+                    "Zhangzhou": 0.0784,
+                    "Longyan": 0.0460,
+                    "Putian": 0.0248,
+                    "other": 0.0023,
+                    "total": 0.7593
+                }
+            },
+            "08-09 08时": {
+                "TOT": {
+                    "Fuzhou": 13.0029,
+                    "Quanzhou": 2.4029,
+                    "Longyan": 1.8167,
+                    "Zhangzhou": 0.5307,
+                    "Putian": 0.1052,
+                    "other": 0.0046,
+                    "total": 17.8630
+                },
+                "IND": {
+                    "Fuzhou": 11.1795,
+                    "Quanzhou": 1.4505,
+                    "Longyan": 1.1194,
+                    "Zhangzhou": 0.3226,
+                    "Putian": 0.0465,
+                    "other": 0.0031,
+                    "total": 14.1216
+                },
+                "RES": {
+                    "Fuzhou": 1.3479,
+                    "Quanzhou": 0.5996,
+                    "Longyan": 0.2979,
+                    "Zhangzhou": 0.1673,
+                    "Putian": 0.0475,
+                    "other": 0.0013,
+                    "total": 2.4615
+                },
+                "POW": {
+                    "Longyan": 0.3282,
+                    "Quanzhou": 0.2345,
+                    "Fuzhou": 0.1177,
+                    "Zhangzhou": 0.0081,
+                    "Putian": 0.0018,
+                    "other": 0.0000,
+                    "total": 0.6903
+                },
+                "TRA": {
+                    "Fuzhou": 0.3578,
+                    "Quanzhou": 0.1184,
+                    "Longyan": 0.0712,
+                    "Zhangzhou": 0.0328,
+                    "Putian": 0.0094,
+                    "other": 0.0003,
+                    "total": 0.5899
+                }
+            },
+            "08-09 09时": {
+                "TOT": {
+                    "Fuzhou": 9.2643,
+                    "Quanzhou": 1.7955,
+                    "Longyan": 1.4587,
+                    "Zhangzhou": 0.3323,
+                    "Putian": 0.0422,
+                    "other": 0.0314,
+                    "total": 12.9244
+                },
+                "IND": {
+                    "Fuzhou": 7.9435,
+                    "Quanzhou": 1.0407,
+                    "Longyan": 0.9163,
+                    "Zhangzhou": 0.2074,
+                    "Sanming": 0.0195,
+                    "other": 0.0198,
+                    "total": 10.1472
+                },
+                "RES": {
+                    "Fuzhou": 0.9788,
+                    "Quanzhou": 0.4978,
+                    "Longyan": 0.2373,
+                    "Zhangzhou": 0.0996,
+                    "Putian": 0.0183,
+                    "other": 0.0087,
+                    "total": 1.8405
+                },
+                "POW": {
+                    "Longyan": 0.2463,
+                    "Quanzhou": 0.1527,
+                    "Fuzhou": 0.0829,
+                    "Zhangzhou": 0.0061,
+                    "Putian": 0.0010,
+                    "other": 0.0000,
+                    "total": 0.4890
+                },
+                "TRA": {
+                    "Fuzhou": 0.2591,
+                    "Quanzhou": 0.1043,
+                    "Longyan": 0.0588,
+                    "Zhangzhou": 0.0192,
+                    "Putian": 0.0036,
+                    "other": 0.0027,
+                    "total": 0.4477
+                }
+            },
+            "08-09 10时": {
+                "TOT": {
+                    "Fuzhou": 8.2602,
+                    "Longyan": 1.5752,
+                    "Quanzhou": 1.2054,
+                    "Zhangzhou": 0.1715,
+                    "Sanming": 0.0896,
+                    "other": 0.0286,
+                    "total": 11.3305
+                },
+                "IND": {
+                    "Fuzhou": 7.0595,
+                    "Longyan": 0.9922,
+                    "Quanzhou": 0.6774,
+                    "Zhangzhou": 0.1043,
+                    "Sanming": 0.0572,
+                    "other": 0.0125,
+                    "total": 8.9031
+                },
+                "RES": {
+                    "Fuzhou": 0.8925,
+                    "Quanzhou": 0.3574,
+                    "Longyan": 0.2545,
+                    "Zhangzhou": 0.0531,
+                    "Sanming": 0.0246,
+                    "other": 0.0130,
+                    "total": 1.5951
+                },
+                "POW": {
+                    "Longyan": 0.2612,
+                    "Quanzhou": 0.0900,
+                    "Fuzhou": 0.0731,
+                    "Zhangzhou": 0.0027,
+                    "Putian": 0.0005,
+                    "other": 0.0000,
+                    "total": 0.4275
+                },
+                "TRA": {
+                    "Fuzhou": 0.2351,
+                    "Quanzhou": 0.0807,
+                    "Longyan": 0.0673,
+                    "Zhangzhou": 0.0113,
+                    "Sanming": 0.0078,
+                    "other": 0.0026,
+                    "total": 0.4048
+                }
+            },
+            "08-09 11时": {
+                "TOT": {
+                    "Fuzhou": 9.6574,
+                    "Longyan": 1.1069,
+                    "Quanzhou": 0.7736,
+                    "Zhangzhou": 0.1358,
+                    "Sanming": 0.0795,
+                    "other": 0.0849,
+                    "total": 11.8381
+                },
+                "IND": {
+                    "Fuzhou": 8.3063,
+                    "Longyan": 0.6877,
+                    "Quanzhou": 0.4373,
+                    "Zhangzhou": 0.0846,
+                    "Sanming": 0.0499,
+                    "other": 0.0531,
+                    "total": 9.6189
+                },
+                "RES": {
+                    "Fuzhou": 0.9951,
+                    "Quanzhou": 0.2301,
+                    "Longyan": 0.2127,
+                    "Zhangzhou": 0.0407,
+                    "Putian": 0.0228,
+                    "other": 0.0254,
+                    "total": 1.5268
+                },
+                "POW": {
+                    "Longyan": 0.1501,
+                    "Fuzhou": 0.0876,
+                    "Quanzhou": 0.0554,
+                    "Zhangzhou": 0.0025,
+                    "Xiamen": 0.0014,
+                    "other": 0.0004,
+                    "total": 0.2974
+                },
+                "TRA": {
+                    "Fuzhou": 0.2684,
+                    "Longyan": 0.0564,
+                    "Quanzhou": 0.0508,
+                    "Zhangzhou": 0.0081,
+                    "Sanming": 0.0070,
+                    "other": 0.0045,
+                    "total": 0.3952
+                }
+            },
+            "08-09 12时": {
+                "TOT": {
+                    "Fuzhou": 8.9185,
+                    "Longyan": 1.1134,
+                    "Quanzhou": 0.8193,
+                    "Zhangzhou": 0.1733,
+                    "Putian": 0.1468,
+                    "other": 0.0986,
+                    "total": 11.2699
+                },
+                "IND": {
+                    "Fuzhou": 7.6549,
+                    "Longyan": 0.6741,
+                    "Quanzhou": 0.4803,
+                    "Zhangzhou": 0.1054,
+                    "Putian": 0.0707,
+                    "other": 0.0695,
+                    "total": 9.0549
+                },
+                "RES": {
+                    "Fuzhou": 0.9369,
+                    "Longyan": 0.2265,
+                    "Quanzhou": 0.2237,
+                    "Putian": 0.0665,
+                    "Zhangzhou": 0.0527,
+                    "other": 0.0203,
+                    "total": 1.5266
+                },
+                "POW": {
+                    "Longyan": 0.1544,
+                    "Fuzhou": 0.0810,
+                    "Quanzhou": 0.0679,
+                    "Zhangzhou": 0.0060,
+                    "Xiamen": 0.0015,
+                    "other": 0.0020,
+                    "total": 0.3128
+                },
+                "TRA": {
+                    "Fuzhou": 0.2457,
+                    "Longyan": 0.0585,
+                    "Quanzhou": 0.0474,
+                    "Zhangzhou": 0.0092,
+                    "Putian": 0.0086,
+                    "other": 0.0062,
+                    "total": 0.3756
+                }
+            },
+            "08-09 13时": {
+                "TOT": {
+                    "Fuzhou": 10.2749,
+                    "Quanzhou": 1.5175,
+                    "Longyan": 0.7775,
+                    "Putian": 0.6348,
+                    "Zhangzhou": 0.5479,
+                    "other": 0.2112,
+                    "total": 13.9638
+                },
+                "IND": {
+                    "Fuzhou": 8.8634,
+                    "Quanzhou": 1.0064,
+                    "Longyan": 0.4568,
+                    "Zhangzhou": 0.3505,
+                    "Putian": 0.3416,
+                    "other": 0.1676,
+                    "total": 11.1863
+                },
+                "RES": {
+                    "Fuzhou": 1.0431,
+                    "Quanzhou": 0.3365,
+                    "Putian": 0.2631,
+                    "Longyan": 0.1705,
+                    "Zhangzhou": 0.1483,
+                    "other": 0.0260,
+                    "total": 1.9875
+                },
+                "POW": {
+                    "Quanzhou": 0.1152,
+                    "Longyan": 0.1090,
+                    "Fuzhou": 0.0954,
+                    "Zhangzhou": 0.0236,
+                    "Xiamen": 0.0090,
+                    "other": 0.0050,
+                    "total": 0.3572
+                },
+                "TRA": {
+                    "Fuzhou": 0.2731,
+                    "Quanzhou": 0.0594,
+                    "Longyan": 0.0412,
+                    "Putian": 0.0266,
+                    "Zhangzhou": 0.0256,
+                    "other": 0.0069,
+                    "total": 0.4328
+                }
+            },
+            "08-09 14时": {
+                "TOT": {
+                    "Fuzhou": 13.6610,
+                    "Quanzhou": 6.1193,
+                    "Putian": 2.5991,
+                    "Zhangzhou": 2.2486,
+                    "Xiamen": 0.6992,
+                    "other": 0.4638,
+                    "total": 25.7910
+                },
+                "IND": {
+                    "Fuzhou": 11.8342,
+                    "Quanzhou": 4.7391,
+                    "Putian": 1.5540,
+                    "Zhangzhou": 1.2041,
+                    "Xiamen": 0.5584,
+                    "other": 0.2773,
+                    "total": 20.1671
+                },
+                "RES": {
+                    "Fuzhou": 1.3439,
+                    "Putian": 0.9533,
+                    "Quanzhou": 0.9107,
+                    "Zhangzhou": 0.5570,
+                    "Longyan": 0.0987,
+                    "other": 0.0583,
+                    "total": 3.9219
+                },
+                "POW": {
+                    "Zhangzhou": 0.4145,
+                    "Quanzhou": 0.3326,
+                    "Fuzhou": 0.1275,
+                    "Xiamen": 0.0701,
+                    "Longyan": 0.0613,
+                    "other": 0.0116,
+                    "total": 1.0176
+                },
+                "TRA": {
+                    "Fuzhou": 0.3553,
+                    "Quanzhou": 0.1369,
+                    "Putian": 0.0802,
+                    "Zhangzhou": 0.0730,
+                    "Longyan": 0.0230,
+                    "other": 0.0157,
+                    "total": 0.6841
+                }
+            },
+            "08-09 15时": {
+                "TOT": {
+                    "Fuzhou": 16.8004,
+                    "Quanzhou": 10.9128,
+                    "Putian": 3.1709,
+                    "Zhangzhou": 2.9333,
+                    "Xiamen": 0.8683,
+                    "other": 0.2245,
+                    "total": 34.9102
+                },
+                "IND": {
+                    "Fuzhou": 14.5787,
+                    "Quanzhou": 8.6964,
+                    "Putian": 1.8703,
+                    "Zhangzhou": 1.5548,
+                    "Xiamen": 0.7008,
+                    "other": 0.1359,
+                    "total": 27.5369
+                },
+                "RES": {
+                    "Fuzhou": 1.6313,
+                    "Quanzhou": 1.4804,
+                    "Putian": 1.1930,
+                    "Zhangzhou": 0.7201,
+                    "Xiamen": 0.0786,
+                    "other": 0.0449,
+                    "total": 5.1483
+                },
+                "POW": {
+                    "Zhangzhou": 0.5661,
+                    "Quanzhou": 0.5173,
+                    "Fuzhou": 0.1563,
+                    "Xiamen": 0.0694,
+                    "Longyan": 0.0328,
+                    "other": 0.0117,
+                    "total": 1.3536
+                },
+                "TRA": {
+                    "Fuzhou": 0.4342,
+                    "Quanzhou": 0.2187,
+                    "Putian": 0.0963,
+                    "Zhangzhou": 0.0923,
+                    "Xiamen": 0.0196,
+                    "other": 0.0103,
+                    "total": 0.8714
+                }
+            },
+            "08-09 16时": {
+                "TOT": {
+                    "Fuzhou": 20.1475,
+                    "Quanzhou": 19.2042,
+                    "Putian": 4.5832,
+                    "Zhangzhou": 3.7267,
+                    "Xiamen": 2.2598,
+                    "other": 0.0650,
+                    "total": 49.9864
+                },
+                "IND": {
+                    "Fuzhou": 17.3335,
+                    "Quanzhou": 15.6460,
+                    "Putian": 2.9540,
+                    "Zhangzhou": 2.0341,
+                    "Xiamen": 1.8062,
+                    "other": 0.0391,
+                    "total": 39.8129
+                },
+                "RES": {
+                    "Quanzhou": 2.3787,
+                    "Fuzhou": 2.1113,
+                    "Putian": 1.5016,
+                    "Zhangzhou": 0.7524,
+                    "Xiamen": 0.1619,
+                    "other": 0.0127,
+                    "total": 6.9186
+                },
+                "POW": {
+                    "Zhangzhou": 0.8429,
+                    "Quanzhou": 0.8259,
+                    "Xiamen": 0.2457,
+                    "Fuzhou": 0.1795,
+                    "Longyan": 0.0102,
+                    "other": 0.0081,
+                    "total": 2.1123
+                },
+                "TRA": {
+                    "Fuzhou": 0.5231,
+                    "Quanzhou": 0.3537,
+                    "Putian": 0.1195,
+                    "Zhangzhou": 0.0973,
+                    "Xiamen": 0.0459,
+                    "other": 0.0029,
+                    "total": 1.1424
+                }
+            },
+            "08-09 17时": {
+                "TOT": {
+                    "Quanzhou": 22.9213,
+                    "Fuzhou": 20.6889,
+                    "Putian": 6.5125,
+                    "Zhangzhou": 2.8380,
+                    "Xiamen": 1.3855,
+                    "other": 0.0076,
+                    "total": 54.3538
+                },
+                "IND": {
+                    "Quanzhou": 18.7864,
+                    "Fuzhou": 17.7261,
+                    "Putian": 4.4793,
+                    "Zhangzhou": 1.5510,
+                    "Xiamen": 1.1116,
+                    "other": 0.0047,
+                    "total": 43.6591
+                },
+                "RES": {
+                    "Quanzhou": 2.7432,
+                    "Fuzhou": 2.2426,
+                    "Putian": 1.8727,
+                    "Zhangzhou": 0.5076,
+                    "Xiamen": 0.1019,
+                    "other": 0.0018,
+                    "total": 7.4698
+                },
+                "POW": {
+                    "Quanzhou": 0.9843,
+                    "Zhangzhou": 0.7121,
+                    "Fuzhou": 0.1812,
+                    "Xiamen": 0.1437,
+                    "Putian": 0.0088,
+                    "other": 0.0008,
+                    "total": 2.0309
+                },
+                "TRA": {
+                    "Fuzhou": 0.5390,
+                    "Quanzhou": 0.4074,
+                    "Putian": 0.1517,
+                    "Zhangzhou": 0.0674,
+                    "Xiamen": 0.0282,
+                    "other": 0.0004,
+                    "total": 1.1941
+                }
+            },
+            "08-09 18时": {
+                "TOT": {
+                    "Quanzhou": 24.1814,
+                    "Fuzhou": 19.6500,
+                    "Putian": 7.4444,
+                    "Zhangzhou": 1.8108,
+                    "Xiamen": 0.6031,
+                    "other": 0.0028,
+                    "total": 53.6925
+                },
+                "IND": {
+                    "Quanzhou": 19.8267,
+                    "Fuzhou": 16.7754,
+                    "Putian": 5.1706,
+                    "Zhangzhou": 0.9672,
+                    "Xiamen": 0.4678,
+                    "other": 0.0015,
+                    "total": 43.2092
+                },
+                "RES": {
+                    "Quanzhou": 2.8840,
+                    "Fuzhou": 2.1922,
+                    "Putian": 2.0917,
+                    "Zhangzhou": 0.3488,
+                    "Xiamen": 0.0506,
+                    "other": 0.0009,
+                    "total": 7.5682
+                },
+                "POW": {
+                    "Quanzhou": 1.0453,
+                    "Zhangzhou": 0.4493,
+                    "Fuzhou": 0.1689,
+                    "Xiamen": 0.0726,
+                    "Putian": 0.0129,
+                    "other": 0.0003,
+                    "total": 1.7493
+                },
+                "TRA": {
+                    "Fuzhou": 0.5135,
+                    "Quanzhou": 0.4254,
+                    "Putian": 0.1693,
+                    "Zhangzhou": 0.0456,
+                    "Xiamen": 0.0120,
+                    "other": 0.0002,
+                    "total": 1.1660
+                }
+            },
+            "08-09 19时": {
+                "TOT": {
+                    "Quanzhou": 23.9599,
+                    "Fuzhou": 16.2203,
+                    "Putian": 6.2313,
+                    "Zhangzhou": 1.9649,
+                    "Xiamen": 1.0155,
+                    "other": 0.0016,
+                    "total": 49.3935
+                },
+                "IND": {
+                    "Quanzhou": 19.6313,
+                    "Fuzhou": 13.8388,
+                    "Putian": 4.1736,
+                    "Zhangzhou": 1.1348,
+                    "Xiamen": 0.8006,
+                    "other": 0.0009,
+                    "total": 39.5800
+                },
+                "RES": {
+                    "Quanzhou": 2.8535,
+                    "Putian": 1.8926,
+                    "Fuzhou": 1.8163,
+                    "Zhangzhou": 0.3497,
+                    "Xiamen": 0.0825,
+                    "other": 0.0005,
+                    "total": 6.9951
+                },
+                "POW": {
+                    "Quanzhou": 1.0491,
+                    "Zhangzhou": 0.4315,
+                    "Fuzhou": 0.1412,
+                    "Xiamen": 0.1121,
+                    "Putian": 0.0136,
+                    "other": 0.0000,
+                    "total": 1.7475
+                },
+                "TRA": {
+                    "Quanzhou": 0.4260,
+                    "Fuzhou": 0.4239,
+                    "Putian": 0.1515,
+                    "Zhangzhou": 0.0489,
+                    "Xiamen": 0.0203,
+                    "other": 0.0001,
+                    "total": 1.0707
+                }
+            },
+            "08-09 20时": {
+                "TOT": {
+                    "Quanzhou": 25.8079,
+                    "Fuzhou": 15.9759,
+                    "Putian": 4.5367,
+                    "Zhangzhou": 3.0137,
+                    "Xiamen": 1.9146,
+                    "other": 0.0001,
+                    "total": 51.2489
+                },
+                "IND": {
+                    "Quanzhou": 21.4575,
+                    "Fuzhou": 13.7713,
+                    "Putian": 2.5893,
+                    "Zhangzhou": 1.7004,
+                    "Xiamen": 1.5183,
+                    "other": 0.0000,
+                    "total": 41.0368
+                },
+                "RES": {
+                    "Quanzhou": 3.0058,
+                    "Putian": 1.7866,
+                    "Fuzhou": 1.6434,
+                    "Zhangzhou": 0.5455,
+                    "Xiamen": 0.1520,
+                    "other": 0.0001,
+                    "total": 7.1334
+                },
+                "POW": {
+                    "Quanzhou": 0.8779,
+                    "Zhangzhou": 0.6936,
+                    "Xiamen": 0.2061,
+                    "Fuzhou": 0.1472,
+                    "Putian": 0.0214,
+                    "other": 0.0000,
+                    "total": 1.9462
+                },
+                "TRA": {
+                    "Quanzhou": 0.4668,
+                    "Fuzhou": 0.4140,
+                    "Putian": 0.1395,
+                    "Zhangzhou": 0.0742,
+                    "Xiamen": 0.0382,
+                    "other": 0.0000,
+                    "total": 1.1327
+                }
+            },
+            "08-09 21时": {
+                "TOT": {
+                    "Quanzhou": 17.4229,
+                    "Fuzhou": 16.5278,
+                    "Zhangzhou": 5.1565,
+                    "Putian": 4.2213,
+                    "Xiamen": 3.3351,
+                    "other": 0.0001,
+                    "total": 46.6637
+                },
+                "IND": {
+                    "Quanzhou": 14.3611,
+                    "Fuzhou": 14.2591,
+                    "Zhangzhou": 2.9852,
+                    "Xiamen": 2.6752,
+                    "Putian": 2.2557,
+                    "other": 0.0000,
+                    "total": 36.5363
+                },
+                "RES": {
+                    "Quanzhou": 2.2324,
+                    "Putian": 1.8019,
+                    "Fuzhou": 1.6878,
+                    "Zhangzhou": 0.9420,
+                    "Xiamen": 0.2514,
+                    "other": 0.0000,
+                    "total": 6.9155
+                },
+                "POW": {
+                    "Zhangzhou": 1.1016,
+                    "Quanzhou": 0.4900,
+                    "Xiamen": 0.3404,
+                    "Fuzhou": 0.1529,
+                    "Putian": 0.0209,
+                    "other": 0.0000,
+                    "total": 2.1058
+                },
+                "TRA": {
+                    "Fuzhou": 0.4280,
+                    "Quanzhou": 0.3393,
+                    "Putian": 0.1429,
+                    "Zhangzhou": 0.1278,
+                    "Xiamen": 0.0681,
+                    "other": 0.0000,
+                    "total": 1.1061
+                }
+            },
+            "08-09 22时": {
+                "TOT": {
+                    "Fuzhou": 16.9181,
+                    "Quanzhou": 12.2450,
+                    "Zhangzhou": 5.6435,
+                    "Xiamen": 4.5301,
+                    "Putian": 4.3057,
+                    "other": 0.0001,
+                    "total": 43.6425
+                },
+                "IND": {
+                    "Fuzhou": 14.5852,
+                    "Quanzhou": 9.8666,
+                    "Xiamen": 3.6258,
+                    "Zhangzhou": 3.3400,
+                    "Putian": 2.2775,
+                    "other": 0.0000,
+                    "total": 33.6951
+                },
+                "RES": {
+                    "Putian": 1.8629,
+                    "Quanzhou": 1.8165,
+                    "Fuzhou": 1.7386,
+                    "Zhangzhou": 1.0513,
+                    "Xiamen": 0.3473,
+                    "other": 0.0001,
+                    "total": 6.8167
+                },
+                "POW": {
+                    "Zhangzhou": 1.1070,
+                    "Xiamen": 0.4636,
+                    "Quanzhou": 0.3006,
+                    "Fuzhou": 0.1560,
+                    "Putian": 0.0171,
+                    "other": 0.0000,
+                    "total": 2.0443
+                },
+                "TRA": {
+                    "Fuzhou": 0.4383,
+                    "Quanzhou": 0.2614,
+                    "Putian": 0.1483,
+                    "Zhangzhou": 0.1452,
+                    "Xiamen": 0.0934,
+                    "other": 0.0000,
+                    "total": 1.0866
+                }
+            },
+            "08-09 23时": {
+                "TOT": {
+                    "Fuzhou": 16.3423,
+                    "Quanzhou": 8.6511,
+                    "Zhangzhou": 7.1308,
+                    "Xiamen": 6.1445,
+                    "Putian": 3.9406,
+                    "other": 0.0015,
+                    "total": 42.2108
+                },
+                "IND": {
+                    "Fuzhou": 14.1103,
+                    "Quanzhou": 6.7113,
+                    "Xiamen": 5.0036,
+                    "Zhangzhou": 4.2789,
+                    "Putian": 2.0596,
+                    "other": 0.0004,
+                    "total": 32.1641
+                },
+                "RES": {
+                    "Putian": 1.7302,
+                    "Fuzhou": 1.6567,
+                    "Quanzhou": 1.5357,
+                    "Zhangzhou": 1.2636,
+                    "Xiamen": 0.4523,
+                    "other": 0.0009,
+                    "total": 6.6394
+                },
+                "POW": {
+                    "Zhangzhou": 1.4124,
+                    "Xiamen": 0.5588,
+                    "Quanzhou": 0.1975,
+                    "Fuzhou": 0.1521,
+                    "Putian": 0.0107,
+                    "other": 0.0000,
+                    "total": 2.3315
+                },
+                "TRA": {
+                    "Fuzhou": 0.4233,
+                    "Quanzhou": 0.2066,
+                    "Zhangzhou": 0.1759,
+                    "Putian": 0.1401,
+                    "Xiamen": 0.1297,
+                    "other": 0.0002,
+                    "total": 1.0758
+                }
+            },
+            "08-10 00时": {
+                "TOT": {
+                    "Fuzhou": 14.7254,
+                    "Quanzhou": 7.2467,
+                    "Xiamen": 6.0216,
+                    "Zhangzhou": 6.0039,
+                    "Putian": 3.5077,
+                    "other": 0.0012,
+                    "total": 37.5065
+                },
+                "IND": {
+                    "Fuzhou": 12.7266,
+                    "Quanzhou": 5.5407,
+                    "Xiamen": 4.9216,
+                    "Zhangzhou": 3.6801,
+                    "Putian": 1.8232,
+                    "other": 0.0005,
+                    "total": 28.6927
+                },
+                "RES": {
+                    "Putian": 1.5502,
+                    "Fuzhou": 1.4788,
+                    "Quanzhou": 1.3887,
+                    "Zhangzhou": 1.1403,
+                    "Xiamen": 0.4632,
+                    "other": 0.0006,
+                    "total": 6.0218
+                },
+                "POW": {
+                    "Zhangzhou": 1.0246,
+                    "Xiamen": 0.5064,
+                    "Fuzhou": 0.1381,
+                    "Quanzhou": 0.1343,
+                    "Putian": 0.0070,
+                    "other": 0.0000,
+                    "total": 1.8104
+                },
+                "TRA": {
+                    "Fuzhou": 0.3820,
+                    "Quanzhou": 0.1830,
+                    "Zhangzhou": 0.1589,
+                    "Xiamen": 0.1305,
+                    "Putian": 0.1273,
+                    "other": 0.0001,
+                    "total": 0.9818
+                }
+            },
+            "08-10 01时": {
+                "TOT": {
+                    "Fuzhou": 14.1206,
+                    "Zhangzhou": 6.0724,
+                    "Xiamen": 5.1644,
+                    "Quanzhou": 4.9450,
+                    "Putian": 2.4374,
+                    "other": 0.0010,
+                    "total": 32.7408
+                },
+                "IND": {
+                    "Fuzhou": 12.1799,
+                    "Xiamen": 4.2509,
+                    "Quanzhou": 3.6203,
+                    "Zhangzhou": 3.6083,
+                    "Putian": 1.2369,
+                    "other": 0.0004,
+                    "total": 24.8967
+                },
+                "RES": {
+                    "Fuzhou": 1.4406,
+                    "Zhangzhou": 1.3426,
+                    "Putian": 1.1014,
+                    "Quanzhou": 1.0797,
+                    "Xiamen": 0.3995,
+                    "other": 0.0004,
+                    "total": 5.3642
+                },
+                "POW": {
+                    "Zhangzhou": 0.9436,
+                    "Xiamen": 0.3994,
+                    "Fuzhou": 0.1314,
+                    "Quanzhou": 0.1077,
+                    "Putian": 0.0027,
+                    "other": 0.0000,
+                    "total": 1.5848
+                },
+                "TRA": {
+                    "Fuzhou": 0.3687,
+                    "Zhangzhou": 0.1779,
+                    "Quanzhou": 0.1372,
+                    "Xiamen": 0.1147,
+                    "Putian": 0.0964,
+                    "other": 0.0001,
+                    "total": 0.8950
+                }
+            },
+            "08-10 02时": {
+                "TOT": {
+                    "Fuzhou": 15.0167,
+                    "Zhangzhou": 5.6578,
+                    "Xiamen": 4.4745,
+                    "Quanzhou": 4.1542,
+                    "Putian": 1.7413,
+                    "other": 0.0029,
+                    "total": 31.0474
+                },
+                "IND": {
+                    "Fuzhou": 12.9368,
+                    "Xiamen": 3.7306,
+                    "Zhangzhou": 3.3659,
+                    "Quanzhou": 2.8387,
+                    "Putian": 0.8530,
+                    "other": 0.0010,
+                    "total": 23.7260
+                },
+                "RES": {
+                    "Fuzhou": 1.5464,
+                    "Zhangzhou": 1.4482,
+                    "Quanzhou": 1.0321,
+                    "Putian": 0.8061,
+                    "Xiamen": 0.3516,
+                    "other": 0.0016,
+                    "total": 5.1860
+                },
+                "POW": {
+                    "Zhangzhou": 0.6556,
+                    "Xiamen": 0.2878,
+                    "Quanzhou": 0.1524,
+                    "Fuzhou": 0.1391,
+                    "Putian": 0.0032,
+                    "other": 0.0000,
+                    "total": 1.2381
+                },
+                "TRA": {
+                    "Fuzhou": 0.3945,
+                    "Zhangzhou": 0.1881,
+                    "Quanzhou": 0.1310,
+                    "Xiamen": 0.1044,
+                    "Putian": 0.0791,
+                    "other": 0.0003,
+                    "total": 0.8974
+                }
+            },
+            "08-10 03时": {
+                "TOT": {
+                    "Fuzhou": 15.1780,
+                    "Zhangzhou": 4.1433,
+                    "Quanzhou": 3.8551,
+                    "Xiamen": 2.6459,
+                    "Putian": 1.1895,
+                    "other": 0.0510,
+                    "total": 27.0628
+                },
+                "IND": {
+                    "Fuzhou": 13.0859,
+                    "Zhangzhou": 2.5221,
+                    "Quanzhou": 2.4627,
+                    "Xiamen": 2.1990,
+                    "Putian": 0.5687,
+                    "other": 0.0263,
+                    "total": 20.8647
+                },
+                "RES": {
+                    "Fuzhou": 1.5504,
+                    "Zhangzhou": 1.0725,
+                    "Quanzhou": 0.9643,
+                    "Putian": 0.5539,
+                    "Xiamen": 0.2313,
+                    "other": 0.0166,
+                    "total": 4.3890
+                },
+                "POW": {
+                    "Zhangzhou": 0.3984,
+                    "Quanzhou": 0.2897,
+                    "Xiamen": 0.1506,
+                    "Fuzhou": 0.1409,
+                    "Putian": 0.0052,
+                    "other": 0.0045,
+                    "total": 0.9893
+                },
+                "TRA": {
+                    "Fuzhou": 0.4009,
+                    "Zhangzhou": 0.1504,
+                    "Quanzhou": 0.1384,
+                    "Xiamen": 0.0650,
+                    "Putian": 0.0617,
+                    "other": 0.0036,
+                    "total": 0.8200
+                }
+            },
+            "08-10 04时": {
+                "TOT": {
+                    "Fuzhou": 15.2525,
+                    "Quanzhou": 3.8048,
+                    "Zhangzhou": 2.4741,
+                    "Xiamen": 0.8927,
+                    "Putian": 0.7479,
+                    "other": 0.3408,
+                    "total": 23.5128
+                },
+                "IND": {
+                    "Fuzhou": 13.1467,
+                    "Quanzhou": 2.3595,
+                    "Zhangzhou": 1.5670,
+                    "Xiamen": 0.7453,
+                    "Putian": 0.3540,
+                    "other": 0.1989,
+                    "total": 18.3714
+                },
+                "RES": {
+                    "Fuzhou": 1.5606,
+                    "Quanzhou": 0.8993,
+                    "Zhangzhou": 0.6730,
+                    "Putian": 0.3427,
+                    "Xiamen": 0.0840,
+                    "other": 0.0724,
+                    "total": 3.6320
+                },
+                "POW": {
+                    "Quanzhou": 0.3967,
+                    "Fuzhou": 0.1410,
+                    "Zhangzhou": 0.1271,
+                    "Longyan": 0.0524,
+                    "Xiamen": 0.0403,
+                    "other": 0.0068,
+                    "total": 0.7643
+                },
+                "TRA": {
+                    "Fuzhou": 0.4042,
+                    "Quanzhou": 0.1492,
+                    "Zhangzhou": 0.1070,
+                    "Putian": 0.0443,
+                    "Xiamen": 0.0231,
+                    "other": 0.0170,
+                    "total": 0.7448
+                }
+            },
+            "08-10 05时": {
+                "TOT": {
+                    "Fuzhou": 14.9777,
+                    "Quanzhou": 3.1908,
+                    "Zhangzhou": 1.2184,
+                    "Longyan": 1.0769,
+                    "Putian": 0.4913,
+                    "other": 0.0469,
+                    "total": 21.0020
+                },
+                "IND": {
+                    "Fuzhou": 12.8823,
+                    "Quanzhou": 1.9495,
+                    "Zhangzhou": 0.7729,
+                    "Longyan": 0.6702,
+                    "Putian": 0.2321,
+                    "other": 0.0354,
+                    "total": 16.5424
+                },
+                "RES": {
+                    "Fuzhou": 1.5556,
+                    "Quanzhou": 0.7507,
+                    "Zhangzhou": 0.3459,
+                    "Putian": 0.2200,
+                    "Longyan": 0.1654,
+                    "other": 0.0080,
+                    "total": 3.0456
+                },
+                "POW": {
+                    "Quanzhou": 0.3514,
+                    "Longyan": 0.1985,
+                    "Fuzhou": 0.1373,
+                    "Zhangzhou": 0.0346,
+                    "Putian": 0.0067,
+                    "other": 0.0018,
+                    "total": 0.7303
+                },
+                "TRA": {
+                    "Fuzhou": 0.4024,
+                    "Quanzhou": 0.1391,
+                    "Zhangzhou": 0.0650,
+                    "Longyan": 0.0428,
+                    "Putian": 0.0325,
+                    "other": 0.0018,
+                    "total": 0.6836
+                }
+            },
+            "08-10 06时": {
+                "TOT": {
+                    "Fuzhou": 14.7417,
+                    "Quanzhou": 3.0001,
+                    "Longyan": 1.2785,
+                    "Zhangzhou": 0.8105,
+                    "Putian": 0.5507,
+                    "other": 0.0189,
+                    "total": 20.4004
+                },
+                "IND": {
+                    "Fuzhou": 12.6592,
+                    "Quanzhou": 1.8352,
+                    "Longyan": 0.7977,
+                    "Zhangzhou": 0.5052,
+                    "Putian": 0.2569,
+                    "other": 0.0131,
+                    "total": 16.0673
+                },
+                "RES": {
+                    "Fuzhou": 1.5538,
+                    "Quanzhou": 0.7070,
+                    "Putian": 0.2521,
+                    "Zhangzhou": 0.2390,
+                    "Longyan": 0.1968,
+                    "other": 0.0044,
+                    "total": 2.9531
+                },
+                "POW": {
+                    "Quanzhou": 0.3253,
+                    "Longyan": 0.2339,
+                    "Fuzhou": 0.1348,
+                    "Zhangzhou": 0.0171,
+                    "Putian": 0.0051,
+                    "other": 0.0002,
+                    "total": 0.7164
+                },
+                "TRA": {
+                    "Fuzhou": 0.3937,
+                    "Quanzhou": 0.1325,
+                    "Longyan": 0.0500,
+                    "Zhangzhou": 0.0492,
+                    "Putian": 0.0366,
+                    "other": 0.0011,
+                    "total": 0.6631
+                }
+            },
+            "08-10 07时": {
+                "TOT": {
+                    "Fuzhou": 13.5018,
+                    "Quanzhou": 3.0818,
+                    "Longyan": 1.3000,
+                    "Zhangzhou": 0.7451,
+                    "Putian": 0.6101,
+                    "other": 0.0308,
+                    "total": 19.2696
+                },
+                "IND": {
+                    "Fuzhou": 11.5893,
+                    "Quanzhou": 1.8969,
+                    "Longyan": 0.8060,
+                    "Zhangzhou": 0.4617,
+                    "Putian": 0.2865,
+                    "other": 0.0238,
+                    "total": 15.0642
+                },
+                "RES": {
+                    "Fuzhou": 1.4276,
+                    "Quanzhou": 0.7123,
+                    "Putian": 0.2786,
+                    "Zhangzhou": 0.2212,
+                    "Longyan": 0.2082,
+                    "other": 0.0049,
+                    "total": 2.8528
+                },
+                "POW": {
+                    "Quanzhou": 0.3398,
+                    "Longyan": 0.2332,
+                    "Fuzhou": 0.1221,
+                    "Zhangzhou": 0.0150,
+                    "Putian": 0.0061,
+                    "other": 0.0010,
+                    "total": 0.7172
+                },
+                "TRA": {
+                    "Fuzhou": 0.3628,
+                    "Quanzhou": 0.1328,
+                    "Longyan": 0.0526,
+                    "Zhangzhou": 0.0472,
+                    "Putian": 0.0389,
+                    "other": 0.0012,
+                    "total": 0.6355
+                }
+            },
+            "08-10 08时": {
+                "TOT": {
+                    "Fuzhou": 13.9188,
+                    "Quanzhou": 2.1044,
+                    "Longyan": 1.2088,
+                    "Zhangzhou": 0.3866,
+                    "Putian": 0.2884,
+                    "other": 0.0290,
+                    "total": 17.9360
+                },
+                "IND": {
+                    "Fuzhou": 11.9531,
+                    "Quanzhou": 1.2692,
+                    "Longyan": 0.7449,
+                    "Zhangzhou": 0.2288,
+                    "Putian": 0.1347,
+                    "other": 0.0167,
+                    "total": 14.3474
+                },
+                "RES": {
+                    "Fuzhou": 1.4601,
+                    "Quanzhou": 0.5147,
+                    "Longyan": 0.1963,
+                    "Putian": 0.1304,
+                    "Zhangzhou": 0.1271,
+                    "other": 0.0100,
+                    "total": 2.4386
+                },
+                "POW": {
+                    "Quanzhou": 0.2193,
+                    "Longyan": 0.2172,
+                    "Fuzhou": 0.1249,
+                    "Zhangzhou": 0.0045,
+                    "Putian": 0.0038,
+                    "other": 0.0000,
+                    "total": 0.5697
+                },
+                "TRA": {
+                    "Fuzhou": 0.3807,
+                    "Quanzhou": 0.1011,
+                    "Longyan": 0.0503,
+                    "Zhangzhou": 0.0262,
+                    "Putian": 0.0195,
+                    "other": 0.0024,
+                    "total": 0.5802
+                }
+            },
+            "08-10 09时": {
+                "TOT": {
+                    "Fuzhou": 10.8121,
+                    "Longyan": 1.1155,
+                    "Quanzhou": 0.9195,
+                    "Zhangzhou": 0.1012,
+                    "Sanming": 0.0500,
+                    "other": 0.0898,
+                    "total": 13.0881
+                },
+                "IND": {
+                    "Fuzhou": 9.2768,
+                    "Longyan": 0.6748,
+                    "Quanzhou": 0.5363,
+                    "Zhangzhou": 0.0593,
+                    "Sanming": 0.0298,
+                    "other": 0.0391,
+                    "total": 10.6161
+                },
+                "RES": {
+                    "Fuzhou": 1.1380,
+                    "Quanzhou": 0.2496,
+                    "Longyan": 0.1977,
+                    "Zhangzhou": 0.0337,
+                    "Putian": 0.0202,
+                    "other": 0.0316,
+                    "total": 1.6708
+                },
+                "POW": {
+                    "Longyan": 0.1896,
+                    "Fuzhou": 0.0970,
+                    "Quanzhou": 0.0771,
+                    "Ganzhou": 0.0052,
+                    "Sanming": 0.0028,
+                    "other": 0.0008,
+                    "total": 0.3725
+                },
+                "TRA": {
+                    "Fuzhou": 0.3003,
+                    "Quanzhou": 0.0566,
+                    "Longyan": 0.0534,
+                    "Zhangzhou": 0.0076,
+                    "Sanming": 0.0040,
+                    "other": 0.0069,
+                    "total": 0.4288
+                }
+            },
+            "08-10 10时": {
+                "TOT": {
+                    "Fuzhou": 9.4079,
+                    "Longyan": 0.7652,
+                    "Quanzhou": 0.4487,
+                    "Ganzhou": 0.0921,
+                    "Sanming": 0.0778,
+                    "other": 0.0699,
+                    "total": 10.8616
+                },
+                "IND": {
+                    "Fuzhou": 8.0615,
+                    "Longyan": 0.4429,
+                    "Quanzhou": 0.2577,
+                    "Ganzhou": 0.0462,
+                    "Sanming": 0.0454,
+                    "other": 0.0393,
+                    "total": 8.8930
+                },
+                "RES": {
+                    "Fuzhou": 0.9972,
+                    "Longyan": 0.1718,
+                    "Quanzhou": 0.1283,
+                    "Ganzhou": 0.0325,
+                    "Sanming": 0.0228,
+                    "other": 0.0247,
+                    "total": 1.3773
+                },
+                "POW": {
+                    "Longyan": 0.1050,
+                    "Fuzhou": 0.0843,
+                    "Quanzhou": 0.0307,
+                    "Ganzhou": 0.0074,
+                    "Sanming": 0.0028,
+                    "other": 0.0008,
+                    "total": 0.2310
+                },
+                "TRA": {
+                    "Fuzhou": 0.2648,
+                    "Longyan": 0.0456,
+                    "Quanzhou": 0.0320,
+                    "Sanming": 0.0068,
+                    "Ganzhou": 0.0059,
+                    "other": 0.0050,
+                    "total": 0.3601
+                }
+            },
+            "08-10 11时": {
+                "TOT": {
+                    "Fuzhou": 12.0765,
+                    "Longyan": 0.7470,
+                    "Quanzhou": 0.4775,
+                    "Sanming": 0.0743,
+                    "Ganzhou": 0.0712,
+                    "other": 0.0868,
+                    "total": 13.5333
+                },
+                "IND": {
+                    "Fuzhou": 10.4057,
+                    "Longyan": 0.4412,
+                    "Quanzhou": 0.2769,
+                    "Sanming": 0.0443,
+                    "Ganzhou": 0.0363,
+                    "other": 0.0433,
+                    "total": 11.2477
+                },
+                "RES": {
+                    "Fuzhou": 1.2287,
+                    "Longyan": 0.1567,
+                    "Quanzhou": 0.1332,
+                    "Putian": 0.0283,
+                    "Ganzhou": 0.0255,
+                    "other": 0.0306,
+                    "total": 1.6030
+                },
+                "POW": {
+                    "Fuzhou": 0.1112,
+                    "Longyan": 0.1077,
+                    "Quanzhou": 0.0339,
+                    "Ganzhou": 0.0051,
+                    "Sanming": 0.0009,
+                    "other": 0.0007,
+                    "total": 0.2595
+                },
+                "TRA": {
+                    "Fuzhou": 0.3309,
+                    "Longyan": 0.0414,
+                    "Quanzhou": 0.0334,
+                    "Sanming": 0.0068,
+                    "Putian": 0.0044,
+                    "other": 0.0061,
+                    "total": 0.4230
+                }
+            },
+            "08-10 12时": {
+                "TOT": {
+                    "Fuzhou": 12.5044,
+                    "Longyan": 0.7928,
+                    "Quanzhou": 0.7716,
+                    "Putian": 0.2429,
+                    "Zhangzhou": 0.1387,
+                    "other": 0.1501,
+                    "total": 14.6005
+                },
+                "IND": {
+                    "Fuzhou": 10.8149,
+                    "Longyan": 0.4643,
+                    "Quanzhou": 0.4608,
+                    "Putian": 0.1176,
+                    "Zhangzhou": 0.0887,
+                    "other": 0.0930,
+                    "total": 12.0393
+                },
+                "RES": {
+                    "Fuzhou": 1.2368,
+                    "Quanzhou": 0.2049,
+                    "Longyan": 0.1672,
+                    "Putian": 0.1100,
+                    "Zhangzhou": 0.0343,
+                    "other": 0.0385,
+                    "total": 1.7917
+                },
+                "POW": {
+                    "Longyan": 0.1197,
+                    "Fuzhou": 0.1173,
+                    "Quanzhou": 0.0621,
+                    "Zhangzhou": 0.0093,
+                    "Sanming": 0.0057,
+                    "other": 0.0054,
+                    "total": 0.3195
+                },
+                "TRA": {
+                    "Fuzhou": 0.3355,
+                    "Quanzhou": 0.0438,
+                    "Longyan": 0.0417,
+                    "Putian": 0.0136,
+                    "Zhangzhou": 0.0064,
+                    "other": 0.0093,
+                    "total": 0.4503
+                }
+            },
+            "08-10 13时": {
+                "TOT": {
+                    "Fuzhou": 14.2441,
+                    "Quanzhou": 1.8422,
+                    "Putian": 0.8170,
+                    "Longyan": 0.8110,
+                    "Zhangzhou": 0.3795,
+                    "other": 0.3253,
+                    "total": 18.4191
+                },
+                "IND": {
+                    "Fuzhou": 12.3617,
+                    "Quanzhou": 1.2361,
+                    "Longyan": 0.4896,
+                    "Putian": 0.4197,
+                    "Zhangzhou": 0.2280,
+                    "other": 0.2504,
+                    "total": 14.9855
+                },
+                "RES": {
+                    "Fuzhou": 1.3752,
+                    "Quanzhou": 0.3928,
+                    "Putian": 0.3573,
+                    "Longyan": 0.1571,
+                    "Zhangzhou": 0.0967,
+                    "other": 0.0407,
+                    "total": 2.4198
+                },
+                "POW": {
+                    "Quanzhou": 0.1444,
+                    "Fuzhou": 0.1343,
+                    "Longyan": 0.1249,
+                    "Zhangzhou": 0.0387,
+                    "Xiamen": 0.0237,
+                    "other": 0.0040,
+                    "total": 0.4700
+                },
+                "TRA": {
+                    "Fuzhou": 0.3728,
+                    "Quanzhou": 0.0689,
+                    "Longyan": 0.0394,
+                    "Putian": 0.0363,
+                    "Zhangzhou": 0.0161,
+                    "other": 0.0103,
+                    "total": 0.5438
+                }
+            },
+            "08-10 14时": {
+                "TOT": {
+                    "Fuzhou": 15.6533,
+                    "Quanzhou": 8.4389,
+                    "Putian": 2.9228,
+                    "Zhangzhou": 2.4623,
+                    "Xiamen": 1.3862,
+                    "other": 0.4455,
+                    "total": 31.3090
+                },
+                "IND": {
+                    "Fuzhou": 13.5511,
+                    "Quanzhou": 6.6501,
+                    "Putian": 1.7588,
+                    "Zhangzhou": 1.4003,
+                    "Xiamen": 1.1332,
+                    "other": 0.2761,
+                    "total": 24.7696
+                },
+                "RES": {
+                    "Fuzhou": 1.5520,
+                    "Quanzhou": 1.2035,
+                    "Putian": 1.0640,
+                    "Zhangzhou": 0.4644,
+                    "Xiamen": 0.1049,
+                    "other": 0.0855,
+                    "total": 4.4743
+                },
+                "POW": {
+                    "Zhangzhou": 0.5315,
+                    "Quanzhou": 0.4046,
+                    "Fuzhou": 0.1445,
+                    "Xiamen": 0.1180,
+                    "Longyan": 0.0643,
+                    "other": 0.0111,
+                    "total": 1.2740
+                },
+                "TRA": {
+                    "Fuzhou": 0.4056,
+                    "Quanzhou": 0.1807,
+                    "Putian": 0.0892,
+                    "Zhangzhou": 0.0661,
+                    "Xiamen": 0.0300,
+                    "other": 0.0193,
+                    "total": 0.7909
+                }
+            },
+            "08-10 15时": {
+                "TOT": {
+                    "Fuzhou": 16.4718,
+                    "Quanzhou": 16.2645,
+                    "Putian": 4.5150,
+                    "Zhangzhou": 3.8473,
+                    "Xiamen": 2.1025,
+                    "other": 0.0891,
+                    "total": 43.2902
+                },
+                "IND": {
+                    "Fuzhou": 14.2576,
+                    "Quanzhou": 13.1626,
+                    "Putian": 2.9214,
+                    "Zhangzhou": 2.2059,
+                    "Xiamen": 1.7066,
+                    "other": 0.0532,
+                    "total": 34.3073
+                },
+                "RES": {
+                    "Quanzhou": 2.0763,
+                    "Fuzhou": 1.6359,
+                    "Putian": 1.4621,
+                    "Zhangzhou": 0.7601,
+                    "Xiamen": 0.1670,
+                    "other": 0.0212,
+                    "total": 6.1226
+                },
+                "POW": {
+                    "Zhangzhou": 0.7779,
+                    "Quanzhou": 0.7190,
+                    "Xiamen": 0.1839,
+                    "Fuzhou": 0.1518,
+                    "Putian": 0.0134,
+                    "other": 0.0100,
+                    "total": 1.8560
+                },
+                "TRA": {
+                    "Fuzhou": 0.4264,
+                    "Quanzhou": 0.3065,
+                    "Putian": 0.1181,
+                    "Zhangzhou": 0.1033,
+                    "Xiamen": 0.0450,
+                    "other": 0.0046,
+                    "total": 1.0039
+                }
+            },
+            "08-10 16时": {
+                "TOT": {
+                    "Fuzhou": 20.0457,
+                    "Quanzhou": 18.3082,
+                    "Putian": 4.4839,
+                    "Zhangzhou": 3.3786,
+                    "Xiamen": 1.8703,
+                    "other": 0.0161,
+                    "total": 48.1028
+                },
+                "IND": {
+                    "Fuzhou": 17.3583,
+                    "Quanzhou": 14.9674,
+                    "Putian": 2.9041,
+                    "Zhangzhou": 1.9282,
+                    "Xiamen": 1.4881,
+                    "other": 0.0096,
+                    "total": 38.6557
+                },
+                "RES": {
+                    "Quanzhou": 2.2513,
+                    "Fuzhou": 1.9850,
+                    "Putian": 1.4541,
+                    "Zhangzhou": 0.6856,
+                    "Xiamen": 0.1390,
+                    "other": 0.0031,
+                    "total": 6.5181
+                },
+                "POW": {
+                    "Quanzhou": 0.7563,
+                    "Zhangzhou": 0.6732,
+                    "Xiamen": 0.2046,
+                    "Fuzhou": 0.1842,
+                    "Putian": 0.0100,
+                    "other": 0.0027,
+                    "total": 1.8310
+                },
+                "TRA": {
+                    "Fuzhou": 0.5181,
+                    "Quanzhou": 0.3332,
+                    "Putian": 0.1158,
+                    "Zhangzhou": 0.0915,
+                    "Xiamen": 0.0385,
+                    "other": 0.0007,
+                    "total": 1.0978
+                }
+            },
+            "08-10 17时": {
+                "TOT": {
+                    "Fuzhou": 21.9459,
+                    "Quanzhou": 18.6710,
+                    "Putian": 4.4639,
+                    "Zhangzhou": 2.2942,
+                    "Xiamen": 1.4132,
+                    "other": 0.0034,
+                    "total": 48.7916
+                },
+                "IND": {
+                    "Fuzhou": 18.9829,
+                    "Quanzhou": 15.2892,
+                    "Putian": 2.8684,
+                    "Zhangzhou": 1.3325,
+                    "Xiamen": 1.1350,
+                    "other": 0.0017,
+                    "total": 39.6097
+                },
+                "RES": {
+                    "Quanzhou": 2.2521,
+                    "Fuzhou": 2.1958,
+                    "Putian": 1.4707,
+                    "Zhangzhou": 0.4468,
+                    "Xiamen": 0.1098,
+                    "other": 0.0012,
+                    "total": 6.4764
+                },
+                "POW": {
+                    "Quanzhou": 0.7934,
+                    "Zhangzhou": 0.4539,
+                    "Fuzhou": 0.1999,
+                    "Xiamen": 0.1391,
+                    "Putian": 0.0088,
+                    "other": 0.0003,
+                    "total": 1.5954
+                },
+                "TRA": {
+                    "Fuzhou": 0.5673,
+                    "Quanzhou": 0.3363,
+                    "Putian": 0.1162,
+                    "Zhangzhou": 0.0610,
+                    "Xiamen": 0.0293,
+                    "other": 0.0002,
+                    "total": 1.1103
+                }
+            },
+            "08-10 18时": {
+                "TOT": {
+                    "Quanzhou": 20.5702,
+                    "Fuzhou": 17.4091,
+                    "Putian": 4.0528,
+                    "Zhangzhou": 2.4432,
+                    "Xiamen": 1.1245,
+                    "other": 0.0039,
+                    "total": 45.6037
+                },
+                "IND": {
+                    "Quanzhou": 16.9780,
+                    "Fuzhou": 14.9932,
+                    "Putian": 2.4563,
+                    "Zhangzhou": 1.3569,
+                    "Xiamen": 0.8958,
+                    "other": 0.0021,
+                    "total": 36.6823
+                },
+                "RES": {
+                    "Quanzhou": 2.4110,
+                    "Fuzhou": 1.8062,
+                    "Putian": 1.4676,
+                    "Zhangzhou": 0.4744,
+                    "Xiamen": 0.0945,
+                    "other": 0.0009,
+                    "total": 6.2546
+                },
+                "POW": {
+                    "Quanzhou": 0.8125,
+                    "Zhangzhou": 0.5492,
+                    "Fuzhou": 0.1584,
+                    "Xiamen": 0.1111,
+                    "Putian": 0.0138,
+                    "other": 0.0006,
+                    "total": 1.6456
+                },
+                "TRA": {
+                    "Fuzhou": 0.4513,
+                    "Quanzhou": 0.3688,
+                    "Putian": 0.1150,
+                    "Zhangzhou": 0.0627,
+                    "Xiamen": 0.0231,
+                    "other": 0.0002,
+                    "total": 1.0211
+                }
+            },
+            "08-10 19时": {
+                "IND": {
+                    "Quanzhou": 16.4292,
+                    "Fuzhou": 13.2022,
+                    "Putian": 1.8955,
+                    "Zhangzhou": 1.7291,
+                    "Xiamen": 1.6574,
+                    "other": 0.0001,
+                    "total": 34.9135
+                },
+                "RES": {
+                    "Quanzhou": 2.4011,
+                    "Fuzhou": 1.5725,
+                    "Putian": 1.4284,
+                    "Zhangzhou": 0.5994,
+                    "Xiamen": 0.1568,
+                    "other": 0.0004,
+                    "total": 6.1586
+                },
+                "POW": {
+                    "Quanzhou": 0.6549,
+                    "Zhangzhou": 0.6202,
+                    "Xiamen": 0.1990,
+                    "Fuzhou": 0.1416,
+                    "Putian": 0.0206,
+                    "other": 0.0000,
+                    "total": 1.6363
+                },
+                "TRA": {
+                    "Fuzhou": 0.3969,
+                    "Quanzhou": 0.3675,
+                    "Putian": 0.1131,
+                    "Zhangzhou": 0.0795,
+                    "Xiamen": 0.0426,
+                    "other": 0.0001,
+                    "total": 0.9997
+                },
+                "TOT": {
+                    "Quanzhou": 19.8528,
+                    "Fuzhou": 15.3132,
+                    "Putian": 3.4576,
+                    "Zhangzhou": 3.0283,
+                    "Xiamen": 2.0559,
+                    "other": 0.0006,
+                    "total": 43.7084
+                }
+            },
+            "08-10 20时": {
+                "TOT": {
+                    "Fuzhou": 15.6639,
+                    "Quanzhou": 12.7115,
+                    "Zhangzhou": 5.1547,
+                    "Xiamen": 3.9303,
+                    "Putian": 3.5200,
+                    "other": 0.0009,
+                    "total": 40.9813
+                },
+                "IND": {
+                    "Fuzhou": 13.5105,
+                    "Quanzhou": 10.3769,
+                    "Xiamen": 3.1904,
+                    "Zhangzhou": 3.0659,
+                    "Putian": 1.8428,
+                    "other": 0.0004,
+                    "total": 31.9869
+                },
+                "RES": {
+                    "Quanzhou": 1.7746,
+                    "Fuzhou": 1.6014,
+                    "Putian": 1.5400,
+                    "Zhangzhou": 0.9343,
+                    "Xiamen": 0.3034,
+                    "other": 0.0004,
+                    "total": 6.1541
+                },
+                "POW": {
+                    "Zhangzhou": 1.0238,
+                    "Xiamen": 0.3535,
+                    "Quanzhou": 0.2991,
+                    "Fuzhou": 0.1459,
+                    "Putian": 0.0122,
+                    "other": 0.0000,
+                    "total": 1.8345
+                },
+                "TRA": {
+                    "Fuzhou": 0.4062,
+                    "Quanzhou": 0.2609,
+                    "Zhangzhou": 0.1307,
+                    "Putian": 0.1251,
+                    "Xiamen": 0.0830,
+                    "other": 0.0001,
+                    "total": 1.0060
+                }
+            },
+            "08-10 21时": {
+                "TOT": {
+                    "Fuzhou": 15.7695,
+                    "Quanzhou": 7.5825,
+                    "Zhangzhou": 5.4614,
+                    "Xiamen": 5.1010,
+                    "Putian": 3.2928,
+                    "other": 0.0037,
+                    "total": 37.2109
+                },
+                "IND": {
+                    "Fuzhou": 13.5891,
+                    "Quanzhou": 5.9023,
+                    "Xiamen": 4.1592,
+                    "Zhangzhou": 3.3306,
+                    "Putian": 1.7033,
+                    "other": 0.0015,
+                    "total": 28.6860
+                },
+                "RES": {
+                    "Fuzhou": 1.6257,
+                    "Putian": 1.4607,
+                    "Quanzhou": 1.3490,
+                    "Zhangzhou": 1.0548,
+                    "Xiamen": 0.3830,
+                    "other": 0.0018,
+                    "total": 5.8750
+                },
+                "POW": {
+                    "Zhangzhou": 0.9277,
+                    "Xiamen": 0.4493,
+                    "Quanzhou": 0.1499,
+                    "Fuzhou": 0.1458,
+                    "Putian": 0.0067,
+                    "other": 0.0000,
+                    "total": 1.6794
+                },
+                "TRA": {
+                    "Fuzhou": 0.4088,
+                    "Quanzhou": 0.1812,
+                    "Zhangzhou": 0.1483,
+                    "Putian": 0.1222,
+                    "Xiamen": 0.1095,
+                    "other": 0.0004,
+                    "total": 0.9704
+                }
+            },
+            "08-10 22时": {
+                "TOT": {
+                    "Fuzhou": 13.1599,
+                    "Zhangzhou": 6.3768,
+                    "Xiamen": 6.0153,
+                    "Quanzhou": 5.3053,
+                    "Putian": 3.0489,
+                    "other": 0.0036,
+                    "total": 33.9098
+                },
+                "IND": {
+                    "Fuzhou": 11.3136,
+                    "Xiamen": 4.9211,
+                    "Quanzhou": 3.9224,
+                    "Zhangzhou": 3.8892,
+                    "Putian": 1.5541,
+                    "other": 0.0014,
+                    "total": 25.6018
+                },
+                "RES": {
+                    "Fuzhou": 1.3836,
+                    "Putian": 1.3731,
+                    "Zhangzhou": 1.2068,
+                    "Quanzhou": 1.1493,
+                    "Xiamen": 0.4482,
+                    "other": 0.0018,
+                    "total": 5.5628
+                },
+                "POW": {
+                    "Zhangzhou": 1.1110,
+                    "Xiamen": 0.5161,
+                    "Fuzhou": 0.1208,
+                    "Quanzhou": 0.0901,
+                    "Putian": 0.0035,
+                    "other": 0.0000,
+                    "total": 1.8415
+                },
+                "TRA": {
+                    "Fuzhou": 0.3419,
+                    "Zhangzhou": 0.1698,
+                    "Quanzhou": 0.1435,
+                    "Xiamen": 0.1299,
+                    "Putian": 0.1182,
+                    "other": 0.0004,
+                    "total": 0.9037
+                }
+            },
+            "08-10 23时": {
+                "TOT": {
+                    "Fuzhou": 15.0483,
+                    "Zhangzhou": 6.9128,
+                    "Xiamen": 6.1856,
+                    "Quanzhou": 4.3528,
+                    "Putian": 2.1213,
+                    "other": 0.0048,
+                    "total": 34.6256
+                },
+                "IND": {
+                    "Fuzhou": 12.9709,
+                    "Xiamen": 5.1107,
+                    "Zhangzhou": 4.1813,
+                    "Quanzhou": 2.9210,
+                    "Putian": 1.0402,
+                    "other": 0.0019,
+                    "total": 26.2260
+                },
+                "RES": {
+                    "Zhangzhou": 1.5516,
+                    "Fuzhou": 1.5459,
+                    "Quanzhou": 1.1355,
+                    "Putian": 0.9839,
+                    "Xiamen": 0.4885,
+                    "other": 0.0024,
+                    "total": 5.7078
+                },
+                "POW": {
+                    "Zhangzhou": 0.9721,
+                    "Xiamen": 0.4440,
+                    "Quanzhou": 0.1552,
+                    "Fuzhou": 0.1396,
+                    "Putian": 0.0023,
+                    "other": 0.0000,
+                    "total": 1.7132
+                },
+                "TRA": {
+                    "Fuzhou": 0.3918,
+                    "Zhangzhou": 0.2078,
+                    "Xiamen": 0.1425,
+                    "Quanzhou": 0.1410,
+                    "Putian": 0.0949,
+                    "other": 0.0005,
+                    "total": 0.9785
+                }
+            },
+            "08-11 00时": {
+                "TOT": {
+                    "Fuzhou": 16.0317,
+                    "Zhangzhou": 5.8858,
+                    "Quanzhou": 4.2022,
+                    "Xiamen": 3.0877,
+                    "Putian": 1.3071,
+                    "other": 0.0025,
+                    "total": 30.5170
+                },
+                "IND": {
+                    "Fuzhou": 13.8312,
+                    "Zhangzhou": 3.5249,
+                    "Quanzhou": 2.6908,
+                    "Xiamen": 2.5188,
+                    "Putian": 0.6290,
+                    "other": 0.0008,
+                    "total": 23.1955
+                },
+                "RES": {
+                    "Fuzhou": 1.6324,
+                    "Zhangzhou": 1.5748,
+                    "Quanzhou": 0.9881,
+                    "Putian": 0.6026,
+                    "Xiamen": 0.2985,
+                    "other": 0.0015,
+                    "total": 5.0979
+                },
+                "POW": {
+                    "Zhangzhou": 0.5777,
+                    "Quanzhou": 0.3813,
+                    "Xiamen": 0.1921,
+                    "Fuzhou": 0.1495,
+                    "Putian": 0.0071,
+                    "other": 0.0000,
+                    "total": 1.3077
+                },
+                "TRA": {
+                    "Fuzhou": 0.4186,
+                    "Zhangzhou": 0.2084,
+                    "Quanzhou": 0.1420,
+                    "Xiamen": 0.0784,
+                    "Putian": 0.0684,
+                    "other": 0.0003,
+                    "total": 0.9161
+                }
+            },
+            "08-11 01时": {
+                "TOT": {
+                    "Fuzhou": 18.0844,
+                    "Zhangzhou": 5.7969,
+                    "Quanzhou": 3.9605,
+                    "Xiamen": 2.5569,
+                    "Putian": 1.9841,
+                    "other": 0.0054,
+                    "total": 32.3882
+                },
+                "IND": {
+                    "Fuzhou": 15.5593,
+                    "Zhangzhou": 3.3545,
+                    "Quanzhou": 2.5454,
+                    "Xiamen": 2.1016,
+                    "Putian": 0.9935,
+                    "other": 0.0026,
+                    "total": 24.5569
+                },
+                "RES": {
+                    "Fuzhou": 1.8906,
+                    "Zhangzhou": 1.5940,
+                    "Quanzhou": 0.9233,
+                    "Putian": 0.8975,
+                    "Xiamen": 0.2361,
+                    "other": 0.0019,
+                    "total": 5.5434
+                },
+                "POW": {
+                    "Zhangzhou": 0.6422,
+                    "Quanzhou": 0.3596,
+                    "Fuzhou": 0.1649,
+                    "Xiamen": 0.1547,
+                    "Putian": 0.0043,
+                    "other": 0.0005,
+                    "total": 1.3262
+                },
+                "TRA": {
+                    "Fuzhou": 0.4697,
+                    "Zhangzhou": 0.2062,
+                    "Quanzhou": 0.1321,
+                    "Putian": 0.0889,
+                    "Xiamen": 0.0644,
+                    "other": 0.0004,
+                    "total": 0.9617
+                }
+            },
+            "08-11 02时": {
+                "TOT": {
+                    "Fuzhou": 17.8854,
+                    "Quanzhou": 15.8748,
+                    "Zhangzhou": 7.3134,
+                    "Putian": 6.9715,
+                    "Xiamen": 5.7348,
+                    "other": 0.0032,
+                    "total": 53.7831
+                },
+                "IND": {
+                    "Fuzhou": 15.2174,
+                    "Quanzhou": 12.5419,
+                    "Xiamen": 4.6476,
+                    "Zhangzhou": 4.5008,
+                    "Putian": 4.1472,
+                    "other": 0.0016,
+                    "total": 41.0565
+                },
+                "RES": {
+                    "Putian": 2.5960,
+                    "Quanzhou": 2.3334,
+                    "Fuzhou": 2.0480,
+                    "Zhangzhou": 1.2355,
+                    "Xiamen": 0.4360,
+                    "other": 0.0012,
+                    "total": 8.6501
+                },
+                "POW": {
+                    "Zhangzhou": 1.3966,
+                    "Quanzhou": 0.6644,
+                    "Xiamen": 0.5282,
+                    "Fuzhou": 0.1526,
+                    "Putian": 0.0238,
+                    "other": 0.0001,
+                    "total": 2.7657
+                },
+                "TRA": {
+                    "Fuzhou": 0.4674,
+                    "Quanzhou": 0.3351,
+                    "Putian": 0.2046,
+                    "Zhangzhou": 0.1806,
+                    "Xiamen": 0.1230,
+                    "other": 0.0002,
+                    "total": 1.3109
+                }
+            },
+            "08-11 03时": {
+                "TOT": {
+                    "Quanzhou": 33.5260,
+                    "Fuzhou": 16.5533,
+                    "Putian": 7.2924,
+                    "Zhangzhou": 6.9520,
+                    "Xiamen": 4.6314,
+                    "other": 0.0174,
+                    "total": 68.9725
+                },
+                "IND": {
+                    "Quanzhou": 27.5569,
+                    "Fuzhou": 14.1337,
+                    "Putian": 4.6694,
+                    "Zhangzhou": 4.1886,
+                    "Xiamen": 3.6801,
+                    "other": 0.0094,
+                    "total": 54.2381
+                },
+                "RES": {
+                    "Quanzhou": 3.9690,
+                    "Putian": 2.4180,
+                    "Fuzhou": 1.8419,
+                    "Zhangzhou": 1.0761,
+                    "Xiamen": 0.3260,
+                    "other": 0.0048,
+                    "total": 9.6358
+                },
+                "POW": {
+                    "Zhangzhou": 1.5264,
+                    "Quanzhou": 1.3883,
+                    "Xiamen": 0.5337,
+                    "Fuzhou": 0.1455,
+                    "Putian": 0.0164,
+                    "other": 0.0022,
+                    "total": 3.6125
+                },
+                "TRA": {
+                    "Quanzhou": 0.6118,
+                    "Fuzhou": 0.4322,
+                    "Putian": 0.1886,
+                    "Zhangzhou": 0.1609,
+                    "Xiamen": 0.0916,
+                    "other": 0.0010,
+                    "total": 1.4861
+                }
+            },
+            "08-11 04时": {
+                "TOT": {
+                    "Quanzhou": 32.1391,
+                    "Fuzhou": 17.5275,
+                    "Zhangzhou": 8.5080,
+                    "Putian": 6.5189,
+                    "Xiamen": 4.1827,
+                    "other": 0.0301,
+                    "total": 68.9063
+                },
+                "IND": {
+                    "Quanzhou": 26.4510,
+                    "Fuzhou": 15.0399,
+                    "Zhangzhou": 5.0346,
+                    "Putian": 3.8381,
+                    "Xiamen": 3.3196,
+                    "other": 0.0176,
+                    "total": 53.7008
+                },
+                "RES": {
+                    "Quanzhou": 3.7866,
+                    "Putian": 2.4651,
+                    "Fuzhou": 1.8742,
+                    "Zhangzhou": 1.4429,
+                    "Xiamen": 0.2947,
+                    "other": 0.0070,
+                    "total": 9.8705
+                },
+                "POW": {
+                    "Zhangzhou": 1.8243,
+                    "Quanzhou": 1.3154,
+                    "Xiamen": 0.4859,
+                    "Fuzhou": 0.1578,
+                    "Putian": 0.0260,
+                    "other": 0.0037,
+                    "total": 3.8131
+                },
+                "TRA": {
+                    "Quanzhou": 0.5860,
+                    "Fuzhou": 0.4555,
+                    "Zhangzhou": 0.2062,
+                    "Putian": 0.1898,
+                    "Xiamen": 0.0825,
+                    "other": 0.0017,
+                    "total": 1.5217
+                }
+            },
+            "08-11 05时": {
+                "TOT": {
+                    "Quanzhou": 19.3627,
+                    "Fuzhou": 17.5868,
+                    "Zhangzhou": 8.7015,
+                    "Xiamen": 5.7280,
+                    "Putian": 4.3967,
+                    "other": 0.1454,
+                    "total": 55.9211
+                },
+                "IND": {
+                    "Quanzhou": 15.8237,
+                    "Fuzhou": 15.2194,
+                    "Zhangzhou": 5.1026,
+                    "Xiamen": 4.6203,
+                    "Putian": 2.3621,
+                    "other": 0.0899,
+                    "total": 43.2180
+                },
+                "RES": {
+                    "Quanzhou": 2.5343,
+                    "Putian": 1.8621,
+                    "Fuzhou": 1.7474,
+                    "Zhangzhou": 1.7349,
+                    "Xiamen": 0.4030,
+                    "other": 0.0221,
+                    "total": 8.3038
+                },
+                "POW": {
+                    "Zhangzhou": 1.6270,
+                    "Quanzhou": 0.6221,
+                    "Xiamen": 0.5873,
+                    "Fuzhou": 0.1650,
+                    "Longyan": 0.0276,
+                    "other": 0.0235,
+                    "total": 3.0525
+                },
+                "TRA": {
+                    "Fuzhou": 0.4549,
+                    "Quanzhou": 0.3827,
+                    "Zhangzhou": 0.2370,
+                    "Putian": 0.1489,
+                    "Xiamen": 0.1174,
+                    "other": 0.0058,
+                    "total": 1.3467
+                }
+            },
+            "08-11 06时": {
+                "TOT": {
+                    "Fuzhou": 17.4094,
+                    "Quanzhou": 8.0777,
+                    "Zhangzhou": 5.9186,
+                    "Xiamen": 5.5688,
+                    "Putian": 3.2989,
+                    "other": 0.2754,
+                    "total": 40.5488
+                },
+                "IND": {
+                    "Fuzhou": 15.0576,
+                    "Quanzhou": 6.2031,
+                    "Xiamen": 4.5523,
+                    "Zhangzhou": 3.4870,
+                    "Putian": 1.6870,
+                    "other": 0.1732,
+                    "total": 31.1602
+                },
+                "RES": {
+                    "Fuzhou": 1.7370,
+                    "Quanzhou": 1.4807,
+                    "Putian": 1.4749,
+                    "Zhangzhou": 1.3845,
+                    "Xiamen": 0.4170,
+                    "other": 0.0397,
+                    "total": 6.5338
+                },
+                "POW": {
+                    "Zhangzhou": 0.8576,
+                    "Xiamen": 0.4780,
+                    "Quanzhou": 0.1921,
+                    "Fuzhou": 0.1636,
+                    "Longyan": 0.0532,
+                    "other": 0.0089,
+                    "total": 1.7534
+                },
+                "TRA": {
+                    "Fuzhou": 0.4512,
+                    "Quanzhou": 0.2019,
+                    "Zhangzhou": 0.1894,
+                    "Putian": 0.1281,
+                    "Xiamen": 0.1215,
+                    "other": 0.0093,
+                    "total": 1.1014
+                }
+            },
+            "08-11 07时": {
+                "TOT": {
+                    "Fuzhou": 18.7395,
+                    "Quanzhou": 5.5426,
+                    "Zhangzhou": 4.5384,
+                    "Xiamen": 3.9158,
+                    "Putian": 2.5606,
+                    "other": 0.3887,
+                    "total": 35.6856
+                },
+                "IND": {
+                    "Fuzhou": 16.1762,
+                    "Quanzhou": 3.9191,
+                    "Xiamen": 3.2111,
+                    "Zhangzhou": 2.7701,
+                    "Putian": 1.2875,
+                    "other": 0.2358,
+                    "total": 27.5998
+                },
+                "RES": {
+                    "Fuzhou": 1.9019,
+                    "Quanzhou": 1.2442,
+                    "Putian": 1.1598,
+                    "Zhangzhou": 1.0940,
+                    "Xiamen": 0.3312,
+                    "other": 0.0694,
+                    "total": 5.8005
+                },
+                "POW": {
+                    "Zhangzhou": 0.5175,
+                    "Xiamen": 0.2820,
+                    "Quanzhou": 0.2132,
+                    "Fuzhou": 0.1744,
+                    "Longyan": 0.0681,
+                    "other": 0.0052,
+                    "total": 1.2604
+                },
+                "TRA": {
+                    "Fuzhou": 0.4869,
+                    "Quanzhou": 0.1662,
+                    "Zhangzhou": 0.1568,
+                    "Putian": 0.1081,
+                    "Xiamen": 0.0916,
+                    "other": 0.0154,
+                    "total": 1.0250
+                }
+            },
+            "08-11 08时": {
+                "TOT": {
+                    "Fuzhou": 19.7883,
+                    "Quanzhou": 4.8985,
+                    "Zhangzhou": 3.3951,
+                    "Xiamen": 2.4342,
+                    "Putian": 1.9110,
+                    "other": 0.5569,
+                    "total": 32.9840
+                },
+                "IND": {
+                    "Fuzhou": 17.0913,
+                    "Quanzhou": 3.3592,
+                    "Zhangzhou": 2.0956,
+                    "Xiamen": 2.0047,
+                    "Putian": 0.9591,
+                    "other": 0.3465,
+                    "total": 25.8564
+                },
+                "RES": {
+                    "Fuzhou": 1.9970,
+                    "Quanzhou": 1.0820,
+                    "Putian": 0.8627,
+                    "Zhangzhou": 0.8363,
+                    "Xiamen": 0.2059,
+                    "other": 0.0890,
+                    "total": 5.0729
+                },
+                "POW": {
+                    "Zhangzhou": 0.3364,
+                    "Quanzhou": 0.2985,
+                    "Fuzhou": 0.1839,
+                    "Xiamen": 0.1659,
+                    "Longyan": 0.1004,
+                    "other": 0.0050,
+                    "total": 1.0901
+                },
+                "TRA": {
+                    "Fuzhou": 0.5161,
+                    "Quanzhou": 0.1587,
+                    "Zhangzhou": 0.1268,
+                    "Putian": 0.0842,
+                    "Xiamen": 0.0577,
+                    "other": 0.0211,
+                    "total": 0.9646
+                }
+            },
+            "08-11 09时": {
+                "TOT": {
+                    "Fuzhou": 13.9185,
+                    "Quanzhou": 4.3216,
+                    "Zhangzhou": 2.4647,
+                    "Putian": 1.5704,
+                    "Xiamen": 1.3115,
+                    "other": 0.4930,
+                    "total": 24.0797
+                },
+                "IND": {
+                    "Fuzhou": 11.9877,
+                    "Quanzhou": 2.9160,
+                    "Zhangzhou": 1.5292,
+                    "Xiamen": 1.0832,
+                    "Putian": 0.7925,
+                    "other": 0.2912,
+                    "total": 18.5998
+                },
+                "RES": {
+                    "Fuzhou": 1.4378,
+                    "Quanzhou": 0.9599,
+                    "Putian": 0.7031,
+                    "Zhangzhou": 0.6479,
+                    "Xiamen": 0.1249,
+                    "other": 0.1004,
+                    "total": 3.9740
+                },
+                "POW": {
+                    "Quanzhou": 0.2969,
+                    "Zhangzhou": 0.1872,
+                    "Fuzhou": 0.1278,
+                    "Longyan": 0.0779,
+                    "Xiamen": 0.0704,
+                    "other": 0.0044,
+                    "total": 0.7646
+                },
+                "TRA": {
+                    "Fuzhou": 0.3652,
+                    "Quanzhou": 0.1487,
+                    "Zhangzhou": 0.1003,
+                    "Putian": 0.0704,
+                    "Xiamen": 0.0330,
+                    "other": 0.0235,
+                    "total": 0.7411
+                }
+            },
+            "08-11 10时": {
+                "TOT": {
+                    "Fuzhou": 14.5414,
+                    "Quanzhou": 4.4081,
+                    "Zhangzhou": 2.2654,
+                    "Putian": 1.0422,
+                    "Xiamen": 0.8050,
+                    "other": 0.7213,
+                    "total": 23.7834
+                },
+                "IND": {
+                    "Fuzhou": 12.5860,
+                    "Quanzhou": 2.9268,
+                    "Zhangzhou": 1.4127,
+                    "Xiamen": 0.6677,
+                    "Putian": 0.5198,
+                    "other": 0.4404,
+                    "total": 18.5534
+                },
+                "RES": {
+                    "Fuzhou": 1.4388,
+                    "Quanzhou": 0.9754,
+                    "Zhangzhou": 0.6057,
+                    "Putian": 0.4680,
+                    "Longyan": 0.1229,
+                    "other": 0.0747,
+                    "total": 3.6855
+                },
+                "POW": {
+                    "Quanzhou": 0.3413,
+                    "Zhangzhou": 0.1497,
+                    "Fuzhou": 0.1367,
+                    "Longyan": 0.1224,
+                    "Xiamen": 0.0480,
+                    "other": 0.0064,
+                    "total": 0.8045
+                },
+                "TRA": {
+                    "Fuzhou": 0.3800,
+                    "Quanzhou": 0.1646,
+                    "Zhangzhou": 0.0973,
+                    "Putian": 0.0480,
+                    "Longyan": 0.0292,
+                    "other": 0.0209,
+                    "total": 0.7400
+                }
+            },
+            "08-11 11时": {
+                "TOT": {
+                    "Fuzhou": 15.7479,
+                    "Quanzhou": 2.6494,
+                    "Zhangzhou": 1.3497,
+                    "Longyan": 0.8206,
+                    "Putian": 0.4124,
+                    "other": 0.3416,
+                    "total": 21.3216
+                },
+                "IND": {
+                    "Fuzhou": 13.6718,
+                    "Quanzhou": 1.6240,
+                    "Zhangzhou": 0.8386,
+                    "Longyan": 0.5016,
+                    "Xiamen": 0.2427,
+                    "other": 0.2240,
+                    "total": 17.1027
+                },
+                "RES": {
+                    "Fuzhou": 1.5122,
+                    "Quanzhou": 0.6602,
+                    "Zhangzhou": 0.3935,
+                    "Putian": 0.1856,
+                    "Longyan": 0.1520,
+                    "other": 0.0447,
+                    "total": 2.9482
+                },
+                "POW": {
+                    "Quanzhou": 0.2471,
+                    "Fuzhou": 0.1495,
+                    "Longyan": 0.1284,
+                    "Zhangzhou": 0.0510,
+                    "Xiamen": 0.0185,
+                    "other": 0.0039,
+                    "total": 0.5984
+                },
+                "TRA": {
+                    "Fuzhou": 0.4144,
+                    "Quanzhou": 0.1181,
+                    "Zhangzhou": 0.0666,
+                    "Longyan": 0.0385,
+                    "Putian": 0.0229,
+                    "other": 0.0117,
+                    "total": 0.6722
+                }
+            },
+            "08-11 12时": {
+                "TOT": {
+                    "Fuzhou": 12.3096,
+                    "Quanzhou": 1.6209,
+                    "Zhangzhou": 0.9489,
+                    "Longyan": 0.6719,
+                    "Putian": 0.2474,
+                    "other": 0.1962,
+                    "total": 15.9949
+                },
+                "IND": {
+                    "Fuzhou": 10.6527,
+                    "Quanzhou": 0.9657,
+                    "Zhangzhou": 0.5765,
+                    "Longyan": 0.4124,
+                    "Xiamen": 0.1268,
+                    "other": 0.1433,
+                    "total": 12.8774
+                },
+                "RES": {
+                    "Fuzhou": 1.2116,
+                    "Quanzhou": 0.4255,
+                    "Zhangzhou": 0.2912,
+                    "Longyan": 0.1206,
+                    "Putian": 0.1121,
+                    "other": 0.0301,
+                    "total": 2.1911
+                },
+                "POW": {
+                    "Quanzhou": 0.1522,
+                    "Fuzhou": 0.1150,
+                    "Longyan": 0.1060,
+                    "Zhangzhou": 0.0308,
+                    "Xiamen": 0.0059,
+                    "other": 0.0031,
+                    "total": 0.4130
+                },
+                "TRA": {
+                    "Fuzhou": 0.3303,
+                    "Quanzhou": 0.0775,
+                    "Zhangzhou": 0.0504,
+                    "Longyan": 0.0329,
+                    "Putian": 0.0143,
+                    "other": 0.0078,
+                    "total": 0.5132
+                }
+            },
+            "08-11 13时": {
+                "TOT": {
+                    "Fuzhou": 7.7312,
+                    "Quanzhou": 1.3204,
+                    "Zhangzhou": 0.8571,
+                    "Longyan": 0.7916,
+                    "Putian": 0.2272,
+                    "other": 0.1341,
+                    "total": 11.0616
+                },
+                "IND": {
+                    "Fuzhou": 6.6183,
+                    "Quanzhou": 0.8371,
+                    "Zhangzhou": 0.5347,
+                    "Longyan": 0.4953,
+                    "Putian": 0.1101,
+                    "other": 0.0985,
+                    "total": 8.6940
+                },
+                "RES": {
+                    "Fuzhou": 0.8296,
+                    "Quanzhou": 0.3208,
+                    "Zhangzhou": 0.2465,
+                    "Longyan": 0.1359,
+                    "Putian": 0.1016,
+                    "other": 0.0223,
+                    "total": 1.6567
+                },
+                "POW": {
+                    "Longyan": 0.1236,
+                    "Quanzhou": 0.1028,
+                    "Fuzhou": 0.0694,
+                    "Zhangzhou": 0.0334,
+                    "Xiamen": 0.0062,
+                    "other": 0.0039,
+                    "total": 0.3393
+                },
+                "TRA": {
+                    "Fuzhou": 0.2139,
+                    "Quanzhou": 0.0597,
+                    "Zhangzhou": 0.0425,
+                    "Longyan": 0.0369,
+                    "Putian": 0.0129,
+                    "other": 0.0058,
+                    "total": 0.3717
+                }
+            },
+            "08-11 14时": {
+                "TOT": {
+                    "Fuzhou": 7.9431,
+                    "Quanzhou": 1.2080,
+                    "Zhangzhou": 0.7922,
+                    "Longyan": 0.6554,
+                    "Putian": 0.2772,
+                    "other": 0.1969,
+                    "total": 11.0728
+                },
+                "IND": {
+                    "Fuzhou": 6.8300,
+                    "Quanzhou": 0.7384,
+                    "Zhangzhou": 0.4735,
+                    "Longyan": 0.4021,
+                    "Putian": 0.1392,
+                    "other": 0.1505,
+                    "total": 8.7337
+                },
+                "RES": {
+                    "Fuzhou": 0.8235,
+                    "Quanzhou": 0.3069,
+                    "Zhangzhou": 0.2231,
+                    "Longyan": 0.1283,
+                    "Putian": 0.1215,
+                    "other": 0.0259,
+                    "total": 1.6292
+                },
+                "POW": {
+                    "Quanzhou": 0.1060,
+                    "Longyan": 0.0934,
+                    "Fuzhou": 0.0729,
+                    "Zhangzhou": 0.0598,
+                    "Xiamen": 0.0117,
+                    "other": 0.0047,
+                    "total": 0.3485
+                },
+                "TRA": {
+                    "Fuzhou": 0.2168,
+                    "Quanzhou": 0.0567,
+                    "Zhangzhou": 0.0357,
+                    "Longyan": 0.0316,
+                    "Putian": 0.0141,
+                    "other": 0.0066,
+                    "total": 0.3615
+                }
+            },
+            "08-11 15时": {
+                "TOT": {
+                    "Fuzhou": 13.4403,
+                    "Quanzhou": 2.4962,
+                    "Putian": 1.0192,
+                    "Zhangzhou": 0.8901,
+                    "Longyan": 0.5297,
+                    "other": 0.4110,
+                    "total": 18.7865
+                },
+                "IND": {
+                    "Fuzhou": 11.6228,
+                    "Quanzhou": 1.7576,
+                    "Putian": 0.6003,
+                    "Zhangzhou": 0.5186,
+                    "Longyan": 0.3291,
+                    "other": 0.3181,
+                    "total": 15.1465
+                },
+                "RES": {
+                    "Fuzhou": 1.3393,
+                    "Quanzhou": 0.4733,
+                    "Putian": 0.3796,
+                    "Zhangzhou": 0.2315,
+                    "Longyan": 0.0933,
+                    "other": 0.0396,
+                    "total": 2.5566
+                },
+                "POW": {
+                    "Quanzhou": 0.1879,
+                    "Fuzhou": 0.1246,
+                    "Zhangzhou": 0.1043,
+                    "Longyan": 0.0839,
+                    "Xiamen": 0.0425,
+                    "other": 0.0042,
+                    "total": 0.5474
+                },
+                "TRA": {
+                    "Fuzhou": 0.3537,
+                    "Quanzhou": 0.0774,
+                    "Zhangzhou": 0.0357,
+                    "Putian": 0.0357,
+                    "Longyan": 0.0235,
+                    "other": 0.0103,
+                    "total": 0.5363
+                }
+            },
+            "08-11 16时": {
+                "TOT": {
+                    "Fuzhou": 16.8486,
+                    "Quanzhou": 9.2828,
+                    "Putian": 3.4551,
+                    "Zhangzhou": 2.2760,
+                    "Xiamen": 1.5271,
+                    "other": 0.2825,
+                    "total": 33.6721
+                },
+                "IND": {
+                    "Fuzhou": 14.5251,
+                    "Quanzhou": 7.3237,
+                    "Putian": 2.1423,
+                    "Zhangzhou": 1.3948,
+                    "Xiamen": 1.2239,
+                    "other": 0.1686,
+                    "total": 26.7784
+                },
+                "RES": {
+                    "Fuzhou": 1.7321,
+                    "Quanzhou": 1.2887,
+                    "Putian": 1.2012,
+                    "Zhangzhou": 0.4364,
+                    "Xiamen": 0.1162,
+                    "other": 0.0586,
+                    "total": 4.8332
+                },
+                "POW": {
+                    "Quanzhou": 0.4764,
+                    "Zhangzhou": 0.3786,
+                    "Xiamen": 0.1551,
+                    "Fuzhou": 0.1535,
+                    "Longyan": 0.0411,
+                    "other": 0.0122,
+                    "total": 1.2169
+                },
+                "TRA": {
+                    "Fuzhou": 0.4380,
+                    "Quanzhou": 0.1941,
+                    "Putian": 0.0997,
+                    "Zhangzhou": 0.0662,
+                    "Xiamen": 0.0320,
+                    "other": 0.0143,
+                    "total": 0.8443
+                }
+            },
+            "08-11 17时": {
+                "TOT": {
+                    "Fuzhou": 18.7654,
+                    "Quanzhou": 16.7261,
+                    "Putian": 4.8123,
+                    "Zhangzhou": 3.7132,
+                    "Xiamen": 2.2752,
+                    "other": 0.0740,
+                    "total": 46.3662
+                },
+                "IND": {
+                    "Fuzhou": 16.1878,
+                    "Quanzhou": 13.5139,
+                    "Putian": 2.9498,
+                    "Zhangzhou": 2.2326,
+                    "Xiamen": 1.8553,
+                    "other": 0.0440,
+                    "total": 36.7834
+                },
+                "RES": {
+                    "Quanzhou": 2.1438,
+                    "Fuzhou": 1.9202,
+                    "Putian": 1.7126,
+                    "Zhangzhou": 0.7257,
+                    "Xiamen": 0.1761,
+                    "other": 0.0147,
+                    "total": 6.6931
+                },
+                "POW": {
+                    "Quanzhou": 0.7520,
+                    "Zhangzhou": 0.6519,
+                    "Xiamen": 0.1946,
+                    "Fuzhou": 0.1712,
+                    "Putian": 0.0125,
+                    "other": 0.0120,
+                    "total": 1.7942
+                },
+                "TRA": {
+                    "Fuzhou": 0.4863,
+                    "Quanzhou": 0.3165,
+                    "Putian": 0.1373,
+                    "Zhangzhou": 0.1030,
+                    "Xiamen": 0.0491,
+                    "other": 0.0034,
+                    "total": 1.0956
+                }
+            },
+            "08-11 18时": {
+                "TOT": {
+                    "Fuzhou": 19.7807,
+                    "Quanzhou": 18.9737,
+                    "Putian": 4.3603,
+                    "Zhangzhou": 3.7623,
+                    "Xiamen": 2.7326,
+                    "other": 0.0238,
+                    "total": 49.6334
+                },
+                "IND": {
+                    "Fuzhou": 17.0559,
+                    "Quanzhou": 15.4756,
+                    "Putian": 2.5733,
+                    "Zhangzhou": 2.2173,
+                    "Xiamen": 2.2130,
+                    "other": 0.0134,
+                    "total": 39.5485
+                },
+                "RES": {
+                    "Quanzhou": 2.4008,
+                    "Fuzhou": 2.0315,
+                    "Putian": 1.6390,
+                    "Zhangzhou": 0.7568,
+                    "Xiamen": 0.2073,
+                    "other": 0.0062,
+                    "total": 7.0416
+                },
+                "POW": {
+                    "Quanzhou": 0.7377,
+                    "Zhangzhou": 0.6823,
+                    "Xiamen": 0.2545,
+                    "Fuzhou": 0.1809,
+                    "Putian": 0.0172,
+                    "other": 0.0028,
+                    "total": 1.8754
+                },
+                "TRA": {
+                    "Fuzhou": 0.5125,
+                    "Quanzhou": 0.3597,
+                    "Putian": 0.1308,
+                    "Zhangzhou": 0.1060,
+                    "Xiamen": 0.0577,
+                    "other": 0.0014,
+                    "total": 1.1681
+                }
+            },
+            "08-11 19时": {
+                "TOT": {
+                    "Quanzhou": 23.0955,
+                    "Fuzhou": 20.7000,
+                    "Putian": 5.4079,
+                    "Zhangzhou": 4.0507,
+                    "Xiamen": 2.7187,
+                    "other": 0.0072,
+                    "total": 55.9800
+                },
+                "IND": {
+                    "Quanzhou": 18.9512,
+                    "Fuzhou": 17.7090,
+                    "Putian": 3.1938,
+                    "Zhangzhou": 2.3345,
+                    "Xiamen": 2.2205,
+                    "other": 0.0036,
+                    "total": 44.4126
+                },
+                "RES": {
+                    "Quanzhou": 2.8318,
+                    "Fuzhou": 2.2699,
+                    "Putian": 2.0329,
+                    "Zhangzhou": 0.8306,
+                    "Xiamen": 0.2091,
+                    "other": 0.0024,
+                    "total": 8.1767
+                },
+                "POW": {
+                    "Quanzhou": 0.8836,
+                    "Zhangzhou": 0.7730,
+                    "Xiamen": 0.2309,
+                    "Fuzhou": 0.1826,
+                    "Putian": 0.0202,
+                    "other": 0.0008,
+                    "total": 2.0911
+                },
+                "TRA": {
+                    "Fuzhou": 0.5386,
+                    "Quanzhou": 0.4290,
+                    "Putian": 0.1610,
+                    "Zhangzhou": 0.1126,
+                    "Xiamen": 0.0582,
+                    "other": 0.0005,
+                    "total": 1.2999
+                }
+            },
+            "08-11 20时": {
+                "TOT": {
+                    "Quanzhou": 31.3837,
+                    "Fuzhou": 18.1027,
+                    "Putian": 6.1851,
+                    "Zhangzhou": 4.4711,
+                    "Xiamen": 2.5213,
+                    "other": 0.0002,
+                    "total": 62.6641
+                },
+                "IND": {
+                    "Quanzhou": 26.0044,
+                    "Fuzhou": 15.4802,
+                    "Putian": 3.5271,
+                    "Zhangzhou": 2.5614,
+                    "Xiamen": 2.0387,
+                    "other": 0.0001,
+                    "total": 49.6119
+                },
+                "RES": {
+                    "Quanzhou": 3.7094,
+                    "Putian": 2.4380,
+                    "Fuzhou": 1.9914,
+                    "Zhangzhou": 0.8527,
+                    "Xiamen": 0.1929,
+                    "other": 0.0001,
+                    "total": 9.1845
+                },
+                "POW": {
+                    "Quanzhou": 1.0964,
+                    "Zhangzhou": 0.9427,
+                    "Xiamen": 0.2373,
+                    "Fuzhou": 0.1600,
+                    "Putian": 0.0306,
+                    "other": 0.0000,
+                    "total": 2.4670
+                },
+                "TRA": {
+                    "Quanzhou": 0.5735,
+                    "Fuzhou": 0.4710,
+                    "Putian": 0.1893,
+                    "Zhangzhou": 0.1144,
+                    "Xiamen": 0.0524,
+                    "other": 0.0000,
+                    "total": 1.4006
+                }
+            },
+            "08-11 21时": {
+                "TOT": {
+                    "Quanzhou": 28.7321,
+                    "Fuzhou": 17.1231,
+                    "Putian": 5.5885,
+                    "Zhangzhou": 5.0126,
+                    "Xiamen": 3.1029,
+                    "other": 0.0002,
+                    "total": 59.5594
+                },
+                "IND": {
+                    "Quanzhou": 23.7645,
+                    "Fuzhou": 14.7305,
+                    "Putian": 3.0690,
+                    "Zhangzhou": 2.8264,
+                    "Xiamen": 2.4886,
+                    "other": 0.0000,
+                    "total": 46.8790
+                },
+                "RES": {
+                    "Quanzhou": 3.4838,
+                    "Putian": 2.3067,
+                    "Fuzhou": 1.7930,
+                    "Zhangzhou": 0.9668,
+                    "Xiamen": 0.2493,
+                    "other": 0.0001,
+                    "total": 8.7997
+                },
+                "POW": {
+                    "Zhangzhou": 1.0918,
+                    "Quanzhou": 0.9465,
+                    "Xiamen": 0.3008,
+                    "Fuzhou": 0.1555,
+                    "Putian": 0.0348,
+                    "other": 0.0000,
+                    "total": 2.5294
+                },
+                "TRA": {
+                    "Quanzhou": 0.5373,
+                    "Fuzhou": 0.4440,
+                    "Putian": 0.1779,
+                    "Zhangzhou": 0.1276,
+                    "Xiamen": 0.0641,
+                    "other": 0.0000,
+                    "total": 1.3509
+                }
+            },
+            "08-11 22时": {
+                "TOT": {
+                    "Quanzhou": 21.7163,
+                    "Fuzhou": 16.5043,
+                    "Zhangzhou": 6.7872,
+                    "Xiamen": 5.6872,
+                    "Putian": 5.3441,
+                    "other": 0.0000,
+                    "total": 56.0391
+                },
+                "IND": {
+                    "Quanzhou": 17.7980,
+                    "Fuzhou": 14.1939,
+                    "Xiamen": 4.5356,
+                    "Zhangzhou": 3.9789,
+                    "Putian": 2.8697,
+                    "other": 0.0000,
+                    "total": 43.3761
+                },
+                "RES": {
+                    "Quanzhou": 2.8488,
+                    "Putian": 2.2626,
+                    "Fuzhou": 1.7323,
+                    "Zhangzhou": 1.2084,
+                    "Xiamen": 0.4347,
+                    "other": 0.0000,
+                    "total": 8.4868
+                },
+                "POW": {
+                    "Zhangzhou": 1.4335,
+                    "Quanzhou": 0.6402,
+                    "Xiamen": 0.6015,
+                    "Fuzhou": 0.1500,
+                    "Putian": 0.0338,
+                    "other": 0.0000,
+                    "total": 2.8590
+                },
+                "TRA": {
+                    "Quanzhou": 0.4293,
+                    "Fuzhou": 0.4280,
+                    "Putian": 0.1781,
+                    "Zhangzhou": 0.1663,
+                    "Xiamen": 0.1153,
+                    "other": 0.0000,
+                    "total": 1.3170
+                }
+            },
+            "08-11 23时": {
+                "TOT": {
+                    "Fuzhou": 17.0449,
+                    "Quanzhou": 16.0567,
+                    "Zhangzhou": 8.6060,
+                    "Xiamen": 7.8822,
+                    "Putian": 5.9013,
+                    "other": 0.0000,
+                    "total": 55.4911
+                },
+                "IND": {
+                    "Fuzhou": 14.6296,
+                    "Quanzhou": 12.9270,
+                    "Xiamen": 6.3421,
+                    "Zhangzhou": 5.1453,
+                    "Putian": 3.1547,
+                    "other": 0.0000,
+                    "total": 42.1987
+                },
+                "RES": {
+                    "Putian": 2.5207,
+                    "Quanzhou": 2.3580,
+                    "Fuzhou": 1.8199,
+                    "Zhangzhou": 1.3278,
+                    "Xiamen": 0.5654,
+                    "other": 0.0000,
+                    "total": 8.5918
+                },
+                "POW": {
+                    "Zhangzhou": 1.9406,
+                    "Xiamen": 0.8146,
+                    "Quanzhou": 0.4307,
+                    "Fuzhou": 0.1530,
+                    "Putian": 0.0271,
+                    "other": 0.0000,
+                    "total": 3.3660
+                },
+                "TRA": {
+                    "Fuzhou": 0.4424,
+                    "Quanzhou": 0.3410,
+                    "Putian": 0.1988,
+                    "Zhangzhou": 0.1923,
+                    "Xiamen": 0.1601,
+                    "other": 0.0000,
+                    "total": 1.3346
+                }
+            }
+        };
+
         var geoCoordMap = {
             '上海': [121.4648, 31.2891],
             '东莞': [113.8953, 22.901],
