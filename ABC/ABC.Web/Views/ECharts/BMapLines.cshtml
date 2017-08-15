@@ -218,157 +218,224 @@
             });
         });
 
+        //series.push({
+        //    name: '访问来源',
+        //    type: 'pie',
+        //    radius: '20%',
+        //    center: ['75%', '25%'],
+        //    data: [
+        //        { value: 335, name: '直接访问' },
+        //        { value: 310, name: '邮件营销' },
+        //        { value: 234, name: '联盟广告' },
+        //        { value: 135, name: '视频广告' },
+        //        { value: 1548, name: '搜索引擎' }
+        //    ],
+        //    itemStyle: {
+        //        emphasis: {
+        //            shadowBlur: 10,
+        //            shadowOffsetX: 0,
+        //            shadowColor: 'rgba(0, 0, 0, 0.5)'
+        //        }
+        //    }
+        //});
+
+        series.push({
+            name: '蒸发量',
+            type: 'bar',
+            data: [2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3]
+        });
+
+        series.push({
+            name: '降水量',
+            type: 'bar',
+            data: [2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3]
+        });
+
         var option = {
             tooltip: {},
-            visualMap: {
+            visualMap: [{
                 min: 0,
                 max: 100,
                 calculable: true,
                 inRange: {
-                    color: ['#ff3333', 'orange', 'yellow', 'lime', 'aqua']
+                    color: ['#FF0000', '#FFFF00', '#00FF00', '#00FFFF', '#0000FF', '#FF00FF', '#FF0000']
                 },
                 textStyle: {
                     color: '#fff'
-                }
+                },
+                seriesIndex: [0, 1]
+            }, {
+                min: 0,
+                max: 200,
+                calculable: true,
+                inRange: {
+                    color: ['#FF0000', '#FFFF00', '#00FF00', '#00FFFF', '#0000FF', '#FF00FF', '#FF0000']
+                },
+                textStyle: {
+                    color: '#fff'
+                },
+                seriesIndex: [2, 3],
+                top: 'top',
+                right: 'right'
+            }],
+            grid: {
+                left: '70%',
+                right: '5%',
+                bottom: '70%',
+                top: '5%'
             },
+            xAxis: [{
+                type: 'category',
+                data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+                axisLabel: {
+                    textStyle: {
+                        color: '#FFFFFF'
+                    }
+                }
+            }],
+            yAxis: [{
+                type: 'value',
+                axisLabel: {
+                    textStyle: {
+                        color: '#FFFFFF'
+                    }
+                }
+            }],
             bmap: {
                 center: [104.114129, 37.550339],
                 zoom: 5,
                 roam: true,
                 mapStyle: {
-                    styleJson: [{
-                        "featureType": "water",
-                        "elementType": "all",
-                        "stylers": {
-                            "color": "#133F58"
-                        }
-                    }, {
-                        "featureType": "road",
-                        "elementType": "all",
-                        "stylers": {
-                            "color": "#005E61",
-                            "weight": "0.4",
-                            "visibility": "off"
-                        }
-                    }, {
-                        "featureType": "highway",
-                        "elementType": "geometry.fill",
-                        "stylers": {
-                            "color": "#005E61"
-                        }
-                    }, {
-                        "featureType": "highway",
-                        "elementType": "geometry.stroke",
-                        "stylers": {
-                            "color": "#005E61"
-                        }
-                    }, {
-                        "featureType": "highway",
-                        "elementType": "labels",
-                        "stylers": {
-                            "color": "#232123",
-                            "visibility": "off"
-                        }
-                    }, {
-                        "featureType": "arterial",
-                        "elementType": "geometry.fill",
-                        "stylers": {
-                            "color": "#005E61"
-                        }
-                    }, {
-                        "featureType": "arterial",
-                        "elementType": "geometry.stroke",
-                        "stylers": {
-                            "color": "#0b3d51"
-                        }
-                    }, {
-                        "featureType": "local",
-                        "elementType": "geometry.fill",
-                        "stylers": {
-                            "color": "#005e61"
-                        }
-                    }, {
-                        "featureType": "local",
-                        "elementType": "geometry.stroke",
-                        "stylers": {
-                            "color": "#005e61"
-                        }
-                    }, {
-                        "featureType": "land",
-                        "elementType": "all",
-                        "stylers": {
-                            "color": "#023246"
-                        }
-                    }, {
-                        "featureType": "railway",
-                        "elementType": "geometry.fill",
-                        "stylers": {
-                            "color": "#005e61"
-                        }
-                    }, {
-                        "featureType": "railway",
-                        "elementType": "geometry.stroke",
-                        "stylers": {
-                            "color": "#08304b"
-                        }
-                    }, {
-                        "featureType": "railway",
-                        "elementType": "all",
-                        "stylers": {
-                            "visibility": "off"
-                        }
-                    }, {
-                        "featureType": "subway",
-                        "elementType": "all",
-                        "stylers": {
-                            "color": "#232123",
-                            "visibility": "off"
-                        }
-                    }, {
-                        "featureType": "building",
-                        "elementType": "geometry.fill",
-                        "stylers": {
-                            "color": "#022338"
-                        }
-                    }, {
-                        "featureType": "all",
-                        "elementType": "labels.text.fill",
-                        "stylers": {
-                            "color": "#03CAC6"
-                        }
-                    }, {
-                        "featureType": "all",
-                        "elementType": "labels.text.stroke",
-                        "stylers": {
-                            "color": "#000000"
-                        }
-                    }, {
-                        "featureType": "green",
-                        "elementType": "geometry",
-                        "stylers": {
-                            "color": "#002a3e"
-                        }
-                    }, {
-                        "featureType": "boundary",
-                        "elementType": "all",
-                        "stylers": {
-                            "color": "#00646F",
-                            "weight": "0.5"
-                        }
-                    }, {
-                        "featureType": "manmade",
-                        "elementType": "all",
-                        "stylers": {
-                            "color": "#033447"
-                        }
-                    }, {
-                        "featureType": "label",
-                        "elementType": "labels.icon",
-                        "stylers": {
-                            "color": "#033447",
-                            "visibility": "off"
-                        }
-                    }]
+                    styleJson: [
+                          {
+                              "featureType": "water",
+                              "elementType": "all",
+                              "stylers": {
+                                  "color": "#044161"
+                              }
+                          },
+                          {
+                              "featureType": "land",
+                              "elementType": "all",
+                              "stylers": {
+                                  "color": "#004981"
+                              }
+                          },
+                          {
+                              "featureType": "boundary",
+                              "elementType": "geometry",
+                              "stylers": {
+                                  "color": "#064f85"
+                              }
+                          },
+                          {
+                              "featureType": "railway",
+                              "elementType": "all",
+                              "stylers": {
+                                  "visibility": "off"
+                              }
+                          },
+                          {
+                              "featureType": "highway",
+                              "elementType": "geometry",
+                              "stylers": {
+                                  "color": "#004981"
+                              }
+                          },
+                          {
+                              "featureType": "highway",
+                              "elementType": "geometry.fill",
+                              "stylers": {
+                                  "color": "#005b96",
+                                  "lightness": 1
+                              }
+                          },
+                          {
+                              "featureType": "highway",
+                              "elementType": "labels",
+                              "stylers": {
+                                  "visibility": "off"
+                              }
+                          },
+                          {
+                              "featureType": "arterial",
+                              "elementType": "geometry",
+                              "stylers": {
+                                  "color": "#004981"
+                              }
+                          },
+                          {
+                              "featureType": "arterial",
+                              "elementType": "geometry.fill",
+                              "stylers": {
+                                  "color": "#00508b"
+                              }
+                          },
+                          {
+                              "featureType": "poi",
+                              "elementType": "all",
+                              "stylers": {
+                                  "visibility": "off"
+                              }
+                          },
+                          {
+                              "featureType": "green",
+                              "elementType": "all",
+                              "stylers": {
+                                  "color": "#056197",
+                                  "visibility": "off"
+                              }
+                          },
+                          {
+                              "featureType": "subway",
+                              "elementType": "all",
+                              "stylers": {
+                                  "visibility": "off"
+                              }
+                          },
+                          {
+                              "featureType": "manmade",
+                              "elementType": "all",
+                              "stylers": {
+                                  "visibility": "off"
+                              }
+                          },
+                          {
+                              "featureType": "local",
+                              "elementType": "all",
+                              "stylers": {
+                                  "visibility": "off"
+                              }
+                          },
+                          {
+                              "featureType": "arterial",
+                              "elementType": "labels",
+                              "stylers": {
+                                  "visibility": "off"
+                              }
+                          },
+                          {
+                              "featureType": "boundary",
+                              "elementType": "geometry.fill",
+                              "stylers": {
+                                  "color": "#029fd4"
+                              }
+                          },
+                          {
+                              "featureType": "building",
+                              "elementType": "all",
+                              "stylers": {
+                                  "color": "#1a5787"
+                              }
+                          },
+                          {
+                              "featureType": "label",
+                              "elementType": "all",
+                              "stylers": {
+                                  "visibility": "off"
+                              }
+                          }
+                    ]
                 }
             },
             series: series

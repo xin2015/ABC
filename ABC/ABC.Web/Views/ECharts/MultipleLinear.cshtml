@@ -3244,10 +3244,13 @@
                     row = 1;
                 }
                 grid.push({
+                    show: true,
                     x: (col * colWidth + 3) + '%',
                     y: (row * 50 + 10) + '%',
                     width: colWidth - 5 + '%',
-                    height: '35%'
+                    height: '35%',
+                    containLabel: true,
+                    backgroundColor: '#3DDEDE'
                 });
                 graphic.push({
                     type: 'text',
