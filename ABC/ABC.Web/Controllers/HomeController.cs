@@ -29,7 +29,7 @@ namespace ABC.Web.Controllers
             return View();
         }
 
-        public FileResult ExportDayAQIReport(int count)
+        public FileResult ExportDayAQIReportExcel(int count)
         {
             Table table = new Table();
             #region thead

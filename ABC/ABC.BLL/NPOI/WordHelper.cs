@@ -30,141 +30,44 @@ namespace ABC.BLL.NPOI
             }
             XWPFDocument doc = new XWPFDocument();
             XWPFTable xt = doc.CreateTable(rowCount, colCount);
-            #region 填充thead
-            foreach (TRow tr in table.Thead)
+            int rowAddend = 0;
+            Fill(xt, table.Thead, rowAddend);
+            rowAddend += headRowCount;
+            Fill(xt, table.Tbody, rowAddend);
+            rowAddend += bodyRowCount;
+            Fill(xt, table.Tfoot, rowAddend);
+            return doc;
+        }
+
+        private static void Fill(XWPFTable xt, TPart tp, int rowAddend)
+        {
+            foreach (TRow tr in tp)
             {
-                XWPFTableRow xtr = xt.GetRow(tr.Index);
-                foreach (TCell th in tr)
+                XWPFTableRow xtr = xt.GetRow(tr.Index + rowAddend);
+                foreach (TCell tc in tr)
                 {
-                    XWPFTableCell cell = xtr.GetCell(th.Index);
-                    cell.SetText(th.Value);
-                    if (th.Colspan > 1)
+                    XWPFTableCell cell = xtr.GetCell(tc.Index);
+                    cell.SetText(tc.Value);
+                    if (tc.Rowspan > 1 || tc.Colspan > 1)
                     {
-                        CT_Tc cttc = cell.GetCTTc();
-                        CT_TcPr tcpr = cttc.AddNewTcPr();
-                        tcpr.gridSpan = new CT_DecimalNumber();
-                        tcpr.gridSpan.val = th.Colspan.ToString();
-                        if (th.Rowspan > 1)
-                        {
-                            tcpr.AddNewVMerge().val = ST_Merge.restart;
-                            for (int i = 1; i < th.Rowspan; i++)
-                            {
-                                XWPFTableRow xtri = xt.GetRow(tr.Index + i);
-                                XWPFTableCell celli = xtri.GetCell(th.Index);
-                                CT_Tc cttci = celli.GetCTTc();
-                                CT_TcPr tcpri = cttci.AddNewTcPr();
-                                tcpri.gridSpan = new CT_DecimalNumber();
-                                tcpri.gridSpan.val = th.Colspan.ToString();
-                                tcpri.AddNewVMerge().val = ST_Merge.@continue;
-                            }
-                        }
-                    }
-                    else if (th.Rowspan > 1)
-                    {
-                        CT_Tc cttc = cell.GetCTTc();
-                        CT_TcPr tcpr = cttc.AddNewTcPr();
-                        tcpr.AddNewVMerge().val = ST_Merge.restart;
-                        for (int i = 1; i < th.Rowspan; i++)
-                        {
-                            XWPFTableRow xtri = xt.GetRow(tr.Index + i);
-                            XWPFTableCell celli = xtri.GetCell(th.Index);
-                            CT_Tc cttci = celli.GetCTTc();
-                            CT_TcPr tcpri = cttci.AddNewTcPr();
-                            tcpri.AddNewVMerge().val = ST_Merge.@continue;
-                        }
+                        Merge(xt, tr.Index + rowAddend, tr.Index + rowAddend + tc.Rowspan - 1, tc.Index, tc.Index + tc.Colspan - 1);
                     }
                 }
             }
-            //foreach (TRow tr in table.Thead)
-            //{
-            //    XWPFTableRow xtr = xt.GetRow(tr.Index);
-            //    foreach (TCell th in tr)
-            //    {
-            //        XWPFTableCell cell = xtr.GetCell(th.Index);
-            //        cell.SetText(th.Value);
-            //        if (th.Colspan > 1)
-            //        {
-            //            xtr.MergeCells(th.Index, th.Index + th.Colspan - 1);
-            //            if (th.Rowspan > 1)
-            //            {
-            //                CT_Tc cttc = cell.GetCTTc();
-            //                CT_TcPr tcpr = cttc.AddNewTcPr();
-            //                tcpr.AddNewVMerge().val = ST_Merge.restart;
-            //                for (int i = 1; i < th.Rowspan; i++)
-            //                {
-            //                    XWPFTableRow xtri = xt.GetRow(tr.Index + i);
-            //                    xtri.MergeCells(th.Index, th.Index + th.Colspan - 1);
-            //                    XWPFTableCell celli = xtri.GetCell(th.Index);
-            //                    CT_Tc cttci = celli.GetCTTc();
-            //                    CT_TcPr tcpri = cttci.AddNewTcPr();
-            //                    tcpri.AddNewVMerge().val = ST_Merge.@continue;
-            //                }
-            //            }
-            //        }
-            //    }
-            //}
-            #endregion
-            //#region 填充tbody
-            //foreach (TRow tr in table.Tbody)
-            //{
-            //    XWPFTableRow xtr = xt.GetRow(tr.Index + headRowCount);
-            //    foreach (TCell td in tr)
-            //    {
-            //        XWPFTableCell cell = xtr.GetCell(td.Index);
-            //        cell.SetText(td.Value);
-            //        if (td.Colspan > 1)
-            //        {
-            //            xtr.MergeCells(td.Index, td.Index + td.Colspan - 1);
-            //            if (td.Rowspan > 1)
-            //            {
-            //                CT_Tc cttc = cell.GetCTTc();
-            //                CT_TcPr tcpr = cttc.AddNewTcPr();
-            //                tcpr.AddNewVMerge().val = ST_Merge.restart;
-            //                for (int i = 1; i < td.Rowspan; i++)
-            //                {
-            //                    XWPFTableRow xtri = xt.GetRow(tr.Index + headRowCount + i);
-            //                    xtri.MergeCells(td.Index, td.Index + td.Colspan - 1);
-            //                    XWPFTableCell celli = xtri.GetCell(td.Index);
-            //                    CT_Tc cttci = celli.GetCTTc();
-            //                    CT_TcPr tcpri = cttci.AddNewTcPr();
-            //                    tcpri.AddNewVMerge().val = ST_Merge.@continue;
-            //                }
-            //            }
-            //        }
-            //    }
-            //}
-            //#endregion
-            //#region 填充tfoot
-            //foreach (TRow tr in table.Tbody)
-            //{
-            //    XWPFTableRow xtr = xt.GetRow(tr.Index + headRowCount + bodyRowCount);
-            //    foreach (TCell td in tr)
-            //    {
-            //        XWPFTableCell cell = xtr.GetCell(td.Index);
-            //        cell.SetText(td.Value);
-            //        if (td.Colspan > 1)
-            //        {
-            //            xtr.MergeCells(td.Index, td.Index + td.Colspan - 1);
-            //            if (td.Rowspan > 1)
-            //            {
-            //                CT_Tc cttc = cell.GetCTTc();
-            //                CT_TcPr tcpr = cttc.AddNewTcPr();
-            //                tcpr.AddNewVMerge().val = ST_Merge.restart;
-            //                for (int i = 1; i < td.Rowspan; i++)
-            //                {
-            //                    XWPFTableRow xtri = xt.GetRow(tr.Index + headRowCount + bodyRowCount + i);
-            //                    xtri.MergeCells(td.Index, td.Index + td.Colspan - 1);
-            //                    XWPFTableCell celli = xtri.GetCell(td.Index);
-            //                    CT_Tc cttci = celli.GetCTTc();
-            //                    CT_TcPr tcpri = cttci.AddNewTcPr();
-            //                    tcpri.AddNewVMerge().val = ST_Merge.@continue;
-            //                }
-            //            }
-            //        }
-            //    }
-            //}
-            //#endregion
-            return doc;
+        }
+
+        private static void Merge(XWPFTable xt, int firstRow, int lastRow, int firstCol, int lastCol)
+        {
+            for (int row = firstRow; row <= lastRow; row++)
+            {
+                XWPFTableRow xtr = xt.GetRow(row);
+                for (int col = firstCol; col <= lastCol; col++)
+                {
+                    CT_TcPr tcpr = xtr.GetCell(col).GetCTTc().AddNewTcPr();
+                    tcpr.AddNewVMerge().val = row == firstRow ? ST_Merge.restart : ST_Merge.@continue;
+                    tcpr.AddNewHMerge().val = col == firstCol ? ST_Merge.restart : ST_Merge.@continue;
+                }
+            }
         }
 
         public static MemoryStream Export(Table table)
