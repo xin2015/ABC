@@ -12,6 +12,32 @@ namespace ABC.Web.Controllers
     {
         public ActionResult Index()
         {
+            LoginUser user = Session["CurrentUser"] as LoginUser;
+            if (user == null)
+            {
+                HttpCookie cookie = Request.Cookies["ABCUser"];
+                if (cookie != null && !string.IsNullOrEmpty(cookie.Value))
+                {
+                    user = new LoginUser()
+                    {
+                        UserName = cookie.Values["UserName"],
+                        Password = cookie.Values["Password"]
+                    };
+                }
+                else
+                {
+                    user = new LoginUser()
+                    {
+                        UserName = "admin",
+                        Password = "123456"
+                    };
+                    cookie = new HttpCookie("ABCUser");
+                    cookie.Values["UserName"] = user.UserName;
+                    cookie.Values["Password"] = user.Password;
+                    Response.Cookies.Add(cookie);
+                }
+                Session["CurrentUser"] = user;
+            }
             return View();
         }
 
@@ -164,5 +190,11 @@ namespace ABC.Web.Controllers
             #endregion
             return File(WordHelper.Export(table).ToArray(), "application / vnd.ms - word", "空气质量指数日报.docx");
         }
+    }
+
+    public class LoginUser
+    {
+        public string UserName { get; set; }
+        public string Password { get; set; }
     }
 }
