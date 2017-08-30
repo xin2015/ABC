@@ -190,6 +190,11 @@ namespace ABC.Web.Controllers
             #endregion
             return File(WordHelper.Export(table).ToArray(), "application / vnd.ms - word", "空气质量指数日报.docx");
         }
+
+        public ActionResult Roomba()
+        {
+            return View();
+        }
     }
 
     public class LoginUser

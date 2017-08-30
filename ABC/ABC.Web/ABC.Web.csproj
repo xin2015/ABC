@@ -131,6 +131,20 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\ball.png" />
+    <Content Include="Content\images\block.png" />
+    <Content Include="Content\images\box.png" />
+    <Content Include="Content\images\down.png" />
+    <Content Include="Content\images\gray_1.png" />
+    <Content Include="Content\images\gray_2.png" />
+    <Content Include="Content\images\gray_3.png" />
+    <Content Include="Content\images\gray_4.png" />
+    <Content Include="Content\images\gray_5.png" />
+    <Content Include="Content\images\gray_6.png" />
+    <Content Include="Content\images\left.png" />
+    <Content Include="Content\images\right.png" />
+    <Content Include="Content\images\up.png" />
+    <Content Include="Content\images\wall.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -291,6 +305,7 @@
     <Content Include="Views\ECharts\Test.cshtml" />
     <Content Include="Views\ECharts\MapScatter.cshtml" />
     <Content Include="Views\ECharts\BMapLines.cshtml" />
+    <Content Include="Views\Home\Roomba.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
