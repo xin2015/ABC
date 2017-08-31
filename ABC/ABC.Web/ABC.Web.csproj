@@ -306,6 +306,7 @@
     <Content Include="Views\ECharts\MapScatter.cshtml" />
     <Content Include="Views\ECharts\BMapLines.cshtml" />
     <Content Include="Views\Home\Roomba.cshtml" />
+    <Content Include="Views\Home\Table.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

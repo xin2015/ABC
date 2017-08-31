@@ -195,6 +195,11 @@ namespace ABC.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult Table()
+        {
+            return View();
+        }
     }
 
     public class LoginUser
