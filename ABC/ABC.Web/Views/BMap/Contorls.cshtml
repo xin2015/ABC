@@ -1,0 +1,261 @@
+﻿
+@{
+    ViewBag.Title = "Contorls";
+}
+
+<div id="bmap" style="height:800px;"></div>
+
+@section scripts{
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=qQ3GOvEiKibotts8DsZpOlki"></script>
+    <script type="text/javascript">
+        var map = new BMap.Map("bmap", { enableMapClick: false });
+        map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);
+        map.enableScrollWheelZoom();
+        map.addControl(new BMap.MapTypeControl({ mapTypes: [BMAP_NORMAL_MAP, BMAP_HYBRID_MAP, BMAP_SATELLITE_MAP], anchor: BMAP_ANCHOR_TOP_RIGHT }));   //添加地图类型控件
+        map.addEventListener("tilesloaded", removeAnchorBL);
+
+        function removeAnchorBL(e) {
+            $(".anchorBL").hide();
+            e.target.removeEventListener("tilesloaded", removeAnchorBL);
+        }
+
+        function VisualMapControl(option) {
+            this.defaultAnchor = BMAP_ANCHOR_BOTTOM_RIGHT;
+            this.defaultOffset = new BMap.Size(option.right ? option.right : 35, option.bottom ? option.bottom : 10);
+            this.option = option;
+        }
+
+        VisualMapControl.prototype = new BMap.Control();
+
+        VisualMapControl.prototype.initialize = function (map) {
+            var option = this.option;
+            var width = option.width ? option.width : "20px";
+            var height = option.height ? option.height : "20px";
+            var ul = document.createElement("ul");
+            ul.style.width = width.replace("px", "") - 0 + 1 + "px";
+            ul.style.borderTop = "1px solid black";
+            ul.style.borderLeft = "1px solid black";
+            ul.style.listStyle = "none";
+            ul.style.padding = "0";
+            var pieces = this.option.pieces;
+            for (var i in pieces) {
+                var piece = pieces[i];
+                var li = document.createElement("li");
+                li.style.backgroundColor = piece.color;
+                li.style.width = width;
+                li.style.height = height;
+                li.style.borderBottom = "1px solid black";
+                li.style.borderRight = "1px solid black";
+                var span = document.createElement("span");
+                if (piece.label == undefined) {
+                    if (piece.data == undefined) {
+                        span.innerText = piece.min + "-" + piece.max;
+                    } else {
+                        span.innerText = piece.data;
+                    }
+                } else {
+                    span.innerText = piece.label;
+                }
+                span.style.position = "relative";
+                span.style.top = "-10px";
+                span.style.right = "-24px";
+                span.style.whiteSpace = "nowrap";
+                li.appendChild(span);
+                ul.appendChild(li);
+            }
+            map.getContainer().appendChild(ul);
+            return ul;
+        }
+
+        var option = {
+            pieces: [
+                { color: '#7E0022', label: '' },
+                { color: '#D10070', label: '300' },
+                { color: '#FF0000', label: '200' },
+                { color: '#FF7E00', label: '150' },
+                { color: '#FFFF00', label: '100' },
+                { color: '#00E500', label: '50' }
+            ]
+        };
+
+        var numericalProductVisualMapOptions = {
+            "1001AQI": {
+                pieces: [
+                    { color: '#7E0022', label: '' },
+                    { color: '#D10070', label: '300' },
+                    { color: '#FF0000', label: '200' },
+                    { color: '#FF7E00', label: '150' },
+                    { color: '#FFFF00', label: '100' },
+                    { color: '#00E500', label: '50' }
+                ]
+            },
+            "1001CO": {
+                pieces: [
+                    { color: '#8A2BE2', label: '' },
+                    { color: '#9932CC', label: '42' },
+                    { color: '#B03060', label: '36' },
+                    { color: '#C71585', label: '30' },
+                    { color: '#FF0000', label: '24' },
+                    { color: '#F82C57', label: '19' },
+                    { color: '#FF8C00', label: '14' },
+                    { color: '#FDB325', label: '9' },
+                    { color: '#FFEA00', label: '4' },
+                    { color: '#F5FA6B', label: '3' },
+                    { color: '#70AD37', label: '2' },
+                    { color: '#92CF50', label: '1.5' },
+                    { color: '#C2E07C', label: '1' },
+                    { color: '#DFEBBD', label: '0.5' }
+                ]
+            },
+            "1001NO2": {
+                pieces: [
+                    { color: '#8A2BE2', label: '' },
+                    { color: '#9932CC', label: '657' },
+                    { color: '#B03060', label: '565' },
+                    { color: '#C71585', label: '422' },
+                    { color: '#FF0000', label: '280' },
+                    { color: '#F82C57', label: '230' },
+                    { color: '#FF8C00', label: '180' },
+                    { color: '#FDB325', label: '130' },
+                    { color: '#FFEA00', label: '80' },
+                    { color: '#F5FA6B', label: '60' },
+                    { color: '#70AD37', label: '40' },
+                    { color: '#92CF50', label: '30' },
+                    { color: '#C2E07C', label: '20' },
+                    { color: '#DFEBBD', label: '10' }
+                ]
+            },
+            "1001O3": {
+                pieces: [
+                    { color: '#8A2BE2', label: '' },
+                    { color: '#9932CC', label: '900' },
+                    { color: '#B03060', label: '800' },
+                    { color: '#C71585', label: '600' },
+                    { color: '#FF0000', label: '400' },
+                    { color: '#F82C57', label: '350' },
+                    { color: '#FF8C00', label: '300' },
+                    { color: '#FDB325', label: '250' },
+                    { color: '#FFEA00', label: '200' },
+                    { color: '#F5FA6B', label: '180' },
+                    { color: '#70AD37', label: '160' },
+                    { color: '#92CF50', label: '120' },
+                    { color: '#C2E07C', label: '80' },
+                    { color: '#DFEBBD', label: '50' }
+                ]
+            },
+            "1004": {
+                right: 50,
+                height: "12px",
+                pieces: [
+                    { color: '#921519', label: '' },
+                    { color: '#A5181D', label: '1E-9' },
+                    { color: '#B51A21', label: '' },
+                    { color: '#C71D25', label: '' },
+                    { color: '#D72728', label: '' },
+                    { color: '#E03B28', label: '' },
+                    { color: '#E84E29', label: '1E-10' },
+                    { color: '#F16229', label: '' },
+                    { color: '#F68233', label: '' },
+                    { color: '#F7A440', label: '' },
+                    { color: '#F9C34D', label: '' },
+                    { color: '#FAE55B', label: '1E-11' },
+                    { color: '#CFDC57', label: '' },
+                    { color: '#A4CF51', label: '' },
+                    { color: '#74C14B', label: '' },
+                    { color: '#49B34D', label: '' },
+                    { color: '#49A871', label: '1E-12' },
+                    { color: '#489F91', label: '' },
+                    { color: '#4894B5', label: '' },
+                    { color: '#5398D0', label: '' },
+                    { color: '#6AADDC', label: '' },
+                    { color: '#7FBFE7', label: '1E-13' },
+                    { color: '#96D4F3', label: '' },
+                    { color: '#B2E2F9', label: '' },
+                    { color: '#CDECFB', label: '' },
+                    { color: '#E5F5FD', label: '' },
+                    { color: '#FFFFFF', label: '1E-14' },
+                ]
+            },
+            "1005": {
+                right: 45,
+                height: "12px",
+                pieces: [
+                    { color: '#921519', label: '' },
+                    { color: '#A5181D', label: '10' },
+                    { color: '#B51A21', label: '' },
+                    { color: '#C71D25', label: '' },
+                    { color: '#D72728', label: '' },
+                    { color: '#E03B28', label: '' },
+                    { color: '#E84E29', label: '1' },
+                    { color: '#F16229', label: '' },
+                    { color: '#F68233', label: '' },
+                    { color: '#F7A440', label: '' },
+                    { color: '#F9C34D', label: '' },
+                    { color: '#FAE55B', label: '1E-1' },
+                    { color: '#CFDC57', label: '' },
+                    { color: '#A4CF51', label: '' },
+                    { color: '#74C14B', label: '' },
+                    { color: '#49B34D', label: '' },
+                    { color: '#49A871', label: '1E-2' },
+                    { color: '#489F91', label: '' },
+                    { color: '#4894B5', label: '' },
+                    { color: '#5398D0', label: '' },
+                    { color: '#6AADDC', label: '' },
+                    { color: '#7FBFE7', label: '1E-3' },
+                    { color: '#96D4F3', label: '' },
+                    { color: '#B2E2F9', label: '' },
+                    { color: '#CDECFB', label: '' },
+                    { color: '#E5F5FD', label: '' },
+                    { color: '#FFFFFF', label: '1E-4' },
+                ]
+            }
+        };
+
+        var visualMapControl = new VisualMapControl(numericalProductVisualMapOptions["1001CO"]);
+
+        map.addControl(visualMapControl);
+
+        function GraphicControl(option) {
+            this.defaultAnchor = BMAP_ANCHOR_TOP_LEFT;
+            this.defaultOffset = new BMap.Size(10, 10);
+            this.option = option;
+        }
+
+        GraphicControl.prototype = new BMap.Control();
+
+        GraphicControl.prototype.initialize = function (map) {
+            var option = this.option;
+            //var width = option.width ? option.width : "20px";
+            //var height = option.height ? option.height : "20px";
+            var div = document.createElement("div");
+            div.style.backgroundColor = "#4890D6";
+            div.style.color = "#FFFFFF";
+            //div.style.fontSize = "12px";
+            div.style.textAlign = "center";
+            div.style.padding = "5px";
+            div.style.borderRadius = "5px";
+            if (option.html) {
+                div.innerHTML = option.html;
+            } else if (option.text) {
+                div.innerText = option.text;
+            }
+            map.getContainer().appendChild(div);
+            return div;
+        }
+
+        GraphicControl.prototype.setHtml = function (html) {
+            this.B.innerHTML = html;
+        }
+
+        var graphicOption = {
+            html: "AQI溯源分析<br/>9月1日"
+        };
+
+        var graphicControl = new GraphicControl(graphicOption);
+
+        map.addControl(graphicControl);
+
+        graphicControl.setHtml("AQI区域形势（WRFCMAQ）<br />08-30");
+
+    </script>
+}
