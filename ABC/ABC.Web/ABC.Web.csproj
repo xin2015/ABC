@@ -120,6 +120,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BMapController.cs" />
     <Compile Include="Controllers\EChartsController.cs" />
     <Compile Include="Controllers\HighchartsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -307,6 +308,7 @@
     <Content Include="Views\ECharts\BMapLines.cshtml" />
     <Content Include="Views\Home\Roomba.cshtml" />
     <Content Include="Views\Home\Table.cshtml" />
+    <Content Include="Views\BMap\Contorls.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
