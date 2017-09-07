@@ -204,41 +204,56 @@ namespace ABC.Web.Controllers
 
         public ActionResult RoombaWhole(int? level)
         {
-            //HttpHelper hh = new HttpHelper();
-            //HttpItem hi = new HttpItem()
-            //{
-            //    URL = level == null ? "http://www.qlcoder.com/train/autocr" : string.Format("http://www.qlcoder.com/train/autocr?level=", level),
-            //    Cookie = "laravel_session=eyJpdiI6IlwvRG5neDVtN1lOSGh2WU82dldoNXZ3PT0iLCJ2YWx1ZSI6ImFLV2tSKzJ4Vlc2RWlCWHltOWU1bHpOQUdZalwvWDNTcSt3UGhlT0lQVWdMMGNLcFROekE0T256UHBZekZRS3QwVFd1MEVic2swaTJ0ZEgwMFpGZUxKQT09IiwibWFjIjoiOGQ3MDkwNmVhYmQ0ZTU0NDQ3ODAxNDQ0YzVkYzg4ZTBiMWE5NGIxNzliYjkyMGUzMmE3NGE3YjQ0NWRiNjJjYyJ9"
-            //};
-            //HttpResult hr = hh.GetHtml(hi);
-            //string html = hr.Html;
-            //html = html.Substring(html.IndexOf("level="));
-            //html = html.Substring(0, html.IndexOf("<br>"));
-            //string[] paramsArray = html.Split('&');
-            //level = int.Parse(paramsArray[0].Replace("level=", string.Empty));
-            //int x = int.Parse(paramsArray[1].Replace("x=", string.Empty));
-            //int y = int.Parse(paramsArray[2].Replace("y=", string.Empty));
-            //string mapStr = paramsArray[3].Replace("map=", string.Empty);
-            //int X = x + 2;
-            //int Y = y + 2;
-            //Stack<char> mapArray = new Stack<char>(mapStr);
-            //int[][] map = new int[X][];
-            //for (int i = x; i > 0; i--)
-            //{
-            //    map[i] = new int[Y];
-            //    for (int j = y; j > 0; j--)
-            //    {
-            //        if (mapArray.Pop() == '0')
-            //        {
-            //            map[i][j] = true;
-            //            initRestPoints.Push(j);
-            //            initRestPoints.Push(i);
-            //        }
-            //    }
-            //}
-            //map[0] = new int[Y];
-            //map[X - 1] = new int[Y];
             return View();
+        }
+
+        [HttpPost]
+        public JsonResult GetRoombaMapData(int? level)
+        {
+            HttpHelper hh = new HttpHelper();
+            HttpItem hi = new HttpItem()
+            {
+                URL = level == null ? "http://www.qlcoder.com/train/autocr" : string.Format("http://www.qlcoder.com/train/autocr?level={0}", level),
+                Cookie = "laravel_session=eyJpdiI6IlwvRG5neDVtN1lOSGh2WU82dldoNXZ3PT0iLCJ2YWx1ZSI6ImFLV2tSKzJ4Vlc2RWlCWHltOWU1bHpOQUdZalwvWDNTcSt3UGhlT0lQVWdMMGNLcFROekE0T256UHBZekZRS3QwVFd1MEVic2swaTJ0ZEgwMFpGZUxKQT09IiwibWFjIjoiOGQ3MDkwNmVhYmQ0ZTU0NDQ3ODAxNDQ0YzVkYzg4ZTBiMWE5NGIxNzliYjkyMGUzMmE3NGE3YjQ0NWRiNjJjYyJ9"
+            };
+            HttpResult hr = hh.GetHtml(hi);
+            string html = hr.Html;
+            html = html.Substring(html.IndexOf("level="));
+            html = html.Substring(0, html.IndexOf("<br>"));
+            string[] paramsArray = html.Split('&');
+            level = int.Parse(paramsArray[0].Replace("level=", string.Empty));
+            int x = int.Parse(paramsArray[1].Replace("x=", string.Empty));
+            int y = int.Parse(paramsArray[2].Replace("y=", string.Empty));
+            string mapStr = paramsArray[3].Replace("map=", string.Empty);
+            int X = x + 2;
+            int Y = y + 2;
+            Stack<char> mapArray = new Stack<char>(mapStr);
+            int[][] map = new int[X][];
+            for (int i = x; i > 0; i--)
+            {
+                map[i] = new int[Y];
+                for (int j = y; j > 0; j--)
+                {
+                    if (mapArray.Pop() == '0')
+                    {
+                        map[i][j] = 0;
+                    }
+                    else
+                    {
+                        map[i][j] = 3;
+                    }
+                }
+                map[i][0] = 1;
+                map[i][Y - 1] = 1;
+            }
+            map[0] = new int[Y];
+            map[X - 1] = new int[Y];
+            for (int i = 0; i < Y; i++)
+            {
+                map[0][i] = 1;
+                map[X - 1][i] = 1;
+            }
+            return Json(map, JsonRequestBehavior.DenyGet);
         }
     }
 

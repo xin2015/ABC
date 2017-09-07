@@ -309,6 +309,7 @@
     <Content Include="Views\Home\Roomba.cshtml" />
     <Content Include="Views\Home\Table.cshtml" />
     <Content Include="Views\BMap\Contorls.cshtml" />
+    <Content Include="Views\Home\RoombaWhole.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
