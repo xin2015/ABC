@@ -38,5 +38,10 @@ namespace ABC.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult BMapGrid()
+        {
+            return View();
+        }
     }
 }
