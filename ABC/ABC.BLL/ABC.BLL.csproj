@@ -77,6 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data.cs" />
+    <Compile Include="Helpers\FTPHelper.cs" />
     <Compile Include="Helpers\HttpHelper.cs" />
     <Compile Include="NPOI\ExcelHelper.cs" />
     <Compile Include="NPOI\WordHelper.cs" />

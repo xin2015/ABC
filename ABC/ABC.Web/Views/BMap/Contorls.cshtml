@@ -257,5 +257,77 @@
 
         graphicControl.setHtml("AQI区域形势（WRFCMAQ）<br />08-30");
 
+        function LegendControl(option) {
+            this.defaultAnchor = BMAP_ANCHOR_BOTTOM_RIGHT;
+            this.defaultOffset = new BMap.Size(option.right ? option.right : 35, option.bottom ? option.bottom : 10);
+            this.option = option;
+        }
+
+        LegendControl.prototype = new BMap.Control();
+
+        LegendControl.prototype.initialize = function (map) {
+            var option = this.option;
+            var width = option.width ? option.width : "20px";
+            var height = option.height ? option.height : "20px";
+            var ul = document.createElement("ul");
+            ul.style.listStyle = "none";
+            ul.style.padding = "0";
+            ul.style.borderRadius = "5px";
+            ul.style.backgroundColor = "#FFFFFF";
+            ul.style.textAlign = "center";
+            var data = this.option.data;
+            for (var i in data) {
+                var item = data[i];
+                var li = document.createElement("li");
+                li.style.width = width;
+                li.style.height = height;
+                li.nodeName = item.name;
+                li.style.borderTop = i == 0 ? "0" : "1px solid #E5E5E5";
+                li.style.borderRadius = "5px";
+                var a = document.createElement("a");
+                a.onclick = void (0);
+                a.text = item.text;
+                li.appendChild(a);
+                if (i == 0) {
+                    li.style.backgroundColor = "#4890D6";
+                    a.style.color = "#FFFFFF";
+                }
+                ul.appendChild(li);
+            }
+            map.getContainer().appendChild(ul);
+            return ul;
+        }
+
+        var legendOption = {
+            right: 10,
+            bottom: 400,
+            width: '60px',
+            height: '25px',
+            data: [
+                {
+                    name: 'IND',
+                    text: '工业'
+                },
+                {
+                    name: 'RES',
+                    text: '居民'
+                },
+                {
+                    name: 'POW',
+                    text: '电厂'
+                },
+                {
+                    name: 'TRA',
+                    text: '交通'
+                },
+                {
+                    name: 'TOT',
+                    text: '总排放'
+                }
+            ]
+        }
+        var legendControl = new LegendControl(legendOption);
+        map.addControl(legendControl);
+
     </script>
 }
