@@ -1,0 +1,197 @@
+﻿
+@{
+    ViewBag.Title = "Test";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title> ZTREE DEMO - radio select menu</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link href="~/Scripts/zTree_v3/css/zTreeStyle/zTreeStyle.css" rel="stylesheet" />
+    <script src="~/Scripts/zTree_v3/js/jquery-1.4.4.min.js"></script>
+    <script src="~/Scripts/zTree_v3/js/jquery.ztree.core.js"></script>
+    <script src="~/Scripts/zTree_v3/js/jquery.ztree.excheck.js"></script>
+    <script type="text/javascript">
+		var setting = {
+			check: {
+				enable: true,
+				chkStyle: "radio",
+				radioType: "all"
+			},
+			view: {
+				dblClickExpand: false,
+			    showIcon: false
+			},
+			data: {
+				simpleData: {
+					enable: true
+				}
+			},
+			callback: {
+			    onAsyncSuccess: onAsyncSuccess,
+			    beforeExpand: beforeExpand,
+			    onExpand: onExpand,
+			    beforeClick: beforeClick,
+				onCheck: onCheck
+			}
+		};
+
+		function createNodes(maxNodesNumInLevel, maxLevel, curLevel, curPId) {
+		    if (maxNodesNumInLevel < 5) {
+		        maxNodesNumInLevel = 5;
+		    }
+		    var nodes = [], num = 0;
+		    while (num < 3) {
+		        num = parseInt(Math.random() * 1024) % maxNodesNumInLevel + 1;
+		    }
+		    for (var i = 0; i < num; i++) {
+		        var id = curPId ? curPId + "-" + i : "" + i, isParent = (parseInt(Math.random() * 9999) % 3 != 0),
+				node = { id: id, pId: curPId, name: "N" + id };
+		        nodes.push(node);
+		        if (isParent && curLevel < maxLevel) {
+		            nodes = nodes.concat(createNodes(maxNodesNumInLevel, maxLevel, curLevel + 1, id));
+		        }
+		    }
+		    return nodes;
+		}
+		var zNodes = createNodes(5, 5, 0);
+
+		function onAsyncSuccess(event, treeId, treeNode, msg) {
+		    var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+		    var te = $("#citySel").val();
+		    var list = te.split(",");
+		    for (var i = 0; i < list.length; i++) {
+		        var node = zTree.getNodeByParam("name", list[i], null);
+		        if (node != null) {
+		            zTree.checkNode(node, true, false);
+		        }
+		    }
+		}
+
+		var curExpandNode = null;
+		function beforeExpand(treeId, treeNode) {
+		    var pNode = curExpandNode ? curExpandNode.getParentNode() : null;
+		    var treeNodeP = treeNode.parentTId ? treeNode.getParentNode() : null;
+		    var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+		    for (var i = 0, l = !treeNodeP ? 0 : treeNodeP.children.length; i < l; i++) {
+		        if (treeNode !== treeNodeP.children[i]) {
+		            zTree.expandNode(treeNodeP.children[i], false);
+		        }
+		    }
+		    while (pNode) {
+		        if (pNode === treeNode) {
+		            break;
+		        }
+		        pNode = pNode.getParentNode();
+		    }
+		    if (!pNode) {
+		        singlePath(treeNode);
+		    }
+
+		}
+		function singlePath(newNode) {
+		    if (newNode === curExpandNode) return;
+
+		    var zTree = $.fn.zTree.getZTreeObj("treeDemo"),
+                    rootNodes, tmpRoot, tmpTId, i, j, n;
+
+		    if (!curExpandNode) {
+		        tmpRoot = newNode;
+		        while (tmpRoot) {
+		            tmpTId = tmpRoot.tId;
+		            tmpRoot = tmpRoot.getParentNode();
+		        }
+		        rootNodes = zTree.getNodes();
+		        for (i = 0, j = rootNodes.length; i < j; i++) {
+		            n = rootNodes[i];
+		            if (n.tId != tmpTId) {
+		                zTree.expandNode(n, false);
+		            }
+		        }
+		    } else if (curExpandNode && curExpandNode.open) {
+		        if (newNode.parentTId === curExpandNode.parentTId) {
+		            zTree.expandNode(curExpandNode, false);
+		        } else {
+		            var newParents = [];
+		            while (newNode) {
+		                newNode = newNode.getParentNode();
+		                if (newNode === curExpandNode) {
+		                    newParents = null;
+		                    break;
+		                } else if (newNode) {
+		                    newParents.push(newNode);
+		                }
+		            }
+		            if (newParents != null) {
+		                var oldNode = curExpandNode;
+		                var oldParents = [];
+		                while (oldNode) {
+		                    oldNode = oldNode.getParentNode();
+		                    if (oldNode) {
+		                        oldParents.push(oldNode);
+		                    }
+		                }
+		                if (newParents.length > 0) {
+		                    zTree.expandNode(oldParents[Math.abs(oldParents.length - newParents.length) - 1], false);
+		                } else {
+		                    zTree.expandNode(oldParents[oldParents.length - 1], false);
+		                }
+		            }
+		        }
+		    }
+		    curExpandNode = newNode;
+		}
+
+		function onExpand(event, treeId, treeNode) {
+		    curExpandNode = treeNode;
+		}
+
+		function beforeClick(treeId, treeNode) {
+		    var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+		    zTree.checkNode(treeNode, !treeNode.checked, null, true);
+		    return false;
+		}
+
+		function onCheck(e, treeId, treeNode) {
+			var zTree = $.fn.zTree.getZTreeObj("treeDemo"),
+			nodes = zTree.getCheckedNodes(true),
+			v = "";
+			for (var i=0, l=nodes.length; i<l; i++) {
+				v += nodes[i].name + ",";
+			}
+			if (v.length > 0 ) v = v.substring(0, v.length-1);
+			var cityObj = $("#citySel");
+			cityObj.attr("value", v);
+		}
+
+		function showMenu() {
+			var cityObj = $("#citySel");
+			var cityOffset = $("#citySel").offset();
+			$("#menuContent").css({left:cityOffset.left + "px", top:cityOffset.top + cityObj.outerHeight() + "px"}).slideDown("fast");
+			$("body").unbind("mousedown", onBodyDown).bind("mousedown", onBodyDown);
+		}
+		function hideMenu() {
+			$("#menuContent").fadeOut("fast");
+			$("body").unbind("mousedown", onBodyDown);
+		}
+		function onBodyDown(event) {
+			if (!(event.target.id == "citySel" || event.target.id == "menuContent" || $(event.target).parents("#menuContent").length>0)) {
+				hideMenu();
+			}
+		}
+
+		$(document).ready(function(){
+		    $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+		    onAsyncSuccess();
+		});
+    </script>
+</head>
+<body>
+    <input id="citySel" type="text" readonly value="N0-0" style="width:120px;" onclick="showMenu();" />
+    <div id="menuContent" class="menuContent" style="display:none; position: absolute;">
+        <ul id="treeDemo" class="ztree" style="margin-top: 0;border: 1px solid #617775;background: #f0f6e4;width:220px;height:360px;overflow-y:auto;overflow-x:auto;"></ul>
+    </div>
+</body>
+</html>
