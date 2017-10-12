@@ -255,6 +255,11 @@ namespace ABC.Web.Controllers
             }
             return Json(map, JsonRequestBehavior.DenyGet);
         }
+
+        public ActionResult Selector()
+        {
+            return View();
+        }
     }
 
     public class LoginUser
