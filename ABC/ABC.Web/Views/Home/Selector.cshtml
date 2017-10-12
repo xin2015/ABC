@@ -5,9 +5,9 @@
 
 <link href="~/Scripts/zTree_v3/css/zTreeStyle/zTreeStyle.css" rel="stylesheet" />
 
-<input id="selector" name="keyword" class="input-lg" type="text" readonly />
+<input id="selector" name="keyword" class="input" type="text" readonly />
 <div id="menuContent" class="menuContent" style="display:none; position: absolute;">
-    <ul id="tree" class="ztree" style="margin-top: 0;border: 1px solid #617775;background: #f0f6e4;width:220px;height:360px;overflow-y:auto;overflow-x:auto;"></ul>
+    <ul id="ztree" class="ztree" style="margin-top: 0;border: 1px solid #617775;background: #f0f6e4;width:220px;height:360px;overflow-y:auto;overflow-x:auto;"></ul>
 </div>
 
 @section scripts{
@@ -20,35 +20,22 @@
             this.url = url;
             this.zNodes = zNodes;
             this.chkStyle = chkStyle;
-            this.setting = {
-                check: {
-                    enable: true,
-                    chkStyle: this.chkStyle
-                },
-                view: {
-                    dblClickExpand: false,
-                    showIcon: false
-                },
-                data: {
-                    simpleData: {
-                        enable: true
-                    }
-                },
-                callback: {
-                    onAsyncSuccess: this.onAsyncSuccess,
-                    beforeExpand: this.beforeExpand,
-                    onExpand: this.onExpand,
-                    beforeClick: this.beforeClick,
-                    onCheck: this.onCheck
-                }
-            };
             this.curExpandNode = null;
+            this.selector = $("#" + selectorId);
+            this.tree = $("#" + treeId);
+
+            var treeSelector = this;
             if (this.chkStyle != undefined) {
                 this.setting.check.chkStyle = this.chkStyle;
                 this.setting.check.radioType = "all";
             }
             if (this.url != undefined && this.url != null) {
                 this.setting.callback.onAsyncSuccess = this.onAsyncSuccess;
+            }
+
+            this.showMenu = function () {
+                var selectorOffset = treeSelector.selector.offset();
+
             }
 
             function showMenu() {
@@ -69,6 +56,27 @@
 
             $("#" + selectorId).click(showMenu);
         }
+
+        TreeSelector.prototype.setting = {
+            check: {
+                enable: true
+            },
+            view: {
+                dblClickExpand: false,
+                showIcon: false
+            },
+            data: {
+                simpleData: {
+                    enable: true
+                }
+            },
+            callback: {
+                beforeExpand: this.beforeExpand,
+                onExpand: this.onExpand,
+                beforeClick: this.beforeClick,
+                onCheck: this.onCheck
+            }
+        };
 
         TreeSelector.prototype.onAsyncSuccess = function (event, treeId, treeNode, msg) {
             var zTree = $.fn.zTree.getZTreeObj(treeId);
