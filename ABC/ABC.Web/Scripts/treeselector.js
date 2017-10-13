@@ -13,7 +13,6 @@
             enable: true
         },
         view: {
-            dblClickExpand: false,
             showIcon: false
         },
         data: {
@@ -23,13 +22,16 @@
         },
         callback: {
             beforeExpand: function (treeId, treeNode) {
-                treeSelector.beforeExpand(treeId, treeNode);
+                return treeSelector.beforeExpand(treeId, treeNode);
             },
             onExpand: function (event, treeId, treeNode) {
                 treeSelector.onExpand(event, treeId, treeNode);
             },
             beforeClick: function (treeId, treeNode, clickFlag) {
-                treeSelector.beforeClick(treeId, treeNode, clickFlag);
+                return treeSelector.beforeClick(treeId, treeNode, clickFlag);
+            },
+            onClick: function (event, treeId, treeNode, clickFlag) {
+                treeSelector.onClick(event, treeId, treeNode, clickFlag);
             },
             onCheck: function (event, treeId, treeNode) {
                 treeSelector.onCheck(event, treeId, treeNode);
@@ -45,7 +47,7 @@ TreeSelector.prototype.onAsyncSuccess = function (event, treeId, treeNode, msg) 
     for (var i = 0; i < list.length; i++) {
         var node = zTree.getNodeByParam("name", list[i], null);
         if (node != null) {
-            zTree.checkNode(node, true, false);
+            zTree.checkNode(node, true, true);
         }
     }
 }
@@ -129,19 +131,32 @@ TreeSelector.prototype.onExpand = function (event, treeId, treeNode) {
 
 TreeSelector.prototype.beforeClick = function (treeId, treeNode, clickFlag) {
     var zTree = $.fn.zTree.getZTreeObj(treeId);
-    zTree.checkNode(treeNode, !treeNode.checked, null, true);
+    zTree.checkNode(treeNode, !treeNode.checked, true, true);
     return false;
+}
+
+TreeSelector.prototype.onClick = function (event, treeId, treeNode, clickFlag) {
+    console.log(clickFlag);
 }
 
 TreeSelector.prototype.onCheck = function (event, treeId, treeNode) {
     var zTree = $.fn.zTree.getZTreeObj(treeId),
     nodes = zTree.getCheckedNodes(true),
-    v = "";
+    name = "",
+        code = "";
     for (var i = 0, l = nodes.length; i < l; i++) {
-        v += nodes[i].name + ",";
+        name += nodes[i].name + ",";
+        code += nodes[i].id + ",";
     }
-    if (v.length > 0) v = v.substring(0, v.length - 1);
-    this.selector.attr("value", v);
+    if (name.length > 0) {
+        name = name.substring(0, name.length - 1);
+        code = code.substring(0, code.length - 1);
+    }
+    this.selector.attr("value", name);
+    var next = this.selector.next();
+    if (next[0].tagName == "INPUT" && next[0].type == "hidden") {
+        next.attr("value", code);
+    }
 };
 
 TreeSelector.prototype.showMenu = function () {
@@ -166,7 +181,8 @@ TreeSelector.prototype.onBodyDown = function (event) {
 }
 
 TreeSelector.prototype.init = function () {
-    if (this.chkStyle != undefined) {
+    var treeSelector = this;
+    if (this.chkStyle == "radio") {
         this.setting.check.chkStyle = this.chkStyle;
         this.setting.check.radioType = "all";
     } else {
@@ -180,11 +196,16 @@ TreeSelector.prototype.init = function () {
             this.onAsyncSuccess(null, this.treeId);
         }
     } else {
-        this.setting.callback.onAsyncSuccess = this.onAsyncSuccess;
+        this.setting.async = {
+            enable: true,
+            url: url
+        };
+        this.setting.callback.onAsyncSuccess = function (event, treeId, treeNode, msg) {
+            treeSelector.onAsyncSuccess(event, treeId, treeNode, msg);
+        };
         $.fn.zTree.init(this.tree, this.setting);
     }
 
-    var treeSelector = this;
     this.selector.click(function () {
         treeSelector.showMenu();
     });
