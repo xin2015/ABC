@@ -193,5 +193,24 @@
     <div id="menuContent" class="menuContent" style="display:none; position: absolute;">
         <ul id="treeDemo" class="ztree" style="margin-top: 0;border: 1px solid #617775;background: #f0f6e4;width:220px;height:360px;overflow-y:auto;overflow-x:auto;"></ul>
     </div>
+    <script type="text/javascript">
+        function Test() {
+            this.code = "440100";
+            this.name = "广州市";
+            var test = this;
+
+            $("#citySel").click(function () {
+                test.show();
+            });
+        }
+
+        Test.prototype.show = function () {
+            console.log(this.name);
+        };
+
+        $(document).ready(function () {
+            var test = new Test();
+        });
+    </script>
 </body>
 </html>

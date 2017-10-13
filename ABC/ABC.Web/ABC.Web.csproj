@@ -277,6 +277,7 @@
     <Content Include="Scripts\Timeline\images\pause_hover.png" />
     <Content Include="Scripts\Timeline\images\play.png" />
     <Content Include="Scripts\Timeline\images\play_hover.png" />
+    <Content Include="Scripts\treeselector.js" />
     <Content Include="Scripts\zTree_v3\css\awesomeStyle\awesome.css" />
     <Content Include="Scripts\zTree_v3\css\awesomeStyle\img\loading.gif" />
     <Content Include="Scripts\zTree_v3\css\demo.css" />
