@@ -29,21 +29,33 @@
 
         VisualMapControl.prototype.initialize = function (map) {
             var option = this.option;
-            var width = option.width ? option.width : "20px";
-            var height = option.height ? option.height : "20px";
+            this.width = option.width ? option.width : "20px";
+            this.height = option.height ? option.height : "20px";
             var ul = document.createElement("ul");
-            ul.style.width = width.replace("px", "") - 0 + 1 + "px";
+            ul.style.width = this.width.replace("px", "") - 0 + 1 + "px";
             ul.style.borderTop = "1px solid black";
             ul.style.borderLeft = "1px solid black";
             ul.style.listStyle = "none";
             ul.style.padding = "0";
+            this.setUl(ul);
+            map.getContainer().appendChild(ul);
+            return ul;
+        }
+
+        VisualMapControl.prototype.setContent = function (option) {
+            this.option = option;
+            this.B.innerHTML = "";
+            this.setUl(this.B);
+        }
+
+        VisualMapControl.prototype.setUl = function (ul) {
             var pieces = this.option.pieces;
             for (var i in pieces) {
                 var piece = pieces[i];
                 var li = document.createElement("li");
                 li.style.backgroundColor = piece.color;
-                li.style.width = width;
-                li.style.height = height;
+                li.style.width = this.width;
+                li.style.height = this.height;
                 li.style.borderBottom = "1px solid black";
                 li.style.borderRight = "1px solid black";
                 var span = document.createElement("span");
@@ -63,8 +75,6 @@
                 li.appendChild(span);
                 ul.appendChild(li);
             }
-            map.getContainer().appendChild(ul);
-            return ul;
         }
 
         var option = {
@@ -215,6 +225,8 @@
 
         map.addControl(visualMapControl);
 
+        visualMapControl.setContent(option);
+
         function GraphicControl(option) {
             this.defaultAnchor = BMAP_ANCHOR_TOP_LEFT;
             this.defaultOffset = new BMap.Size(10, 10);
@@ -225,12 +237,9 @@
 
         GraphicControl.prototype.initialize = function (map) {
             var option = this.option;
-            //var width = option.width ? option.width : "20px";
-            //var height = option.height ? option.height : "20px";
             var div = document.createElement("div");
             div.style.backgroundColor = "#4890D6";
             div.style.color = "#FFFFFF";
-            //div.style.fontSize = "12px";
             div.style.textAlign = "center";
             div.style.padding = "5px";
             div.style.borderRadius = "5px";
@@ -281,16 +290,31 @@
                 var li = document.createElement("li");
                 li.style.width = width;
                 li.style.height = height;
+                li.style.lineHeight = height;
                 li.nodeName = item.name;
                 li.style.borderTop = i == 0 ? "0" : "1px solid #E5E5E5";
-                li.style.borderRadius = "5px";
+                li.style.borderRadius = i == 0 ? "5px 5px 0 0" : i == data.length - 1 ? "0 0 5px 5px" : "0";
                 var a = document.createElement("a");
-                a.onclick = void (0);
                 a.text = item.text;
                 li.appendChild(a);
                 if (i == 0) {
                     li.style.backgroundColor = "#4890D6";
                     a.style.color = "#FFFFFF";
+                }
+                li.addEventListener("click", function (e) {
+                    var lis = this.parentElement.children;
+                    for (var i in lis) {
+                        if (!isNaN(i)) {
+                            var li = lis[i];
+                            li.style.backgroundColor = "#FFFFFF";
+                            li.firstChild.style.color = "#428bca";
+                        }
+                    }
+                    this.style.backgroundColor = "#4890D6";
+                    this.firstChild.style.color = "#FFFFFF";
+                });
+                if (option.onclick) {
+                    li.addEventListener("click", option.onclick);
                 }
                 ul.appendChild(li);
             }
