@@ -75,7 +75,7 @@
         }
 
         .timeline-slider-bar-progress {
-            width: 60%;
+            width: 289px;
             height: 7px;
             background: #00e5ff;
             box-shadow: 2px 0 6px #00e5ff;
@@ -88,17 +88,27 @@
 
         .timeline-slider-content li {
             float: left;
-            width: 579px;
+            width: 578px;
             list-style: none;
+            color: white;
         }
 
-            .timeline-slider-content li:before {
+            .timeline-slider-content li > span {
                 position: relative;
                 display: inline-block;
-                content: '';
                 height: 10px;
                 border-left: 1px solid #eee;
+                top: -7px;
             }
+
+                .timeline-slider-content li > span.major {
+                    border-left: 3px solid #eee;
+                }
+
+        .timeline-slider-content-label {
+            position: relative;
+            top: 7px;
+        }
     </style>
 </head>
 <body>
@@ -116,15 +126,15 @@
             <div class="timeline-slider-content">
                 <ul>
                     <li data-index="0" data-time="time0">
-                        <span></span>
+                        <span class="major"></span>
                         <label class="timeline-slider-content-label">time0</label>
                     </li>
                     <li data-index="1" data-time="time1">
-                        <span></span>
+                        <span class="major"></span>
                         <label class="timeline-slider-content-label">time1</label>
                     </li>
                     <li data-index="2" data-time="time2">
-                        <span></span>
+                        <span class="major"></span>
                         <label class="timeline-slider-content-label">time2</label>
                     </li>
                 </ul>
@@ -166,6 +176,10 @@
                 } else {
                     Move(1);
                 }
+            });
+
+            $(".timeline-slider-content span").each(function () {
+                $(this).css("left", $(this).next().width() / 2 + 5 + "px");
             });
         });
     </script>
