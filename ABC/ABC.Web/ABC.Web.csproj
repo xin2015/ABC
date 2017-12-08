@@ -350,6 +350,7 @@
     <Content Include="Scripts\zTree_v3\css\awesomeStyle\fa.less" />
     <Content Include="Views\Home\Selector.cshtml" />
     <Content Include="Views\Home\Test.cshtml" />
+    <Content Include="Views\Home\Timeline.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

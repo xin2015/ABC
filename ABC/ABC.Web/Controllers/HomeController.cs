@@ -265,6 +265,11 @@ namespace ABC.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult Timeline()
+        {
+            return View();
+        }
     }
 
     public class LoginUser
