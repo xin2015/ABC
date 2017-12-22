@@ -94,7 +94,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CryptoTransverters\AsymmetricEncryption.cs" />
+    <Compile Include="CryptoTransverters\HashEncryption.cs" />
+    <Compile Include="CryptoTransverters\IDecrypt.cs" />
+    <Compile Include="CryptoTransverters\IEncrypt.cs" />
+    <Compile Include="CryptoTransverters\SymmetricalEncryption.cs" />
     <Compile Include="Data.cs" />
+    <Compile Include="Extensions\ByteExtension.cs" />
+    <Compile Include="Extensions\StringExtension.cs" />
     <Compile Include="Helpers\DataCenterServiceHelper.cs" />
     <Compile Include="Helpers\FTPHelper.cs" />
     <Compile Include="Helpers\HttpHelper.cs" />

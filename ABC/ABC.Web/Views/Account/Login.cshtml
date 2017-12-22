@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<form class="login-form" action="@Url.Action("Login")?returnUrl=@ViewBag.ReturnUrl" method="post">
+    <input type="hidden" name="returnUrlHash" />
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+        <label class="control-label visible-ie8 visible-ie9">用户名</label>
+        <input class="form-control form-control-solid placeholder-no-fix input-ltr" type="text" autocomplete="off" placeholder="用户名" name="userName" required />
+    </div>
+    <div class="form-group">
+        <label class="control-label visible-ie8 visible-ie9">密码</label>
+        <input class="form-control form-control-solid placeholder-no-fix input-ltr" type="password" autocomplete="off" placeholder="密码" name="password" />
+    </div>
+    <div class="form-actions">
+        <button type="button" class="btn btn-success uppercase">登录</button>
+    </div>
+</form>
+
+@section scripts{
+    <script src="~/Scripts/jsencrypt.js"></script>
+    <script type="text/javascript">
+        var publicRSAKey = '@ViewBag.PublicRSAKey';
+        publicRSAKey = 'MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIA4OVgB4FRq4l5zjEmd4r/jswRcHlZQkg10p9rzG3VyXCPpa/ZkwOYy+kGq7a7BjAKTpic2cUNRim4m8HKTdc8CAwEAAQ==';
+        var salt = '@ViewBag.Salt';
+        $("button").click(function () {
+            var passwordInput = $("input[name='password']");
+            var password = passwordInput.val();
+            var encrypt = new JSEncrypt();
+            encrypt.setPublicKey(publicRSAKey);
+            password = encrypt.encrypt(salt + password);
+            passwordInput.val(password);
+            $("form").submit();
+        });
+    </script>
+}
