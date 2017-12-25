@@ -30,5 +30,20 @@ namespace ABC.BLL.Extensions
         {
             return Encoding.UTF8.GetString(array);
         }
+
+        /// <summary>
+        /// 将字节数组转换为16进制2位大写的字符串
+        /// </summary>
+        /// <param name="array">字节数组</param>
+        /// <returns></returns>
+        public static string ToX2String(this byte[] array)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (byte item in array)
+            {
+                sb.Append(item.ToString("X2"));
+            }
+            return sb.ToString();
+        }
     }
 }

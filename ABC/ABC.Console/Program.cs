@@ -89,13 +89,13 @@ namespace ABC.Console
 
         static void Main(string[] args)
         {
-            string publicKey = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC8QcsIz1LG5y+TfScpChuj1/Dyd39lBhan7b4mjL5DQbCb5gke/6UFzcwkMEjioeNsFGqUtj3nLJ9mYQ+VqwoBpbkCvxTLYT2PXgmJlShOYtcGhova99e+dLiT6Hhb726kFYaKbzS19E+oZxpKxEb8VgKmtqPjLwO2KlIlveGH/wIDAQAB";
-            string privateKey = "MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBALxBywjPUsbnL5N9JykKG6PX8PJ3f2UGFqftviaMvkNBsJvmCR7/pQXNzCQwSOKh42wUapS2Pecsn2ZhD5WrCgGluQK/FMthPY9eCYmVKE5i1waGi9r31750uJPoeFvvbqQVhopvNLX0T6hnGkrERvxWAqa2o+MvA7YqUiW94Yf/AgMBAAECgYEAiofXwlndzeQdjGjSQk7f3AdxlNr+cfazAUvfWzrCX3edYHs8RwVUCBtSl2a4m50JX2T+sQQSNWUOvyW5dCdyqlSMg+TEUSvj3V1GU6GWezDsdNUoI2YeN5lSy+dMfb0YIsO2nNF3m9X8qHnOMrunxKeV7+eh4OsS+EhofDWIqXECQQDeXGVbG8MuAK4H+9iSekeQjQ2X+UPbdPHfpFOGI25qUP/4noIV3cO/QmyhJMs7oyEtBc09giUV6JIzYNrJB5J7AkEA2LyefOOWL8ACwxPrK0m6C3YueVEdQFNPmDg0JH+ENGiQUEim9jWdCtkHYKPy16AgxDi9q52CR1TmDSt4C56bTQJBAIXCMNo4fhVrJUT6M1IRqoECyJ2VvUMDOwhb8j5ri9z6crAcsYXzy+9+Rpg86OAsBiXuKoMIicR/DYtIhPOO0YcCQGntFZB4Moi30SHCdGc9qz26zs/gAunTTc1ZerJz2As9J3r1ZxRh85S/qUlkF2WnDxyXlqtvWaK/LYg2PH+BTukCQQC5uYfXVIySZQnDhJJaMN78IiupFL2GemuB4Ka48XPsS0KSc3ieqowmz+SbfMlEpjSnJN9xgZkpfgevUpI1m3A7";
-            AsymmetricEncryption ae = new AsymmetricEncryption(publicKey, privateKey);
-            string text = "123456";
-            text = ae.Encrypt(text);
-
-            RSAPublicKeyDotNet2Java
+            for(byte b = 0; b < Byte.MaxValue; b++)
+            {
+                System.Console.WriteLine(b.ToString());
+                System.Console.WriteLine(b.ToString("X"));
+                System.Console.WriteLine(b.ToString("X2"));
+            }
+            System.Console.ReadLine();
         }
     }
 }
