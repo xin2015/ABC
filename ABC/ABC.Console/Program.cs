@@ -69,32 +69,22 @@ namespace ABC.Console
         //    }
         //}
 
-        //static void Main(string[] args)
-        //{
-        //    DateTime startTime = new DateTime(2017, 1, 1);
-        //    DateTime endTime = startTime.AddMonths(3);
-        //    List<CityDayData> pollutantMonitorList = DataCenterServiceHelper.GetCityDayDataList(startTime, endTime);
-        //    List<double> list = new List<double>();
-        //    double value;
-        //    foreach (CityDayData data in pollutantMonitorList)
-        //    {
-        //        if (double.TryParse(data.SO2_24h, out value))
-        //        {
-        //            list.Add(value);
-        //        }
-        //    }
-        //    BackPropagationLearningTimeSeriesModel model = new BackPropagationLearningTimeSeriesModel(list.ToArray(), 6, new int[] { 12, 6, 1 }, 5000, 10);
-        //    model.Run();
-        //}
-
         static void Main(string[] args)
         {
-            for(byte b = 0; b < Byte.MaxValue; b++)
+            DateTime startTime = new DateTime(2017, 1, 1);
+            DateTime endTime = startTime.AddMonths(3);
+            List<CityDayData> pollutantMonitorList = DataCenterServiceHelper.GetCityDayDataList(startTime, endTime);
+            List<double> list = new List<double>();
+            double value;
+            foreach (CityDayData data in pollutantMonitorList)
             {
-                System.Console.WriteLine(b.ToString());
-                System.Console.WriteLine(b.ToString("X"));
-                System.Console.WriteLine(b.ToString("X2"));
+                if (double.TryParse(data.AQI, out value))
+                {
+                    list.Add(value);
+                }
             }
+            BackPropagationLearningTimeSeriesModel model = new BackPropagationLearningTimeSeriesModel(list.ToArray(), 6, new int[] { 12, 6, 1 }, 5000, 10);
+            model.Run();
             System.Console.ReadLine();
         }
     }
