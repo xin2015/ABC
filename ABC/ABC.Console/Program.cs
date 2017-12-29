@@ -4,6 +4,10 @@ using ABC.BLL.Helpers;
 using ABC.BLL.Neuro;
 using Ivony.Html;
 using Ivony.Html.Parser;
+using Org.BouncyCastle.Crypto;
+using Org.BouncyCastle.Crypto.Engines;
+using Org.BouncyCastle.Crypto.Generators;
+using Org.BouncyCastle.Crypto.Parameters;
 using SufeiUtil;
 using System;
 using System.Collections.Generic;
@@ -69,23 +73,83 @@ namespace ABC.Console
         //    }
         //}
 
+        //static void Main(string[] args)
+        //{
+        //    DateTime startTime = new DateTime(2017, 1, 1);
+        //    DateTime endTime = startTime.AddMonths(3);
+        //    List<CityDayData> pollutantMonitorList = DataCenterServiceHelper.GetCityDayDataList(startTime, endTime);
+        //    List<double> list = new List<double>();
+        //    double value;
+        //    foreach (CityDayData data in pollutantMonitorList)
+        //    {
+        //        if (double.TryParse(data.AQI, out value))
+        //        {
+        //            list.Add(value);
+        //        }
+        //    }
+        //    BackPropagationLearningTimeSeriesModel model = new BackPropagationLearningTimeSeriesModel(list.ToArray(), 6, new int[] { 12, 6, 1 }, 5000, 10);
+        //    model.Run();
+        //    System.Console.ReadLine();
+        //}
+
         static void Main(string[] args)
         {
-            DateTime startTime = new DateTime(2017, 1, 1);
-            DateTime endTime = startTime.AddMonths(3);
-            List<CityDayData> pollutantMonitorList = DataCenterServiceHelper.GetCityDayDataList(startTime, endTime);
-            List<double> list = new List<double>();
-            double value;
-            foreach (CityDayData data in pollutantMonitorList)
+            //RSA密钥对的构造器 
+            RsaKeyPairGenerator keyGenerator = new RsaKeyPairGenerator();
+
+            //RSA密钥构造器的参数 
+            RsaKeyGenerationParameters param = new RsaKeyGenerationParameters(
+                Org.BouncyCastle.Math.BigInteger.ValueOf(3),
+                new Org.BouncyCastle.Security.SecureRandom(),
+                1024,   //密钥长度 
+                25);
+            //用参数初始化密钥构造器 
+            keyGenerator.Init(param);
+            //产生密钥对 
+            AsymmetricCipherKeyPair keyPair = keyGenerator.GenerateKeyPair();
+            //获取公钥和密钥 
+            AsymmetricKeyParameter publicKey = keyPair.Public;
+            AsymmetricKeyParameter privateKey = keyPair.Private;
+            if (((RsaKeyParameters)publicKey).Modulus.BitLength < 1024)
             {
-                if (double.TryParse(data.AQI, out value))
-                {
-                    list.Add(value);
-                }
+                System.Console.WriteLine("failed key generation (1024) length test");
             }
-            BackPropagationLearningTimeSeriesModel model = new BackPropagationLearningTimeSeriesModel(list.ToArray(), 6, new int[] { 12, 6, 1 }, 5000, 10);
-            model.Run();
-            System.Console.ReadLine();
+            //一个测试…………………… 
+            //输入，十六进制的字符串，解码为byte[] 
+            //string input = "4e6f77206973207468652074696d6520666f7220616c6c20676f6f64206d656e"; 
+            //byte[] testData = Org.BouncyCastle.Utilities.Encoders.Hex.Decode(input);            
+            string input = "popozh RSA test";
+            byte[] testData = Encoding.UTF8.GetBytes(input);
+            System.Console.WriteLine("明文:" + input + Environment.NewLine);
+            //非对称加密算法，加解密用 
+            IAsymmetricBlockCipher engine = new RsaEngine();
+            //公钥加密 
+            engine.Init(true, publicKey);
+            try
+            {
+                testData = engine.ProcessBlock(testData, 0, testData.Length);
+                System.Console.WriteLine("密文（base64编码）:" + Convert.ToBase64String(testData) + Environment.NewLine);
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine("failed - exception " + Environment.NewLine + ex.ToString());
+            }
+            //私钥解密 
+            engine.Init(false, privateKey);
+            try
+            {
+                testData = engine.ProcessBlock(testData, 0, testData.Length);
+
+            }
+            catch (Exception e)
+            {
+                System.Console.WriteLine("failed - exception " + e.ToString());
+            }
+            if (input.Equals(Encoding.UTF8.GetString(testData)))
+            {
+                System.Console.WriteLine("解密成功");
+            }
+            System.Console.Read();
         }
     }
 }
